@@ -1,0 +1,161 @@
+
+
+@keyframes circle-in-top-right {
+    from {
+      clip-path: circle(0% at top right);
+    }
+    to {
+      clip-path: circle(150% at top right);
+    }
+  }
+  
+  html, body {
+    font-size: 16px;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 添加box-sizing以确保padding和border不会影响元素的最终大小 */
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: auto 1fr; 
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+  
+  .h1 {
+    grid-column: 1/-1;
+    grid-row: 1;
+    font-family: 'Bodoni 11';
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 40px 0 0 40px;
+  }
+  
+  .h1 a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .nav-right {
+    animation: 3s cubic-bezier(.25, 1, .30, 1) circle-in-top-right both;
+    visibility: visible; /* 移除了重复的 visibility 属性，确保只在需要的时候设置 */
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+    margin: 60px 0 0 0;
+  }
+  
+  .nav-right ul {
+    font-family: 'Courier New', monospace;
+    display: flex;
+    list-style: none;
+    font-size: 15px;
+    margin: 0;
+  }
+  
+  .nav-right li a {
+    margin-right: 30px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .nav-right li a:hover {
+    color: blue;
+  }
+  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-row: 2;
+    gap: 30px; /* Provide some spacing between images */
+    padding: 20px; /* Padding around the entire gallery for aesthetic spacing from the container edges */
+    width: 100%; /* Ensure the gallery takes full width of its container */
+    align-items: center; /* Center-align items for better visual layout */
+    justify-content: center; /* Center-justify the items if there is extra space */
+  }
+  
+  .gallery img {
+    width: 100%; /* Make images expand to fill their links */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any extra space below images */
+  }
+  
+  .gallery a {
+    display: block; /* Treat link as block to occupy full space of grid cell */
+    transition: transform 0.3s ease; /* Smooth transformation on hover */
+  }
+  
+  .gallery a:hover {
+    transform: scale(1.05); /* Slightly enlarge images on hover */
+  }
+  
+  .gallery p {
+    text-align: center; /* Center-align the captions */
+    color: #666; /* Adjust the color for better visibility */
+    margin-top: 0.5em; /* Provide some space above captions */
+  }
+  
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    grid-column: 1/-1;
+    grid-row: 4;
+  }
+  
+  /* 响应式布局调整 */
+  @media (max-width: 768px) {
+    .gallery {
+      grid-template-columns: 1fr; /* 手机上显示一列 */
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 992px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr); /* 平板上显示两列 */
+    }
+  }
+  
+  @media (min-width: 993px) {
+    .gallery {
+      grid-template-columns: repeat(3, 1fr); /* 桌面上显示三列 */
+    }
+  }
+  
+  
+  /* 添加到你的CSS文件的底部 */
+  @media (max-width: 768px) {
+    /* 手机设备 */
+    .h1, .footer p {
+      font-size: 16px;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 992px) {
+    /* 平板设备 */
+    .h1, .footer p {
+      font-size: 18px;
+    }
+  }
+  
+  @media (min-width: 993px) {
+    /* 桌面设备 */
+    .h1, .footer p {
+      font-size: 20px;
+    }
+  }
+  
+  
+  #clock {
+    margin-right: 30px;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333;
+  }
