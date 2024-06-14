@@ -70,8 +70,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     grid-row: 2;
-    gap: 30px; /* Provide some spacing between images */
-    padding: 20px; /* Padding around the entire gallery for aesthetic spacing from the container edges */
+    gap: 30px; 
+    padding: 20px; 
     width: 100%; /* Ensure the gallery takes full width of its container */
     align-items: center; /* Center-align items for better visual layout */
     justify-content: center; /* Center-justify the items if there is extra space */
