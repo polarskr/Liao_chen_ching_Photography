@@ -1,168 +1,175 @@
 @keyframes circle-in-top-right {
-    from {
-      clip-path: circle(0% at top right);
-    }
-    to {
-      clip-path: circle(150% at top right);
-    }
+  from {
+    clip-path: circle(0% at top right);
   }
-  
-  html, body {
-    font-size: 16px;
+  to {
+    clip-path: circle(150% at top right);
   }
-  
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  
+}
+
+html, body {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 添加box-sizing以确保padding和border不会影响元素的最终大小 */
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr; 
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+}
+
+.h1 {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: 'Bodoni 11';
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 35px 0 0 40px;
+}
+
+.h1 a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-right {
+  animation: 3s cubic-bezier(.25, 1, .30, 1) circle-in-top-right both;
+  visibility: hidden;
+  grid-column: 5;
+  grid-row: 1;
+  justify-self: end;
+  margin: 40px 0 0 0;
+}
+
+.nav-right {
+  visibility: visible; 
+}
+
+.nav-right ul {
+  font-family: 'Courier New', monospace;
+  display: flex;
+  list-style: none;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.nav-right li a {
+  margin-right: 30px;
+  padding-bottom: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-right li a:hover {
+  color: blue;
+}
+
+.penghu {
+  display: grid;
+  place-items: center;
+  margin-top: 20px;
+  width: 100%;
+  grid-column: 1/-1;
+  grid-row: 2;
+}
+
+.penghu img {
+  width: 90vw;
+  height: auto;
+}
+
+.penghu p {
+  margin-top: 20px;
+  grid-column: 1;
+  grid-row: 3;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.art {
+  display: grid;
+  place-items: center;
+  margin-top: 20px;
+  width: 100%;
+  grid-column: 1/-1;
+  grid-row: 4;
+}
+
+.art img {
+  width: 90vw;
+  height: auto;
+}
+
+.art p {
+  margin-top: 20px;
+  grid-column: 1;
+  grid-row: 4;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  grid-column: 1/-1;
+  grid-row: 6;
+}
+
+/* 响应式布局调整 */
+@media (max-width: 768px) {
   .container {
-    display: grid;
-    grid-template-columns: auto 1fr 1fr 1fr 1fr; 
-    grid-template-rows: auto auto 1fr auto;
-    min-height: 100vh;
+    grid-template-columns: 1fr; /* 手机上单列布局 */
+    grid-template-rows: auto auto auto 1fr auto; /* 增加一行给导航栏 */
   }
   
   .h1 {
-    grid-column: 1;
-    grid-row: 1;
-    font-family: 'Bodoni 11';
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 35px 0 0 40px;
+    margin: 20px;
+    text-align: center; /* 居中标题 */
+    grid-column: 1; /* 占据单列 */
+    grid-row: 1; /* 位于第一行 */
   }
-  
-  
-  .h1 a {
-    text-decoration: none;
-    color: black;
-  }
-  
-  
+
   .nav-right {
-    animation: 3s cubic-bezier(.25, 1, .30, 1) circle-in-top-right both;
-    visibility: hidden;
-    grid-column: 5;
-    grid-row: 1;
-    justify-self: end;
-    margin: 40px 0 0 0;
+    margin: 20px;
+    justify-self: center; /* 居中导航 */
+    grid-column: 1; /* 占据单列 */
+    grid-row: 2; /* 移动到第二行 */
   }
-  
-  .nav-right {
-    visibility: visible; 
+
+  .penghu {
+    grid-column: 1; /* 占据单列 */
+    grid-row: 3; /* 位于第三行 */
   }
-  
-  .nav-right ul {
-    font-family: 'Courier New', monospace;
-    display: flex;
-    list-style: none;
-    font-size: 1rem;
-    margin: 0;
-  }
-  
-  .nav-right li a {
-    margin-right: 30px;
-    padding-bottom: 20px;
-    text-decoration: none;
-    color: black;
-  }
-  
-  .nav-right li a:hover {
-    color: blue;
-  }
-  
-  
-  .penghu{
-    display: grid;
-    place-items: center;
-    margin-top: 20px;
-    width: 100%;
-    grid-column: 1/-1;
-    grid-row: 2;
-  }
-  
-  .penghu img {
-    width: 90vw;
-    height: auto;
-  }
-  
-  .penghu p {
-    margin-top: 20px;
-    grid-column: 1;
-    grid-row: 3;
-    font-family: 'Courier New', Courier, monospace
-   }
-   
-  .art {
-    display: grid;
-    place-items: center;
-    margin-top: 20px;
-    width: 100%;
-    grid-column: 1/-1;
-    grid-row: 4;
-  }
-  
-  .art img {
-    width: 90vw;
-    height: auto;
-  }
-  
-  .art p {
-    margin-top: 20px;
-    grid-column: 1;
-    grid-row: 4;
-    font-family: 'Courier New', Courier, monospace;
-  }
-  
+
   .footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    font-family: 'Courier New', Courier, monospace;
-    grid-column: 1/-1;
-    grid-row: 6;
+    grid-row: 5; /* Footer in the fifth row */
   }
-  
-  /* 响应式布局调整 */
-  @media (max-width: 768px) {
-    .gallery {
-      grid-template-columns: 1fr; /* 手机上显示一列 */
-    }
+}
+
+@media (max-width: 768px) {
+  /* 手机设备 */
+  .h1, .footer p {
+    font-size: 16px;
   }
-  
-  @media (min-width: 769px) and (max-width: 992px) {
-    .gallery {
-      grid-template-columns: repeat(2, 1fr); /* 平板上显示两列 */
-    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  /* 平板设备 */
+  .h1, .footer p {
+    font-size: 18px;
   }
-  
-  @media (min-width: 993px) {
-    .gallery {
-      grid-template-columns: repeat(3, 1fr); /* 桌面上显示三列 */
-    }
+}
+
+@media (min-width: 993px) {
+  /* 桌面设备 */
+  .h1, .footer p {
+    font-size: 20px;
   }
-  
-  
-  /* 添加到你的CSS文件的底部 */
-  @media (max-width: 768px) {
-    /* 手机设备 */
-    .h1, .footer p {
-      font-size: 16px;
-    }
-  }
-  
-  @media (min-width: 769px) and (max-width: 992px) {
-    /* 平板设备 */
-    .h1, .footer p {
-      font-size: 18px;
-    }
-  }
-  
-  @media (min-width: 993px) {
-    /* 桌面设备 */
-    .h1, .footer p {
-      font-size: 20px;
-    }
-  }
-  
+}
