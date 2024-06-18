@@ -7,7 +7,8 @@
   }
 }
 
-html, body {
+html,
+body {
   font-size: 16px;
 }
 
@@ -19,7 +20,7 @@ html, body {
 
 .container {
   display: grid;
-  grid-template-columns: auto 1fr; 
+  grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
@@ -27,7 +28,7 @@ html, body {
 .h1 {
   grid-column: 1/-1;
   grid-row: 1;
-  font-family: 'Bodoni 11';
+  font-family: "Bodoni 11";
   font-size: 2.5rem;
   font-weight: bold;
   margin: 30px 0 0 40px;
@@ -39,8 +40,8 @@ html, body {
 }
 
 .nav-right {
-  animation: 3s cubic-bezier(.25, 1, .30, 1) circle-in-top-right both;
-  visibility: visible; /* 移除了重复的 visibility 属性，确保只在需要的时候设置 */
+  animation: 3s cubic-bezier(0.25, 1, 0.3, 1) circle-in-top-right both;
+  visibility: visible;
   grid-column: 1;
   grid-row: 1;
   justify-self: end;
@@ -48,7 +49,7 @@ html, body {
 }
 
 .nav-right ul {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   display: flex;
   list-style: none;
   font-size: 15px;
@@ -68,10 +69,10 @@ html, body {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-row: 2;
-  gap: 30px; 
-  padding: 20px; 
+  gap: 30px;
+  padding: 20px;
   width: 100%; /* Ensure the gallery takes full width of its container */
   align-items: center; /* Center-align items for better visual layout */
   justify-content: center; /* Center-justify the items if there is extra space */
@@ -103,7 +104,7 @@ html, body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   grid-column: 1/-1;
   grid-row: 3; /* Changed from 4 to 3 */
 }
@@ -114,7 +115,7 @@ html, body {
     grid-template-columns: 1fr; /* 手机上单列布局 */
     grid-template-rows: auto auto 1fr auto; /* 增加一行给导航栏 */
   }
-  
+
   .h1 {
     margin: 20px;
     text-align: center; /* 居中标题 */
@@ -153,21 +154,24 @@ html, body {
 
 @media (max-width: 768px) {
   /* 手机设备 */
-  .h1, .footer p {
+  .h1,
+  .footer p {
     font-size: 16px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
   /* 平板设备 */
-  .h1, .footer p {
+  .h1,
+  .footer p {
     font-size: 18px;
   }
 }
 
 @media (min-width: 993px) {
   /* 桌面设备 */
-  .h1, .footer p {
+  .h1,
+  .footer p {
     font-size: 20px;
   }
 }

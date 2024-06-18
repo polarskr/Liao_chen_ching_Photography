@@ -1,81 +1,79 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* 設置 HTML 和 BODY 的基本樣式 */
-html, body {
-    font-size: 16px; /* 設置基本字體大小 */
-    min-height: 100vh; /* 最小高度覆蓋視窗高度 */
-    background-image: url('imgs/status.jpg'); 
-    background-size: cover; /* 保持背景圖像的原始尺寸 */
-    background-repeat: repeat; /* 如果不希望背景圖重複 */
-    background-position: center center; /* 將背景圖置中顯示 */
+html,
+body {
+  font-size: 16px; /* 設置基本字體大小 */
+  min-height: 100vh; /* 最小高度覆蓋視窗高度 */
+  background-image: url("imgs/status.jpg");
+  background-size: cover; /* 保持背景圖像的原始尺寸 */
+  background-repeat: repeat; /* 如果不希望背景圖重複 */
+  background-position: center center; /* 將背景圖置中顯示 */
 }
 
 .background-link {
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('imgs/status.jpg');
-    background-size: cover;
-    background-position: center;
-    text-decoration: none; /* 去除鏈接下劃線 */
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("imgs/status.jpg");
+  background-size: cover;
+  background-position: center;
+  text-decoration: none; /* 去除鏈接下劃線 */
 }
 
 .container {
-    width: 90%; /* 或根據需求調整 */
-    height: auto;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 90%; /* 或根據需求調整 */
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-
 h1 {
-    font-family: "Monsieur La Doulaise", cursive;
-    font-size: 2.5rem;
-    font-weight: 100;
-    margin: 20px 0 0 40px;
-    color: white; /* 調整顏色以確保可見性 */
+  font-family: "Monsieur La Doulaise", cursive;
+  font-size: 2.5rem;
+  font-weight: 100;
+  margin: 20px 0 0 40px;
+  color: white; /* 調整顏色以確保可見性 */
 }
 
 h1 a {
-    text-decoration: none;
-    color: inherit; /* 繼承h1的顏色設定 */
+  text-decoration: none;
+  color: inherit; /* 繼承h1的顏色設定 */
 }
-
 
 #clock {
-    font-size: 1rem;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-    text-align: center; /* 文本對齊 */
-    margin-top: 10px;
+  font-size: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  text-align: center; /* 文本對齊 */
+  margin-top: 10px;
 }
 
-
 @media (max-width: 768px) {
-    html, body {
-        font-size: 14px;
-    }
+  html,
+  body {
+    font-size: 14px;
+  }
 
-    h1 {
-        font-size: 2rem; /* 小屏幕上減小字體大小 */
-        margin: 10px 0 0 20px; /* 調整邊距 */
-    }
+  h1 {
+    font-size: 2rem; /* 小屏幕上減小字體大小 */
+    margin: 10px 0 0 20px; /* 調整邊距 */
+  }
 
-    #clock {
-        font-size: 0.8rem; /* 小屏幕上減小時鐘字體大小 */
-    }
+  #clock {
+    font-size: 0.8rem; /* 小屏幕上減小時鐘字體大小 */
+  }
 
-    .container {
-        padding: 0 10px; /* 為小屏幕添加邊距 */
-        justify-content: center; /* 在小屏幕上垂直居中容器內容 */
-    }
+  .container {
+    padding: 0 10px; /* 為小屏幕添加邊距 */
+    justify-content: center; /* 在小屏幕上垂直居中容器內容 */
+  }
 }
