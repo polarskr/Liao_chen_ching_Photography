@@ -173,6 +173,11 @@ button:hover {
 
 /* 响应式布局调整 */
 @media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* 手机上单列布局 */
+    grid-template-rows: auto auto auto 1fr auto; /* 增加一行给导航栏 */
+  }
+
   .h1 {
     margin: 20px;
     text-align: center; /* 居中标题 */
@@ -185,6 +190,11 @@ button:hover {
     justify-self: center; /* 居中导航 */
     grid-column: 1; /* 占据单列 */
     grid-row: 2; /* 移动到第二行 */
+  }
+
+  .penghu {
+    grid-column: 1; /* 占据单列 */
+    grid-row: 3; /* 位于第三行 */
   }
 
   .footer {

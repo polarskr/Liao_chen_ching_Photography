@@ -1,0 +1,130 @@
+@keyframes circle-in-top-right {
+    from {
+      clip-path: circle(0% at top right);
+    }
+    to {
+      clip-path: circle(150% at top right);
+    }
+  }
+  
+  html,
+  body {
+    font-size: 16px;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 添加box-sizing以确保padding和border不会影响元素的最终大小 */
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+  
+  .h1 {
+    grid-column: 1/-1;
+    grid-row: 1;
+    font-family: "Bodoni 11";
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 30px 0 0 40px;
+  }
+  
+  .h1 a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .nav-right {
+    animation: 3s cubic-bezier(0.25, 1, 0.3, 1) circle-in-top-right both;
+    visibility: visible;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+    margin: 40px 0 0 0;
+  }
+  
+  .nav-right ul {
+    font-family: "Courier New", monospace;
+    display: flex;
+    list-style: none;
+    font-size: 15px;
+    margin: 0;
+  }
+  
+  .nav-right li a {
+    margin-right: 30px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .nav-right li a:hover {
+    color: blue;
+  }
+  
+  .menu {
+    grid-row: 3;
+    grid-column: 1;
+    margin-top: 20px;
+    margin-left: 20px;
+
+  }
+
+  .menu img {
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* 响应式布局调整 */
+@media (max-width: 768px) {
+    .h1 {
+      margin: 20px;
+      text-align: center; /* 居中标题 */
+      grid-column: 1; /* 占据单列 */
+      grid-row: 1; /* 位于第一行 */
+    }
+  
+    .nav-right {
+      margin: 20px;
+      justify-self: center; /* 居中导航 */
+      grid-column: 1; /* 占据单列 */
+      grid-row: 2; /* 移动到第二行 */
+    }
+  
+    .footer {
+      grid-row: 5; /* Footer in the fifth row */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* 手机设备 */
+    .h1,
+    .footer p {
+      font-size: 16px;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 992px) {
+    /* 平板设备 */
+    .h1,
+    .footer p {
+      font-size: 18px;
+    }
+  }
+  
+  @media (min-width: 993px) {
+    /* 桌面设备 */
+    .h1,
+    .footer p {
+      font-size: 20px;
+    }
+  }
+  
