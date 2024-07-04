@@ -68,7 +68,7 @@
   }
   
   .menu {
-    grid-row: 3;
+    grid-row: 4;
     grid-column: 1;
     margin-top: 20px;
     margin-left: 20px;
@@ -82,6 +82,14 @@
     margin-right: auto;
   }
 
+  .word {
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    display: grid;
+    grid-row: 3;
+    grid-column: 1/-1;
+    place-content: center;
+    }
 
   /* 响应式布局调整 */
 @media (max-width: 768px) {

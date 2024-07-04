@@ -15,22 +15,23 @@ body {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box; /* 添加box-sizing以确保padding和border不会影响元素的最终大小 */
 }
 
 .container {
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
 
 .h1 {
-  grid-column: 1;
+  grid-column: 1/-1;
   grid-row: 1;
   font-family: "Bodoni 11";
   font-size: 2.5rem;
   font-weight: bold;
-  margin: 35px 0 0 40px;
+  margin: 30px 0 0 40px;
 }
 
 .h1 a {
@@ -39,14 +40,12 @@ body {
 }
 
 .nav-right {
-  display: flex;
-  justify-content: flex-end;
   animation: 3s cubic-bezier(0.25, 1, 0.3, 1) circle-in-top-right both;
-  margin: 40px 0 0 0;
-}
-
-.nav-right {
   visibility: visible;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+  margin: 40px 0 0 0;
 }
 
 .nav-right ul {
@@ -68,62 +67,23 @@ body {
   color: blue;
 }
 
-.intro {
-  padding-top: 10px;
-  line-height: 1.5;
-  margin-left: 40px;
-  margin-top: 20px;
-  grid-column: 1;
-  grid-row: span 1;
-  font-family: "Courier New", Courier, monospace;
-}
 
-.footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  font-family: "Courier New", Courier, monospace;
-  grid-column: 1/-1;
-  grid-row: 4;
-}
-
-.figure {
-  display: grid;
-  width: 100%;
-}
-
-.figure img {
-  width: 20vw;
-  height: auto;
-}
-
-.me {
-  grid-row: 1/-1;
-  grid-column: 1;
-}
-
-.shadow img {
-  width: 20vw;
-}
-
-.shadow2 img {
-  width: 20vw;
-}
-
-.shadow {
-  grid-row: 1;
-  grid-column: 3;
-}
-
-.shadow2 {
+.random-images {
   grid-row: 3;
-  grid-column: 1;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px 0;
 }
 
-/* Form Styles */
+.random-image {
+  width: 30%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
 .contact-form {
-  grid-column: 1;
   grid-row: 4;
   background: #fff;
   padding: 20px;
@@ -132,7 +92,7 @@ body {
   width: 100%;
   max-width: 400px;
   margin: 20px auto;
-  font-family: "Bodoni 11";
+  font-family: "Bodoni 11", serif;
 }
 
 .contact-form h2 {
@@ -155,8 +115,7 @@ body {
   border-radius: 4px;
 }
 
-.contact-form input[type="submit"],
-button {
+.contact-form button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -164,20 +123,29 @@ button {
   padding: 12px;
   font-size: 16px;
   border-radius: 4px;
+  width: 100%;
 }
 
-.contact-form input[type="submit"]:hover,
-button:hover {
+.contact-form button:hover {
   background-color: #0056b3;
+}
+
+.footer {
+  grid-row: 5;
+  text-align: center;
+  padding: 20px 0;
+  font-family: "Courier New", monospace;
+}
+
+@media (max-width: 768px) {
+  .random-image {
+    width: 90%;
+    max-width: none;
+  }
 }
 
 /* 响应式布局调整 */
 @media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr; /* 手机上单列布局 */
-    grid-template-rows: auto auto auto 1fr auto; /* 增加一行给导航栏 */
-  }
-
   .h1 {
     margin: 20px;
     text-align: center; /* 居中标题 */
@@ -190,11 +158,6 @@ button:hover {
     justify-self: center; /* 居中导航 */
     grid-column: 1; /* 占据单列 */
     grid-row: 2; /* 移动到第二行 */
-  }
-
-  .penghu {
-    grid-column: 1; /* 占据单列 */
-    grid-row: 3; /* 位于第三行 */
   }
 
   .footer {

@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="RalphLiao, Photography" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/about me.css" />
     <link
       rel="stylesheet"
@@ -39,60 +38,51 @@
           </li>
           <li><a href="2023photo.html">2023.</a></li>
           <li><a href="2024photo.html">2024.</a></li>
-          <li><a href="about me.html">About.</a></li>
           <li><a href="financial_data.html">Economic data.</a></li>
+          <li><a href="about me.html">About.</a></li>
         </ul>
       </nav>
 
-      <section class="intro"></section>
-
-      <div class="figure">
-        <div>
-          <img class="me" src="imgs/me.JPG" alt="me" />
-        </div>
-
-        <div class="shadow">
-          <img src="imgs/shadow.jpg" alt="shadow" />
-        </div>
-
-        <div class="shadow2">
-          <img src="imgs/shadow 2.jpg" alt="shadow2" />
-        </div>
-
-        <div class="contact-form">
-          <h2>Contact Us</h2>
-          <form
-            action="https://formsubmit.co/38518874a@gmail.com"
-            method="post"
-          >
-            <!-- Optional Configurations -->
-            <input
-              type="hidden"
-              name="_redirect"
-              value="https://yourwebsite.com/thank-you"
-            />
-            <input type="hidden" name="_subject" value="New submission!" />
-            <input type="hidden" name="_cc" value="cc-email@example.com" />
-            <input type="hidden" name="_bcc" value="bcc-email@example.com" />
-
-            <!-- Form Fields -->
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required />
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-
-            <label for="subject">Subject:</label>
-            <input type="text" id="subject" name="subject" required />
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-
-            <input type="submit" value="Send" />
-          </form>
-        </div>
+      <div class="random-images">
+        <img class="random-image" src="imgs/me.JPG" alt="me" />
+        <img class="random-image" src="imgs/shadow.jpg" alt="shadow" />
+        <img class="random-image" src="imgs/shadow 2.jpg" alt="shadow2" />
       </div>
-      <div class="footer">&copy; 2024 Ralph Liao</div>
+
+      <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form
+          action="https://formsubmit.co/38518874a@gmail.com"
+          method="post"
+        >
+          <!-- Optional Configurations -->
+          <input
+            type="hidden"
+            name="_redirect"
+            value="https://yourwebsite.com/thank-you"
+          />
+          <input type="hidden" name="_subject" value="New submission!" />
+          <input type="hidden" name="_cc" value="cc-email@example.com" />
+          <input type="hidden" name="_bcc" value="bcc-email@example.com" />
+
+          <!-- Form Fields -->
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" name="subject" required />
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">Send</button>
+        </form>
+      </div>
+
+      <footer class="footer">&copy; 2024 Ralph Liao</footer>
     </div>
   </body>
 </html>
