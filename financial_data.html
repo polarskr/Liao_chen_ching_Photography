@@ -22,6 +22,23 @@
       type="text/css"
       charset="utf-8"
     />
+    <style>
+      th {
+          cursor: pointer;
+      }
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+      }
+      th {
+          background-color: #f2f2f2;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -43,100 +60,143 @@
               </li>
               <li><a href="2023photo.html">2023.</a></li>
               <li><a href="2024photo.html">2024.</a></li>
-              <li><a href="about me.html">About.</a></li>
               <li><a href="financial_data.html">Economic data.</a></li>
+              <li><a href="about me.html">About.</a></li>
             </ul>
           </nav>
           
     <div class="content">
-      <table>
-        <tr>
-          <th>指數名稱</th>
-          <th>當前值</th>
-          <th>變化</th>
-          <th>變化百分比</th>
-        </tr>
-        
+      <table id="financialTable">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)">指數名稱</th>
+            <th onclick="sortTable(1)">當前值</th>
+            <th onclick="sortTable(2)">變化</th>
+            <th onclick="sortTable(3)">變化百分比</th>
+          </tr>
+        </thead>
+        <tbody>
+          
         <tr>
             <td>滬深300指數</td>
-            <td>3461.66</td>
-            <td>7.54</td>
-            <td>0.22% (上涨)</td>
+            <td>3431.06</td>
+            <td>-14.75</td>
+            <td>-0.43% (下跌)</td>
         </tr>
         
         <tr>
             <td>法蘭克福指數</td>
-            <td>18229.19</td>
-            <td>18.64</td>
-            <td>0.1% (上涨)</td>
+            <td>18475.45</td>
+            <td>24.97</td>
+            <td>0.14% (上漲)</td>
         </tr>
         
         <tr>
             <td>英國富時指數</td>
-            <td>8175.74</td>
-            <td>-3.96</td>
-            <td>-0.05% (下跌)</td>
+            <td>8203.9</td>
+            <td>-37.4</td>
+            <td>-0.45% (下跌)</td>
         </tr>
         
         <tr>
             <td>歐元匯率</td>
-            <td>1.07</td>
+            <td>1.08</td>
             <td>0.0</td>
             <td>0.0% (下跌)</td>
         </tr>
         
         <tr>
             <td>日圓匯率</td>
-            <td>160.82</td>
-            <td>0.2</td>
-            <td>0.12% (上涨)</td>
+            <td>160.72</td>
+            <td>-0.9</td>
+            <td>-0.56% (下跌)</td>
         </tr>
         
         <tr>
             <td>原油價格</td>
-            <td>81.14</td>
-            <td>-0.6</td>
-            <td>-0.73% (下跌)</td>
+            <td>160.72</td>
+            <td>N/A</td>
+            <td>N/A</td>
         </tr>
         
         <tr>
             <td>黃金價格</td>
-            <td>2338.4</td>
-            <td>13.9</td>
-            <td>0.6% (上涨)</td>
+            <td>160.72</td>
+            <td>N/A</td>
+            <td>N/A</td>
         </tr>
         
         <tr>
             <td>債券指數</td>
-            <td>97.4</td>
-            <td>-0.15</td>
-            <td>-0.15% (下跌)</td>
+            <td>97.58</td>
+            <td>0.49</td>
+            <td>0.5% (上漲)</td>
         </tr>
         
         <tr>
             <td>VIX指數</td>
-            <td>12.27</td>
-            <td>0.03</td>
-            <td>0.25% (上涨)</td>
+            <td>97.58</td>
+            <td>N/A</td>
+            <td>N/A</td>
         </tr>
         
         <tr>
             <td>標普500指數</td>
-            <td>5499.1</td>
-            <td>16.23</td>
-            <td>0.3% (上涨)</td>
+            <td>5567.19</td>
+            <td>30.17</td>
+            <td>0.54% (上漲)</td>
         </tr>
         
         <tr>
             <td>波羅的海乾散貨運價指數</td>
-            <td>None</td>
+            <td>N/A</td>
             <td>N/A</td>
             <td>N/A</td>
         </tr>
         
+        </tbody>
       </table>
     </div>
 
     <div class="footer">&copy; 2024 Ralph Liao</div>
+    
+    <script>
+      function sortTable(n) {
+          var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+          table = document.getElementById("financialTable");
+          switching = true;
+          dir = "asc";
+          while (switching) {
+              switching = false;
+              rows = table.rows;
+              for (i = 1; i < (rows.length - 1); i++) {
+                  shouldSwitch = false;
+                  x = rows[i].getElementsByTagName("TD")[n];
+                  y = rows[i + 1].getElementsByTagName("TD")[n];
+                  if (dir == "asc") {
+                      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                          shouldSwitch = true;
+                          break;
+                      }
+                  } else if (dir == "desc") {
+                      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                          shouldSwitch = true;
+                          break;
+                      }
+                  }
+              }
+              if (shouldSwitch) {
+                  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                  switching = true;
+                  switchcount++;
+              } else {
+                  if (switchcount == 0 && dir == "asc") {
+                      dir = "desc";
+                      switching = true;
+                  }
+              }
+          }
+      }
+    </script>
   </body>
 </html>

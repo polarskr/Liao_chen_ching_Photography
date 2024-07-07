@@ -11,7 +11,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def fetch_bdi_from_bloomberg():
-    url = "https://www.bloomberg.com/quote/BDIY:IND"
+    url = "https://tradingeconomics.com/commodity/baltic"
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
@@ -19,11 +19,9 @@ def fetch_bdi_from_bloomberg():
         response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Find the current value
         current_value_element = soup.find('span', class_='priceText__1853e8a5')
         current_value = current_value_element.text.strip() if current_value_element else 'N/A'
         
-        # Find the change and change percentage
         change_element = soup.find('span', class_='changeAbsolute__395487f7')
         change_percent_element = soup.find('span', class_='changePercent__2d7dc0d2')
         
@@ -75,12 +73,9 @@ def fetch_financial_data():
             print(f"Error fetching data for {name}: {e}")
             data[name] = {'當前值': 'N/A', '變化': 'N/A', '變化百分比': 'N/A'}
 
-    # Fetch BDI data from Bloomberg
     data['波羅的海乾散貨運價指數'] = fetch_bdi_from_bloomberg()
 
     return data
-
-# The rest of the code (generate_html, update_data, and main functions) remains the same
 
 def generate_html(data):
     with open('templates/template.html', 'r', encoding='utf-8') as file:
@@ -110,13 +105,9 @@ def update_data():
     print("Data updated at:", time.strftime("%Y-%m-%d %H:%M:%S"))
 
 def main():
-    # 立即运行一次
     update_data()
-
-    # 设置定时任务，每60分钟运行一次
     schedule.every(60).minutes.do(update_data)
 
-    # 保持程序运行
     while True:
         schedule.run_pending()
         time.sleep(1)

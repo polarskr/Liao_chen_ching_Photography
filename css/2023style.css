@@ -15,22 +15,23 @@ body {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box; /* 添加box-sizing以确保padding和border不会影响元素的最终大小 */
 }
 
 .container {
   display: grid;
-  grid-template-columns: auto 1fr 1fr;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
 
 .h1 {
-  grid-column: 1;
+  grid-column: 1/-1;
   grid-row: 1;
   font-family: "Bodoni 11";
   font-size: 2.5rem;
   font-weight: bold;
-  margin: 35px 0 0 40px;
+  margin: 30px 0 0 40px;
 }
 
 .h1 a {
@@ -40,23 +41,23 @@ body {
 
 .nav-right {
   animation: 3s cubic-bezier(0.25, 1, 0.3, 1) circle-in-top-right both;
-  visibility: hidden;
-  grid-column: 2/3;
+  visibility: visible;
+  grid-column: 1;
   grid-row: 1;
   justify-self: end;
   margin: 40px 0 0 0;
-}
-
-.nav-right {
-  visibility: visible;
 }
 
 .nav-right ul {
   font-family: "Courier New", monospace;
   display: flex;
   list-style: none;
-  font-size: 1rem;
-  margin: 0;
+  font-size: 15px;
+}
+
+.nav-right li {
+  position: relative;
+  margin-right: 5px;
 }
 
 .nav-right li a {
@@ -68,6 +69,28 @@ body {
 
 .nav-right li a:hover {
   color: blue;
+}
+
+.nav-right .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-right .dropdown a {
+  padding: 12px 16px;
+}
+
+.nav-right li:hover .dropdown {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .church {

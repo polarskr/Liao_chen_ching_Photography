@@ -49,7 +49,7 @@ h1 a {
   color: inherit; /* 繼承h1的顏色設定 */
 }
 
-h5 {  
+p{  
   font-size: 1rem;
   font-family: "Courier New", Courier, monospace;
   color: white;
