@@ -1,37 +1,32 @@
-@keyframes circle-in-top-right {
-  from {
-    clip-path: circle(0% at top right);
-  }
-  to {
-    clip-path: circle(150% at top right);
-  }
-}
-
-html,
-body {
+html, body {
   font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* 添加box-sizing以确保padding和border不会影响元素的最终大小 */
+  box-sizing: border-box;
 }
 
 .container {
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto auto;
   min-height: 100vh;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
 .h1 {
-  grid-column: 1/-1;
-  grid-row: 1;
-  font-family: "Bodoni 11";
+  font-family: "Bodoni 11", serif;
   font-size: 2.5rem;
   font-weight: bold;
-  margin: 30px 0 0 40px;
+  margin: 0;
 }
 
 .h1 a {
@@ -39,58 +34,27 @@ body {
   color: black;
 }
 
-.nav-right {
-  animation: 3s cubic-bezier(0.25, 1, 0.3, 1) circle-in-top-right both;
-  visibility: visible;
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: end;
-  margin: 40px 0 0 0;
-}
-
 .nav-right ul {
   font-family: "Courier New", monospace;
   display: flex;
   list-style: none;
   font-size: 15px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-right li {
-  position: relative;
-  margin-right: 5px;
+  margin-right: 30px;
 }
 
 .nav-right li a {
-  margin-right: 30px;
-  padding-bottom: 20px;
   text-decoration: none;
   color: black;
+  transition: color 0.3s ease;
 }
 
 .nav-right li a:hover {
   color: blue;
-}
-
-.nav-right .dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.nav-right .dropdown a {
-  padding: 12px 16px;
-}
-
-.nav-right li:hover .dropdown {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .church {
@@ -130,13 +94,11 @@ body {
 }
 
 .footer {
-  display: grid;
-  justify-items: center;
-  justify-content: center;
-  font-family: "Courier New", Courier, monospace;
-  grid-column: 1/-1;
-  grid-row: 4;
+  text-align: center;
+  padding: 20px 0;
+  font-family: "Courier New", monospace;
 }
+
 
 @media (max-width: 768px) {
   .container {

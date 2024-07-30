@@ -1,12 +1,4 @@
-@keyframes circle-in-top-right {
-    from {
-      clip-path: circle(0% at top right);
-    }
-    to {
-      clip-path: circle(150% at top right);
-    }
-  }
-  
+
   html,
   body {
     font-size: 16px;

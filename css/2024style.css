@@ -1,37 +1,32 @@
-@keyframes circle-in-top-right {
-  from {
-    clip-path: circle(0% at top right);
-  }
-  to {
-    clip-path: circle(150% at top right);
-  }
-}
-
-html,
-body {
+html, body {
   font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* 添加box-sizing以确保padding和border不会影响元素的最终大小 */
+  box-sizing: border-box;
 }
 
 .container {
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto auto;
   min-height: 100vh;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
 .h1 {
-  grid-column: 1/-1;
-  grid-row: 1;
-  font-family: "Bodoni 11";
+  font-family: "Bodoni 11", serif;
   font-size: 2.5rem;
   font-weight: bold;
-  margin: 30px 0 0 40px;
+  margin: 0;
 }
 
 .h1 a {
@@ -39,185 +34,90 @@ body {
   color: black;
 }
 
-.nav-right {
-  animation: 3s cubic-bezier(0.25, 1, 0.3, 1) circle-in-top-right both;
-  visibility: visible;
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: end;
-  margin: 40px 0 0 0;
-}
-
 .nav-right ul {
   font-family: "Courier New", monospace;
   display: flex;
   list-style: none;
   font-size: 15px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-right li {
-  position: relative;
-  margin-right: 5px;
+  margin-right: 30px;
 }
 
 .nav-right li a {
-  margin-right: 30px;
-  padding-bottom: 20px;
   text-decoration: none;
   color: black;
+  transition: color 0.3s ease;
 }
 
 .nav-right li a:hover {
   color: blue;
 }
 
-.nav-right .dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 1s ease, transform 5s ease;
+.photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
 }
 
-.nav-right .dropdown a {
-  padding: 10px 10px;
-  margin: 15px;
-}
-
-.nav-right li:hover .dropdown {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.penghu {
-  display: grid;
-  place-items: center;
-  margin-top: 20px;
-  width: 100%;
-  grid-column: 1/-1;
-  grid-row: 2;
-}
-
-.penghu img {
-  width: 90vw;
+.photo-container img {
+  max-width: 90%;
   height: auto;
 }
 
-.penghu p {
-  margin-top: 20px;
-  grid-column: 1;
-  grid-row: 3;
+.photo-container p {
   font-family: "Courier New", Courier, monospace;
-}
-
-.art {
-  display: grid;
-  place-items: center;
-  margin-top: 20px;
-  width: 100%;
-  grid-column: 1/-1;
-  grid-row: 4;
-}
-
-.art img {
-  width: 90vw;
-  height: auto;
-}
-
-.art p {
-  margin-top: 20px;
-  grid-column: 1;
-  grid-row: 4;
-  font-family: "Courier New", Courier, monospace;
-}
-
-.boat {
-  display: grid;
-  place-items: center;
-  margin-top: 20px;
-  width: 100%;
-  grid-column: 1/-1;
-  grid-row: 2;
-}
-
-.boat img {
-  width: 90vw;
-  height: auto;
-}
-
-.boat p {
-  margin-top: 20px;
-  grid-column: 1;
-  grid-row: 3;
-  font-family: "Courier New", Courier, monospace;
+  margin-top: 10px;
 }
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  text-align: center;
   font-family: "Courier New", Courier, monospace;
-  grid-column: 1/-1;
-  grid-row: 6;
+  padding: 20px;
+  margin-top: auto;
 }
 
-/* 响应式布局调整 */
 @media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr; /* 手机上单列布局 */
-    grid-template-rows: auto auto 1fr auto; /* 增加一行给导航栏 */
+  .header {
+    flex-direction: column;
   }
 
-  .h1 {
-    margin: 20px;
-    text-align: center; /* 居中标题 */
-    grid-column: 1; /* 占据单列 */
-    grid-row: 1; /* 位于第一行 */
+  .nav-right ul {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .nav-right {
-    margin: 20px 0 0 25px;
-    justify-self: center; /* 居中导航 */
-    grid-column: 1; /* 占据单列 */
-    grid-row: 2; /* 移动到第二行 */
-  }
-  
-  .penghu {
-    margin-top: 50px;
+  .nav-right li {
+    margin: 5px 10px;
   }
 
-
-  .footer {
-    grid-row: 4; /* Footer in the fourth row */
-  }
-}
-
-
-@media (max-width: 768px) {
-  /* 手机设备 */
-  .h1,
-  .footer p {
+  .h1, .footer {
     font-size: 16px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
-  /* 平板设备 */
-  .h1,
-  .footer p {
-    font-size: 18px;
+  .h1 {
+    font-size: 2.25rem;
+  }
+
+  .contact-form {
+    width: 80%;
+    max-width: 600px;
   }
 }
 
+
 @media (min-width: 993px) {
-  /* 桌面设备 */
-  .h1,
-  .footer p {
-    font-size: 20px;
+  .h1 {
+    font-size: 2.5rem;
+  }
+
+  .contact-form {
+    max-width: 600px;
   }
 }
