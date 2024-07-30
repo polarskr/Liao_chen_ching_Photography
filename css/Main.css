@@ -1,12 +1,3 @@
-@keyframes circle-in-top-right {
-  from {
-    clip-path: circle(0% at top right);
-  }
-  to {
-    clip-path: circle(150% at top right);
-  }
-}
-
 html,
 body {
   font-size: 16px;
@@ -133,6 +124,12 @@ body {
   font-family: "Courier New", Courier, monospace;
   grid-column: 1/-1;
   grid-row: 3; /* Changed from 4 to 3 */
+}
+
+.word {
+  display: inline;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* 响应式布局调整 */
