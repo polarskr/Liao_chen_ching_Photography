@@ -172,7 +172,7 @@ html, body {
     font-size: 2.25rem;
   }
   .gallery {
-    grid-template-columns: repeat(2, 1fr); /* 平板上显示两列 */
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
@@ -182,6 +182,6 @@ html, body {
   }
 
   .gallery {
-    grid-template-columns: repeat(3, 1fr); /* 桌面上显示三列 */
+    grid-template-columns: repeat(3, 1fr);
   }
 }

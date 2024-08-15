@@ -1,0 +1,158 @@
+body {
+    font-family: 'Bodoni', serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.h1 a {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-right ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+.nav-right li {
+    margin-left: 20px;
+}
+
+.nav-right a {
+    color: #333;
+    text-decoration: none;
+}
+
+.page-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.post-preview {
+    margin-bottom: 40px;
+}
+
+.post-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.post-title a {
+    color: #333;
+    text-decoration: none;
+}
+
+.post-meta {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.post-excerpt {
+    margin-bottom: 15px;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.pagination-link {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.pagination-current {
+    font-weight: bold;
+}
+
+.post-content {
+    margin-bottom: 30px;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.share-buttons {
+    margin-top: 30px;
+}
+
+.share-button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.share-button.facebook {
+    background-color: #3b5998;
+}
+
+.share-button.twitter {
+    background-color: #1da1f2;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+}
+
+.login-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    font-size: 16px;
+}
+.login-btn:hover {
+    background-color: #45a049;
+}
+/* 調整導航欄樣式以容納登入按鈕 */
+.nav-right ul {
+    display: flex;
+    align-items: center;
+}
+.nav-right li:last-child {
+    margin-left: 20px;
+}

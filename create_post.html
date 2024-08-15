@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Post</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; }
+        h1 { color: #333; }
+        form { background: #f4f4f4; padding: 20px; }
+        input[type="text"], textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
+        input[type="submit"] { background: #333; color: #fff; padding: 10px 15px; border: none; cursor: pointer; }
+        input[type="submit"]:hover { background: #444; }
+    </style>
+</head>
+<body>
+    <h1>Create New Post</h1>
+    <form method="post">
+        <input type="text" name="title" placeholder="Post Title" required>
+        <textarea name="content" rows="10" placeholder="Post Content" required></textarea>
+        <input type="submit" value="Create Post">
+    </form>
+    <a href="{{ url_for('admin') }}">Back to Admin Panel</a>
+</body>
+</html>
