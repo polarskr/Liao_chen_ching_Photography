@@ -4,22 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Post</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+        }
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
         h1 { color: #333; }
-        form { background: #f4f4f4; padding: 20px; }
-        input[type="text"], textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
-        input[type="submit"] { background: #333; color: #fff; padding: 10px 15px; border: none; cursor: pointer; }
-        input[type="submit"]:hover { background: #444; }
+        form { background: #f9f9f9; padding: 20px; border-radius: 5px; }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background: #4CAF50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover { background: #45a049; }
+        .edit-posts-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .edit-posts-btn:hover {
+            background-color: #2980b9;
+            text-decoration: none;
+        }
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            opacity: 1;
+            transition: opacity 1.5s ease;
+            z-index: 1000;
+        }
+        @keyframes contentFadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1>Create New Post</h1>
-    <form method="post">
-        <input type="text" name="title" placeholder="Post Title" required>
-        <textarea name="content" rows="10" placeholder="Post Content" required></textarea>
-        <input type="submit" value="Create Post">
-    </form>
-    <a href="{{ url_for('admin') }}">Back to Admin Panel</a>
+    <div id="transitionOverlay" class="transition-overlay"></div>
+    <div class="content-container">
+        <h1>Create New Post</h1>
+        <form id="postForm">
+            <input type="text" name="title" placeholder="Post Title" required>
+            <select name="category" required>
+                <option value="">Select Category</option>
+                <option value="Photography">Photography</option>
+                <option value="Travel">Travel</option>
+                <option value="Lifestyle">Lifestyle</option>
+            </select>
+            <textarea name="content" rows="10" placeholder="Post Content" required></textarea>
+            <input type="submit" value="Create Post">
+        </form>
+        <div id="errorMessage" class="error-message"></div>
+        <a href="edit_post.html" class="edit-posts-btn">
+            <i class="fas fa-edit"></i> Edit Posts
+        </a>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            var transitionOverlay = document.getElementById('transitionOverlay');
+            var contentContainer = document.querySelector('.content-container');
+            
+            setTimeout(function() {
+                transitionOverlay.style.opacity = '0';
+            }, 100);
+            
+            setTimeout(function() {
+                transitionOverlay.style.display = 'none';
+                contentContainer.style.opacity = '1';
+                contentContainer.style.animation = 'contentFadeIn 1s ease forwards';
+            }, 500);
+        });
+
+        document.getElementById('postForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var title = this.title.value;
+            var category = this.category.value;
+            var content = this.content.value;
+
+            fetch('http://localhost:3000/api/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    title: title,
+                    category: category,
+                    content: content
+                }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                window.location.href = '/blog.html'; // 重定向到博客页面
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById('errorMessage').textContent = 'An error occurred while creating the post. Please try again.';
+            });
+        });
+    </script>
 </body>
 </html>

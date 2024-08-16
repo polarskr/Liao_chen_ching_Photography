@@ -1,16 +1,48 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content="RalphLiao的網站,有很多好看的東西" />
-        <meta name="keywords" content="RalphLiao, Photography" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Ralph L Photography</title>
-        <link rel="stylesheet" href="static/css/style.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-        <link rel="icon" type="image/x-icon" href="imgs/R.png" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
-        <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="description" content="RalphLiao的網站,有很多好看的東西" />
+    <meta name="keywords" content="RalphLiao, Photography" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ralph L Photography</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" type="image/x-icon" href="imgs/R.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
+    <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8" />
+    <style>
+        .post-preview {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .post-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        .post-meta {
+            color: #777;
+            font-size: 0.9em;
+        }
+        .post-excerpt {
+            margin-top: 10px;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        #loading {
+            text-align: center;
+            font-style: italic;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -34,35 +66,58 @@
 
         <main>
             <h1 class="page-title">Latest Blog Posts</h1>
-            <article class="post-preview">
-                <h2 class="post-title"><a href="post1.html">First Blog Post Title</a></h2>
-                <p class="post-meta">
-                    Posted on 2024-08-14 | Category: Photography
-                </p>
-                <p class="post-excerpt">This is a brief excerpt from the first blog post. It gives a preview of the content...</p>
-                <a href="post1.html" class="read-more">Read More</a>
-            </article>
-            <article class="post-preview">
-                <h2 class="post-title"><a href="post2.html">Second Blog Post Title</a></h2>
-                <p class="post-meta">
-                    Posted on 2024-08-13 | Category: Travel
-                </p>
-                <p class="post-excerpt">This is a brief excerpt from the second blog post. It gives a preview of the content...</p>
-                <a href="post2.html" class="read-more">Read More</a>
-            </article>
+            <div id="loading">Loading posts...</div>
+            <div id="blogPosts"></div>
 
             <nav class="pagination">
                 <a href="#" class="pagination-link">Previous</a>
                 <span class="pagination-current">Page 1 of 3</span>
                 <a href="#" class="pagination-link">Next</a>
             </nav>
-
-
         </main>
 
         <footer class="footer">
             <p>&copy; 2024 Liao ChenChing. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogPostsContainer = document.getElementById('blogPosts');
+            const loadingElement = document.getElementById('loading');
+
+            fetch('http://localhost:3000/api/posts')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(posts => {
+                    loadingElement.style.display = 'none';
+                    if (posts.length === 0) {
+                        blogPostsContainer.innerHTML = '<p>No blog posts yet.</p>';
+                    } else {
+                        posts.forEach(post => {
+                            const postHTML = `
+                                <article class="post-preview">
+                                    <h2 class="post-title"><a href="#">${post.title}</a></h2>
+                                    <p class="post-meta">
+                                        Posted on ${post.date} | Category: ${post.category}
+                                    </p>
+                                    <p class="post-excerpt">${post.content.substring(0, 150)}...</p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </article>
+                            `;
+                            blogPostsContainer.innerHTML += postHTML;
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    loadingElement.textContent = 'Error loading posts. Please try again later.';
+                });
+        });
+    </script>
 </body>
 </html>
