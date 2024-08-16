@@ -5,12 +5,12 @@
   padding: 0;
 }
 
-/* 設置 HTML 和 BODY 的基本樣式 */
+
 html,
 body {
   font-size: 16px; /* 設置基本字體大小 */
   min-height: 100vh; /* 最小高度覆蓋視窗高度 */
-  background-image: url("imgs/status.jpg");
+  background-image: url("static/imgs/status.jpg");
   background-size: cover; /* 保持背景圖像的原始尺寸 */
   background-repeat: repeat; /* 如果不希望背景圖重複 */
   background-position: center center; /* 將背景圖置中顯示 */
@@ -20,7 +20,7 @@ body {
   display: block;
   width: 100vw;
   height: 100vh;
-  background-image: url("imgs/status.jpg");
+  background-image: url("static/imgs/status.jpg");
   background-size: cover;
   background-position: center;
   text-decoration: none; /* 去除鏈接下劃線 */
