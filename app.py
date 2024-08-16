@@ -1,23 +1,20 @@
-from flask import Flask, request, render_template, redirect, url_for, session, flash
-import os
 import hashlib
-from dotenv import load_dotenv
 import sqlite3
 from datetime import datetime
 from functools import wraps
 import logging
+from flask import Flask, request, render_template, redirect, url_for, session, flash
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)
+
+# 使用一個固定的字符串作為密鑰（在生產環境中，這應該是一個長且複雜的隨機字符串）
+app.secret_key = 'rgorhgnș43jfweuf7y65780wjfdif'  # 請替換為一個長且複雜的隨機字符串
 
 # 配置日誌
 logging.basicConfig(level=logging.DEBUG)
 
-# 載入環境變量
-load_dotenv()
-
-# 從環境變量中獲取密碼哈希
-ADMIN_PASSWORD_HASH = os.getenv('ADMIN_PASSWORD_HASH')
+# 設置 ADMIN_PASSWORD_HASH
+ADMIN_PASSWORD_HASH = "59e1b977b2b7e8b64bbe821415e7fd51:2bb019704c04d257a24d69c71b117286ace96ad826a67c989b8022fcee5c882f"  # 請替換為實際的密碼哈希
 
 # 數據庫初始化
 def init_db():
@@ -131,7 +128,4 @@ def delete_post(post_id):
     return redirect(url_for('admin'))
 
 if __name__ == '__main__':
-    if not ADMIN_PASSWORD_HASH:
-        print("Please run the setup script to set your password first.")
-        exit(1)
     app.run(debug=True)
