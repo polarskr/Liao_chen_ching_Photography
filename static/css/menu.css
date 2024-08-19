@@ -1,88 +1,46 @@
-  html,
-  body {
-    font-size: 16px;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* 添加box-sizing以确保padding和border不会影响元素的最终大小 */
-  }
-  
-  .container {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-  }
-  
-  .h1 {
-    grid-column: 1/-1;
-    grid-row: 1;
-    font-family: "Bodoni 11";
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 30px 0 0 40px;
-  }
-  
-  .h1 a {
-    text-decoration: none;
-    color: black;
-  }
-  
-  .nav-right {
-    animation: 3s cubic-bezier(0.25, 1, 0.3, 1) circle-in-top-right both;
-    visibility: visible;
-    grid-column: 1;
-    grid-row: 1;
-    justify-self: end;
-    margin: 40px 0 0 0;
-  }
-  
-  .nav-right ul {
-    font-family: "Courier New", monospace;
-    display: flex;
-    list-style: none;
-    font-size: 15px;
-  }
-  
-  .nav-right li {
-    position: relative;
-    margin-right: 5px;
-  }
-  
-  .nav-right li a {
-    margin-right: 30px;
-    padding-bottom: 20px;
-    text-decoration: none;
-    color: black;
-  }
-  
-  .nav-right li a:hover {
-    color: blue;
-  }
-  
-  .nav-right .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 1s ease, transform 5s ease;
-  }
-  
-  .nav-right .dropdown a {
-    padding: 10px 10px;
-    margin: 15px;
-  }
-  
-  .nav-right li:hover .dropdown {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-  }
+body {
+  font-family: 'Bodoni', serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.h1 a {
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-right ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav-right li {
+  margin-left: 20px;
+}
+
+.nav-right a {
+  color: #333;
+  text-decoration: none;
+}
+
   
   .menu {
     grid-row: 5;

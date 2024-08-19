@@ -1,61 +1,46 @@
-html, body {
-  font-size: 16px;
+body {
+  font-family: 'Bodoni', serif;
+  line-height: 1.6;
+  color: #333;
   margin: 0;
   padding: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 .container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto 1fr auto auto;
-  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-}
-
-.h1 {
-  font-family: "Bodoni 11", serif;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 0;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
 }
 
 .h1 a {
+  font-size: 24px;
+  color: #333;
   text-decoration: none;
-  color: black;
 }
 
 .nav-right ul {
-  font-family: "Courier New", monospace;
-  display: flex;
-  list-style: none;
-  font-size: 15px;
-  margin: 0;
+  list-style-type: none;
   padding: 0;
+  display: flex;
 }
 
 .nav-right li {
-  margin-right: 30px;
+  margin-left: 20px;
 }
 
-.nav-right li a {
+.nav-right a {
+  color: #333;
   text-decoration: none;
-  color: black;
-  transition: color 0.3s ease;
 }
 
-.nav-right li a:hover {
-  color: blue;
-}
 
 .education, .things_i_love_do, .intro {
   max-width: 1200px;

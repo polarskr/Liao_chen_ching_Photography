@@ -8,19 +8,44 @@
     <title>Ralph L Photography</title>
     <link rel="stylesheet" href="mainpage.css"> 
     <link rel="icon" type="image/x-icon" href="imgs/R.png">
+    <style>
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s;
+            z-index: 9999;
+        }
+    </style>
 </head>
 <body> 
-    <a href="main.html"  class="background-link">
-   <div class="container">
-
-    <h1>Liao Chen Ching</h1>
-
-
-    <div id="clock"></div>
+    <div id="overlay"></div>
+    <a href="main.html" class="background-link" onclick="fadeToWhite(event)">
+        <div class="container">
+            <h1>Liao Chen Ching</h1>
+            <div id="clock"></div>
+            <p>click to enter</p>
+        </div> 
+    </a>
     <script src="static/js/main.js"></script>
-
-    <p>click to enter </p>
-
-   </div> 
+    <script>
+        function fadeToWhite(event) {
+            event.preventDefault();
+            const overlay = document.getElementById('overlay');
+            const targetHref = event.currentTarget.href;
+            
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            
+            setTimeout(() => {
+                window.location.href = targetHref;
+            }, 500); // 与 CSS 过渡时间相匹配
+        }
+    </script>
 </body>
 </html>

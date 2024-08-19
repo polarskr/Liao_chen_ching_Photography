@@ -11,8 +11,26 @@
     <link rel="icon" type="image/x-icon" href="imgs/R.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
     <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8" />
+    <style>
+      #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        z-index: 9999;
+      }
+      .container {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+    </style>
   </head>
   <body>
+    <div id="overlay"></div>
     <div class="container">
       <header class="header">
         <h1 class="h1">
@@ -27,7 +45,6 @@
             <li><a href="blog.html">Blog.</a></li>
             <li><a href="menu.html">Menu.</a></li>
             <li><a href="about me.html">About.</a></li>
-
           </ul>
         </nav>
       </header>
@@ -36,7 +53,6 @@
         <h2>Ralph is a super cool guy! He skate, he plays guitar, he also fix guitar! WOW! Amazing!</h2>
       </div>
 
-    </span>
 
       <div class="gallery">
         <a
@@ -99,9 +115,30 @@
           />
         </a>
       </div>
+
       <footer class="footer">
         <p>&copy; 2024 Ralph Liao</p>
       </footer>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <script>
+      window.addEventListener('load', function() {
+        const overlay = document.getElementById('overlay');
+        const container = document.querySelector('.container');
+        
+        if (overlay && container) {
+          setTimeout(() => {
+            overlay.style.opacity = '0';
+            container.style.opacity = '1';
+            
+            setTimeout(() => {
+              overlay.style.display = 'none';
+            }, 500); // 与 CSS 过渡时间相匹配
+          }, 100); // 短暂延迟以确保页面加载完毕
+        } else {
+          console.error('Overlay or container element not found');
+        }
+      });
+    </script>
   </body>
 </html>
