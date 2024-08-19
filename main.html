@@ -1,144 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="RalphLiao的網站,有很多好看的東西" />
-    <meta name="keywords" content="RalphLiao, Photography" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ralph L Photography</title>
-    <link rel="stylesheet" href="static/css/Main.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="icon" type="image/x-icon" href="imgs/R.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
-    <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8" />
-    <style>
-      #overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: white;
-        opacity: 1;
-        transition: opacity 0.5s ease;
-        z-index: 9999;
-      }
-      .container {
-        opacity: 0;
-        transition: opacity 0.5s ease;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="overlay"></div>
-    <div class="container">
-      <header class="header">
-        <h1 class="h1">
-          <a href="main.html">Liao ChenChing</a>
-        </h1>
-        <nav class="nav-right">
-          <ul>
-            <li><a href="https://www.youtube.com/channel/UCPurBYw_me-f-qJwwO2UnPg"><i class="fa-brands fa-youtube"></i></a></li>
-            <li><a href="https://www.instagram.com/polarskr/"><i class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="2023.html">2023.</a></li>
-            <li><a href="2024.html">2024.</a></li>
-            <li><a href="blog.html">Blog.</a></li>
-            <li><a href="menu.html">Menu.</a></li>
-            <li><a href="about me.html">About.</a></li>
-          </ul>
-        </nav>
-      </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="RalphLiao的網站,有很多好看的東西">
+  <meta name="keywords" content="RalphLiao, Photography">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ralph L Photography</title>
+  <link rel="stylesheet" href="static/css/Main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="static/imgs/R.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8">
+  <style>
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      z-index: 9999;
+    }
+    .container {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="overlay"></div>
+  <div class="container">
+    <header class="header">
+      <h1 class="h1">
+        <a href="main.html">Liao ChenChing</a>
+      </h1>
+      <nav class="nav-right">
+        <ul>
+          <li><a href="https://www.youtube.com/channel/UCPurBYw_me-f-qJwwO2UnPg"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="https://www.instagram.com/polarskr/"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="2023.html">2023.</a></li>
+          <li><a href="2024.html">2024.</a></li>
+          <li><a href="blog.html">Blog.</a></li>
+          <li><a href="menu.html">Menu.</a></li>
+          <li><a href="about me.html">About.</a></li>
+        </ul>
+      </nav>
+    </header>
 
-      <div class="intro-word">
-        <h2>Ralph is a super cool guy! He skate, he plays guitar, he also fix guitar! WOW! Amazing!</h2>
-      </div>
-
-
-      <div class="gallery">
-        <a
-          href="static/imgs/denmark museum.JPG"
-          data-lightbox="gallery"
-          data-title="Louisiana, Denmark, 2023"
-        >
-          <img 
-            src="static/imgs/denmark museum.JPG" 
-            srcset="imgs/denmark museum-small.jpg 300w,
-                    imgs/denmark museum-medium.jpg 600w,
-                    imgs/denmark museum.jpg 1200w"
-            alt="Denmark" 
-            loading="lazy" 
-          />
-        </a>
-      
-        <a
-          href="static/imgs/sea.JPG"
-          data-lightbox="gallery"
-          data-title="Sea, Denmark, 2023"
-        >
-          <img 
-            src="static/imgs/sea.JPG" 
-            srcset="imgs/sea-small.jpg 300w,
-                    imgs/sea-medium.jpg 600w,
-                    imgs/sea.jpg 1200w"
-            alt="Sea" 
-            loading="lazy" 
-          />
-        </a>
-      
-        <a
-          href="static/imgs/Blossom.JPG"
-          data-lightbox="gallery"
-          data-title="Cherry blossom, 2023"
-        >
-          <img 
-            src="static/imgs/Blossom.JPG" 
-            srcset="imgs/Blossom-small.jpg 300w,
-                    imgs/Blossom-medium.jpg 600w,
-                    imgs/Blossom.jpg 1200w"
-            alt="Blossom" 
-            loading="lazy" 
-          />
-        </a>
-      
-        <a
-          href="static/imgs/chair.JPG"
-          data-lightbox="gallery"
-          data-title="Chair, 2023"
-        >
-          <img 
-            src="static/imgs/chair.JPG" 
-            srcset="imgs/chair-small.jpg 300w,
-                    imgs/chair-medium.jpg 600w,
-                    imgs/chair.jpg 1200w"
-            alt="Chair" 
-            loading="lazy" 
-          />
-        </a>
-      </div>
-
-      <footer class="footer">
-        <p>&copy; 2024 Ralph Liao</p>
-      </footer>
+    <div class="intro-word">
+      <h2>Ralph is a super cool guy! He skate, he plays guitar, he also fix guitar! WOW! Amazing!</h2>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
-    <script>
-      window.addEventListener('load', function() {
-        const overlay = document.getElementById('overlay');
-        const container = document.querySelector('.container');
-        
-        if (overlay && container) {
+
+    <div class="gallery">
+      <a href="static/imgs/denmark museum.JPG" data-lightbox="gallery" data-title="Louisiana, Denmark, 2023">
+        <img src="static/imgs/denmark museum.JPG" 
+             srcset="imgs/denmark museum-small.jpg 300w,
+                     imgs/denmark museum-medium.jpg 600w,
+                     imgs/denmark museum.jpg 1200w"
+             alt="Denmark" 
+             loading="lazy">
+      </a>
+      <a href="static/imgs/sea.JPG" data-lightbox="gallery" data-title="Sea, Denmark, 2023">
+        <img src="static/imgs/sea.JPG" 
+             srcset="imgs/sea-small.jpg 300w,
+                     imgs/sea-medium.jpg 600w,
+                     imgs/sea.jpg 1200w"
+             alt="Sea" 
+             loading="lazy">
+      </a>
+      <a href="static/imgs/Blossom.JPG" data-lightbox="gallery" data-title="Cherry blossom, 2023">
+        <img src="static/imgs/Blossom.JPG" 
+             srcset="imgs/Blossom-small.jpg 300w,
+                     imgs/Blossom-medium.jpg 600w,
+                     imgs/Blossom.jpg 1200w"
+             alt="Blossom" 
+             loading="lazy">
+      </a>
+      <a href="static/imgs/chair.JPG" data-lightbox="gallery" data-title="Chair, 2023">
+        <img src="static/imgs/chair.JPG" 
+             srcset="imgs/chair-small.jpg 300w,
+                     imgs/chair-medium.jpg 600w,
+                     imgs/chair.jpg 1200w"
+             alt="Chair" 
+             loading="lazy">
+      </a>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2024 Ralph Liao</p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      const overlay = document.getElementById('overlay');
+      const container = document.querySelector('.container');
+      
+      if (overlay && container) {
+        setTimeout(() => {
+          overlay.style.opacity = '0';
+          container.style.opacity = '1';
+          
           setTimeout(() => {
-            overlay.style.opacity = '0';
-            container.style.opacity = '1';
-            
-            setTimeout(() => {
-              overlay.style.display = 'none';
-            }, 500); // 与 CSS 过渡时间相匹配
-          }, 100); // 短暂延迟以确保页面加载完毕
-        } else {
-          console.error('Overlay or container element not found');
-        }
-      });
-    </script>
-  </body>
+            overlay.style.display = 'none';
+          }, 300); // 与 CSS 过渡时间相匹配
+        }, 100); // 短暂延迟以确保页面加载完毕
+      } else {
+        console.error('Overlay or container element not found');
+      }
+    });
+  </script>
+</body>
 </html>

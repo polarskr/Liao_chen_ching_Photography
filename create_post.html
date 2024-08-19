@@ -1,147 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create New Post</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: white;
-        }
-        .content-container {
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        h1 { color: #333; }
-        form { background: #f9f9f9; padding: 20px; border-radius: 5px; }
-        input[type="text"], textarea, select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        input[type="submit"] {
-            background: #4CAF50;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover { background: #45a049; }
-        .edit-posts-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        .edit-posts-btn:hover {
-            background-color: #2980b9;
-            text-decoration: none;
-        }
-        .transition-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #ffffff;
-            opacity: 1;
-            transition: opacity 1.5s ease;
-            z-index: 1000;
-        }
-        @keyframes contentFadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .error-message {
-            color: red;
-            margin-top: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="description" content="RalphLiao的網站,有很多好看的東西">
+  <meta name="keywords" content="RalphLiao, Photography">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ralph L Photography - Blog</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="static/imgs/R.png">
+  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8">
+  
+  <style>
+    .post-preview {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .post-title a {
+      color: #333;
+      text-decoration: none;
+    }
+    .post-meta {
+      color: #777;
+      font-size: 0.9em;
+    }
+    .post-excerpt {
+      margin-top: 10px;
+    }
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      color: #4CAF50;
+      text-decoration: none;
+    }
+    .read-more:hover {
+      text-decoration: underline;
+    }
+    #loading {
+      text-align: center;
+      font-style: italic;
+      color: #777;
+    }
+    .full-post {
+      display: none;
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 <body>
-    <div id="transitionOverlay" class="transition-overlay"></div>
-    <div class="content-container">
-        <h1>Create New Post</h1>
-        <form id="postForm">
-            <input type="text" name="title" placeholder="Post Title" required>
-            <select name="category" required>
-                <option value="">Select Category</option>
-                <option value="Photography">Photography</option>
-                <option value="Travel">Travel</option>
-                <option value="Lifestyle">Lifestyle</option>
-            </select>
-            <textarea name="content" rows="10" placeholder="Post Content" required></textarea>
-            <input type="submit" value="Create Post">
-        </form>
-        <div id="errorMessage" class="error-message"></div>
-        <a href="edit_post.html" class="edit-posts-btn">
-            <i class="fas fa-edit"></i> Edit Posts
-        </a>
-    </div>
+<div class="container">
+    <header class="header">
+      <div class="h1">
+        <a href="main.html">Liao ChenChing</a>
+      </div>
+    </header>
 
-    <script>
-        window.addEventListener('load', function() {
-            var transitionOverlay = document.getElementById('transitionOverlay');
-            var contentContainer = document.querySelector('.content-container');
-            
-            setTimeout(function() {
-                transitionOverlay.style.opacity = '0';
-            }, 100);
-            
-            setTimeout(function() {
-                transitionOverlay.style.display = 'none';
-                contentContainer.style.opacity = '1';
-                contentContainer.style.animation = 'contentFadeIn 1s ease forwards';
-            }, 500);
-        });
+  <main>
+    <h1 class="page-title">Blog Posts</h1>
+    
+    <div id="loading">Loading posts...</div>
+    <div id="blogPosts"></div>
+    <div id="fullPost" class="full-post"></div>
 
-        document.getElementById('postForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var title = this.title.value;
-            var category = this.category.value;
-            var content = this.content.value;
+    <nav class="pagination">
+      <a href="#" class="pagination-link">Previous</a>
+      <span class="pagination-current">Page 1 of 3</span>
+      <a href="#" class="pagination-link">Next</a>
+    </nav>
+  </main>
 
-            fetch('http://localhost:3000/api/posts', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    title: title,
-                    category: category,
-                    content: content
-                }),
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Success:', data);
-                window.location.href = '/blog.html'; // 重定向到博客页面
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                document.getElementById('errorMessage').textContent = 'An error occurred while creating the post. Please try again.';
-            });
-        });
-    </script>
+  <footer class="footer">
+    <p>&copy; 2024 Liao ChenChing. All rights reserved.</p>
+  </footer>
+</div>
+
+<script src="script.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const blogPostsContainer = document.getElementById('blogPosts');
+    const loadingElement = document.getElementById('loading');
+
+    fetch('http://localhost:3000/api/posts')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(posts => {
+        loadingElement.style.display = 'none';
+        if (posts.length === 0) {
+          blogPostsContainer.innerHTML = '<p>No blog posts yet.</p>';
+        } else {
+          posts.forEach(post => {
+            const postHTML = `
+              <article class="post-preview">
+                <h2 class="post-title"><a href="#">${post.title}</a></h2>
+                <p class="post-meta">
+                  Posted on ${post.date} | Category: ${post.category}
+                </p>
+                <p class="post-excerpt">${post.content.substring(0, 150)}...</p>
+                <a href="#" class="read-more">Read More</a>
+              </article>
+            `;
+            blogPostsContainer.innerHTML += postHTML;
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        loadingElement.textContent = 'Error loading posts. Please try again later.';
+      });
+  });
+</script>
 </body>
 </html>

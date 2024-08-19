@@ -41,6 +41,7 @@ body {
   text-decoration: none;
 }
 
+
   
   .menu {
     grid-row: 5;
@@ -94,48 +95,55 @@ body {
       grid-row: 6;
     }
 
-  /* 响应式布局调整 */
-@media (max-width: 768px) {
-    .h1 {
-      margin: 20px;
-      text-align: center; /* 居中标题 */
-      grid-column: 1; /* 占据单列 */
-      grid-row: 1; /* 位于第一行 */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-rows: auto auto auto auto auto auto auto;
+      }
+    
+      .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+    
+      .h1 {
+        margin: 20px;
+        text-align: center;
+        font-size: 2rem;
+      }
+    
+      .nav-right ul {
+        width: 100%;
+      }
+    
+      .nav-right ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    
+      .nav-right li {
+        margin: 5px 15px;
+      }
     }
-  
-    .nav-right {
-      margin: 20px;
-      justify-self: center; /* 居中导航 */
-      grid-column: 1; /* 占据单列 */
-      grid-row: 2; /* 移动到第二行 */
-    }
-  
-    .footer {
-      grid-row: 5; /* Footer in the fifth row */
-    }
-  }
-  
-  @media (max-width: 768px) {
-    /* 手机设备 */
-    .h1,
-    .footer p {
-      font-size: 16px;
-    }
-  }
+    
   
   @media (min-width: 769px) and (max-width: 992px) {
-    /* 平板设备 */
-    .h1,
-    .footer p {
-      font-size: 18px;
+    .h1 {
+      font-size: 2.25rem;
+    }
+  
+    .contact-form {
+      width: 80%;
+      max-width: 600px;
     }
   }
   
   @media (min-width: 993px) {
-    /* 桌面设备 */
-    .h1,
-    .footer p {
-      font-size: 20px;
+    .h1 {
+      font-size: 2.5rem;
+    }
+  
+    .contact-form {
+      max-width: 600px;
     }
   }
-  

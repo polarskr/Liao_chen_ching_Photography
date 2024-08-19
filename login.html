@@ -1,115 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #333333; /* 更深的灰色背景 */
-            transition: background-color 1.5s ease;
-        }
-        .login-container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            margin: 0 0 20px;
-            color: #333;
-            text-align: center;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background: #4CAF50;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        button:hover {
-            background: #45a049;
-        }
-        .error-message {
-            color: #ff0000;
-            text-align: center;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        .transition-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #333333; /* 与body背景色相同 */
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 1.5s ease;
-            z-index: 1000;
-        }
-        @keyframes backgroundFade {
-            0% { background-color: #333333; }
-            100% { background-color: white; }
-        }
-        .transition-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-            animation: backgroundFade 1.5s ease forwards;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8">
+  <style>
+    body {
+      font-family: 'Bodoni 11', 'Bodoni', serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #2C3E50;
+      transition: background-color 0.5s ease;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    .login-container {
+      background: linear-gradient(135deg, #34495E, #2C3E50);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1s ease-out 0.5s forwards;
+    }
+    h1 {
+      margin: 0 0 20px;
+      color: #ECF0F1;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Bodoni 11', 'Bodoni', serif;
+      background-color: #ECF0F1;
+      color: #2C3E50;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: #3498DB;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-family: 'Bodoni 11', 'Bodoni', serif;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #2980B9;
+    }
+    .error-message {
+      color: #E74C3C;
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .transition-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #2C3E50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      z-index: 1000;
+    }
+    @keyframes backgroundFade {
+      0% { background-color: #2C3E50; }
+      100% { background-color: #ECF0F1; }
+    }
+    .transition-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+      animation: backgroundFade 0.5s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { 
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Admin Login</h1>
-        <form id="loginForm">
-            <input type="password" id="password" placeholder="Enter admin password" required>
-            <button type="submit">Login</button>
-        </form>
-        <div id="errorMessage" class="error-message"></div>
-    </div>
-    <div id="transitionOverlay" class="transition-overlay"></div>
+  <div class="login-container">
+    <h1>Admin Login</h1>
+    <form id="loginForm">
+      <input type="password" id="password" placeholder="Enter admin password" required>
+      <button type="submit">Login</button>
+    </form>
+    <div id="errorMessage" class="error-message"></div>
+  </div>
+  <div id="transitionOverlay" class="transition-overlay"></div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var password = document.getElementById('password').value;
-            var errorMessage = document.getElementById('errorMessage');
-            var transitionOverlay = document.getElementById('transitionOverlay');
-            
-            if (password === '1234') {
-                // Login successful
-                errorMessage.textContent = '';
-                // Start transition animation
-                transitionOverlay.classList.add('active');
-                document.body.style.backgroundColor = 'white';
-                // Redirect after animation
-                setTimeout(function() {
-                    window.location.href = 'create_post.html';
-                }, 1500); // 1.5 seconds delay to match the transition duration
-            } else {
-                // Login failed
-                errorMessage.textContent = 'Incorrect password. Please try again.';
-            }
-        });
-    </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.opacity = '1';
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var password = document.getElementById('password').value;
+      var errorMessage = document.getElementById('errorMessage');
+      var transitionOverlay = document.getElementById('transitionOverlay');
+      
+      if (password === '1234') {
+        errorMessage.textContent = '';
+        transitionOverlay.classList.add('active');
+        document.body.style.backgroundColor = '#ECF0F1';
+        setTimeout(function() {
+          window.location.href = 'create_post.html';
+        }, 500);
+      } else {
+        errorMessage.textContent = 'Incorrect password. Please try again.';
+      }
+    });
+  </script>
 </body>
 </html>

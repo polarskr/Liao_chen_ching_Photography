@@ -135,7 +135,7 @@ body {
 }
 
 .login-btn {
-    background-color: #4CAF50;
+    background-color: #c4dfc5;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -146,7 +146,7 @@ body {
     font-size: 16px;
 }
 .login-btn:hover {
-    background-color: #45a049;
+    background-color: #aad2ac;
 }
 /* 調整導航欄樣式以容納登入按鈕 */
 .nav-right ul {
