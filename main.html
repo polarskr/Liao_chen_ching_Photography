@@ -27,6 +27,12 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
+    body {
+      transition: opacity 0.3s ease;
+    }
+    body.fade-out {
+      opacity: 0;
+    }
   </style>
 </head>
 <body>
@@ -55,36 +61,16 @@
 
     <div class="gallery">
       <a href="static/imgs/denmark museum.JPG" data-lightbox="gallery" data-title="Louisiana, Denmark, 2023">
-        <img src="static/imgs/denmark museum.JPG" 
-             srcset="imgs/denmark museum-small.jpg 300w,
-                     imgs/denmark museum-medium.jpg 600w,
-                     imgs/denmark museum.jpg 1200w"
-             alt="Denmark" 
-             loading="lazy">
+          <img src="static/imgs/denmark museum.JPG" alt="Denmark" loading="lazy">
       </a>
       <a href="static/imgs/sea.JPG" data-lightbox="gallery" data-title="Sea, Denmark, 2023">
-        <img src="static/imgs/sea.JPG" 
-             srcset="imgs/sea-small.jpg 300w,
-                     imgs/sea-medium.jpg 600w,
-                     imgs/sea.jpg 1200w"
-             alt="Sea" 
-             loading="lazy">
+          <img src="static/imgs/sea.JPG" alt="Sea" loading="lazy">
       </a>
       <a href="static/imgs/Blossom.JPG" data-lightbox="gallery" data-title="Cherry blossom, 2023">
-        <img src="static/imgs/Blossom.JPG" 
-             srcset="imgs/Blossom-small.jpg 300w,
-                     imgs/Blossom-medium.jpg 600w,
-                     imgs/Blossom.jpg 1200w"
-             alt="Blossom" 
-             loading="lazy">
+          <img src="static/imgs/Blossom.JPG" alt="Blossom" loading="lazy">
       </a>
       <a href="static/imgs/chair.JPG" data-lightbox="gallery" data-title="Chair, 2023">
-        <img src="static/imgs/chair.JPG" 
-             srcset="imgs/chair-small.jpg 300w,
-                     imgs/chair-medium.jpg 600w,
-                     imgs/chair.jpg 1200w"
-             alt="Chair" 
-             loading="lazy">
+          <img src="static/imgs/chair.JPG" alt="Chair" loading="lazy">
       </a>
     </div>
 
@@ -111,6 +97,23 @@
       } else {
         console.error('Overlay or container element not found');
       }
+    });
+
+    function fadeOutAndNavigate(url) {
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = url;
+      }, 300);
+    }
+
+    // Add fade-out effect to all links
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.getAttribute('target') !== '_blank' && !this.getAttribute('data-lightbox')) {
+          e.preventDefault();
+          fadeOutAndNavigate(this.href);
+        }
+      });
     });
   </script>
 </body>
