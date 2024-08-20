@@ -40,10 +40,8 @@ body {
   color: #333;
   text-decoration: none;
 }
-
-
   
-  .menu {
+ .menu {
     grid-row: 5;
     grid-column: 1;
     margin-top: 20px;
