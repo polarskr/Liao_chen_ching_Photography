@@ -15,87 +15,112 @@
       align-items: center;
       height: 100vh;
       background-color: #2C3E50;
-      transition: background-color 0.5s ease;
       opacity: 0;
-      animation: fadeIn 0.5s ease-out forwards;
+      animation: fadeInBackground 1s ease-out forwards;
     }
     .login-container {
-      background: linear-gradient(135deg, #34495E, #2C3E50);
+      background: rgba(52, 73, 94, 0.8);
       padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      width: 320px;
       text-align: center;
+      backdrop-filter: blur(10px);
       opacity: 0;
       transform: translateY(20px);
-      animation: slideUp 1s ease-out 0.5s forwards;
+      animation: slideUp 0.5s ease-out 0.5s forwards;
     }
     h1 {
-      margin: 0 0 20px;
+      margin: 0 0 30px;
       color: #ECF0F1;
       text-align: center;
+      font-size: 2.5em;
+      letter-spacing: 2px;
     }
     form {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+    .input-group {
+      position: relative;
+      margin-bottom: 30px;
+      width: 100%;
+    }
     input {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
+      padding: 15px;
       border: none;
-      border-radius: 5px;
-      font-family: 'Bodoni 11', 'Bodoni', serif;
-      background-color: #ECF0F1;
-      color: #2C3E50;
+      border-bottom: 2px solid #3498DB;
+      background-color: transparent;
+      color: #ECF0F1;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    input:focus {
+      outline: none;
+      border-bottom-color: #2ecc71;
+    }
+    input::placeholder {
+      color: rgba(236, 240, 241, 0.5);
+    }
+    .input-group::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #2ecc71;
+      transition: width 0.3s ease;
+    }
+    input:focus + .input-group::after {
+      width: 100%;
     }
     button {
       width: 100%;
-      padding: 12px;
+      padding: 15px;
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       background: #3498DB;
       color: white;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s ease;
-      font-family: 'Bodoni 11', 'Bodoni', serif;
-      margin-top: 10px;
+      transition: all 0.3s ease;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     button:hover {
       background: #2980B9;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
     .error-message {
       color: #E74C3C;
       text-align: center;
-      margin-top: 10px;
+      margin-top: 15px;
       font-weight: bold;
     }
-    .transition-overlay {
+    .fade-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #2C3E50;
+      background-color: white;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.5s ease;
-      z-index: 1000;
+      z-index: 9999;
     }
-    @keyframes backgroundFade {
-      0% { background-color: #2C3E50; }
-      100% { background-color: #ECF0F1; }
-    }
-    .transition-overlay.active {
+    .fade-overlay.active {
       opacity: 1;
       pointer-events: auto;
-      animation: backgroundFade 0.5s ease forwards;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    @keyframes fadeInBackground {
+      0% { background-color: white; opacity: 0; }
+      100% { background-color: #2C3E50; opacity: 1; }
     }
     @keyframes slideUp {
       from { 
@@ -110,37 +135,48 @@
   </style>
 </head>
 <body>
+  <div class="fade-overlay"></div>
   <div class="login-container">
     <h1>Admin Login</h1>
     <form id="loginForm">
-      <input type="password" id="password" placeholder="Enter admin password" required>
+      <div class="input-group">
+        <input type="password" id="password" placeholder="Enter admin password" required>
+      </div>
       <button type="submit">Login</button>
     </form>
     <div id="errorMessage" class="error-message"></div>
   </div>
-  <div id="transitionOverlay" class="transition-overlay"></div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.body.style.opacity = '1';
-    });
+    function fadeOutAndNavigate(url) {
+      const overlay = document.querySelector('.fade-overlay');
+      overlay.classList.add('active');
+      setTimeout(() => {
+        window.location.href = url;
+      }, 300);
+    }
 
     document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
       var password = document.getElementById('password').value;
       var errorMessage = document.getElementById('errorMessage');
-      var transitionOverlay = document.getElementById('transitionOverlay');
       
       if (password === '1234') {
         errorMessage.textContent = '';
-        transitionOverlay.classList.add('active');
-        document.body.style.backgroundColor = '#ECF0F1';
-        setTimeout(function() {
-          window.location.href = 'create_post.html';
-        }, 500);
+        fadeOutAndNavigate('create_post.html');
       } else {
         errorMessage.textContent = 'Incorrect password. Please try again.';
       }
+    });
+
+    // Add fade-out effect to all links
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.getAttribute('target') !== '_blank') {
+          e.preventDefault();
+          fadeOutAndNavigate(this.href);
+        }
+      });
     });
   </script>
 </body>
