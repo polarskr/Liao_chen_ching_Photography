@@ -5,7 +5,8 @@
   <meta name="description" content="RalphLiao的網站,有很多好看的東西">
   <meta name="keywords" content="RalphLiao, Photography">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ralph L Photography</title>
+  <title>Liao ChenChing's Blog</title>
+  <script src="script.js" defer></script>
   <link rel="stylesheet" href="static/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="static/imgs/R.png">
@@ -123,24 +124,27 @@
       </nav>
     </header>
 
-    <main>
+    <main role="main">
       <h1 class="page-title">Latest Blog Posts</h1>
+
       <div id="loading">Loading posts...</div>
+
       <div id="blogPosts"></div>
 
-      <nav class="pagination">
-        <a href="#" class="pagination-link">Previous</a>
-        <span class="pagination-current">Page 1 of 3</span>
-        <a href="#" class="pagination-link">Next</a>
-      </nav>
-    </main>
+      <div id="fullPost" class="full-post" style="display: none;"></div>
+
+      <div class="pagination">
+          <a href="#" class="pagination-link">Previous</a>
+          <span class="pagination-current">Page 1 of 3</span>
+          <a href="#" class="pagination-link">Next</a>
+      </div>
+  </main>
 
     <footer class="footer">
       <p>&copy; 2024 Liao ChenChing. All rights reserved.</p>
     </footer>
   </div>
 
-  <script src="script.js" defer></script>
   <script>
     function fadeOutAndNavigate(url) {
       const overlay = document.querySelector('.fade-overlay');
