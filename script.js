@@ -1,10 +1,14 @@
+// 當 DOM 內容加載完成後執行
 document.addEventListener('DOMContentLoaded', function() {
+    // 獲取頁面上的重要元素
     const blogPostsContainer = document.getElementById('blogPosts');
     const loadingElement = document.getElementById('loading');
     const fullPostElement = document.getElementById('fullPost');
 
+    // 加載博客文章的函數
     function loadBlogPosts() {
         console.log('Attempting to fetch posts...');
+        // 從後端 API 獲取文章列表
         fetch('http://localhost:3000/api/posts')
             .then(response => {
                 console.log('Response status:', response.status);
@@ -15,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(posts => {
                 console.log('Received posts:', posts);
-                displayPosts(posts);
+                displayPosts(posts);  // 顯示獲取到的文章
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -23,12 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
+    // 顯示文章列表的函數
     function displayPosts(posts) {
-        loadingElement.style.display = 'none';
+        loadingElement.style.display = 'none';  // 隱藏加載提示
         if (posts.length === 0) {
             blogPostsContainer.innerHTML = '<p>No blog posts yet.</p>';
         } else {
             blogPostsContainer.innerHTML = '';
+            // 遍歷文章列表,為每篇文章創建 HTML 結構
             posts.forEach(post => {
                 const postHTML = `
                     <article class="post-preview">
@@ -45,7 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // 顯示完整文章的函數 (定義為全局函數以便 HTML 中調用)
     window.showFullPost = function(postId) {
+        // 從後端 API 獲取特定文章的詳細信息
         fetch(`http://localhost:3000/api/posts/${postId}`)
             .then(response => {
                 if (!response.ok) {
@@ -54,14 +62,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(post => {
+                // 顯示完整文章內容
                 fullPostElement.innerHTML = `
                     <span class="close-btn" onclick="closeFullPost()">&times;</span>
                     <h2>${post.title}</h2>
                     <p class="post-meta">Posted on ${post.date} | Category: ${post.category}</p>
                     <div class="post-content">${post.content}</div>
                 `;
-                fullPostElement.style.display = 'block';
-                blogPostsContainer.style.display = 'none';
+                fullPostElement.style.display = 'block';  // 顯示完整文章
+                blogPostsContainer.style.display = 'none';  // 隱藏文章列表
             })
             .catch(error => {
                 console.error('Error loading full post:', error);
@@ -69,10 +78,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
+    // 關閉完整文章視圖的函數 (定義為全局函數以便 HTML 中調用)
     window.closeFullPost = function() {
-        fullPostElement.style.display = 'none';
-        blogPostsContainer.style.display = 'block';
+        fullPostElement.style.display = 'none';  // 隱藏完整文章
+        blogPostsContainer.style.display = 'block';  // 顯示文章列表
     }
 
+    // 頁面加載時立即調用加載文章函數
     loadBlogPosts();
 });

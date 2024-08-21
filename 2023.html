@@ -50,6 +50,11 @@
         from { opacity: 0; }
         to { opacity: 1; }
       }
+
+      .intro-word { 
+        line-height: 2;
+        font-style: italic;
+      }
     </style>
   </head>
   <body>
@@ -73,12 +78,16 @@
       </header>
 
       <main>
+        <div class="intro-word">
+          <p>"In black and white you suggest; in color you state. Much can be implied by suggestion, but statement demands certainty... absolute certainty" Paul Outerbridge.</p>
+        </div>
+
         <figure class="photo-container">
           <img src="static/imgs/church.jpg" alt="Church" loading="lazy"
                srcset="static/imgs/church-small.jpg 300w,
                        static/imgs/church-medium.jpg 600w,
                        static/imgs/church.jpg 1200w" />
-          <figcaption>Serene church against the sky</figcaption>
+          <figcaption>Grundtvig’s church, Denmark</figcaption>
         </figure>
 
         <figure class="photo-container">
@@ -86,7 +95,7 @@
                srcset="static/imgs/bay-small.jpg 300w,
                        static/imgs/bay-medium.jpg 600w,
                        static/imgs/bay.jpg 1200w" />
-          <figcaption>Scenic view of the bay</figcaption>
+          <figcaption>The bay at Lousiana Museum, Denmark</figcaption>
         </figure>
 
         <figure class="photo-container">
@@ -94,7 +103,7 @@
                srcset="static/imgs/building-small.jpg 300w,
                        static/imgs/building-medium.jpg 600w,
                        static/imgs/building.jpg 1200w" />
-          <figcaption>Impressive architecture of the building</figcaption>
+          <figcaption>Liverpool street, London</figcaption>
         </figure>
       </main>
 
@@ -102,26 +111,35 @@
     </div>
 
     <script>
+      // 定義淡出並導航到新頁面的函數
       function fadeOutAndNavigate(url) {
+        // 獲取淡出遮罩元素
         const overlay = document.querySelector('.fade-overlay');
+        // 激活淡出效果
         overlay.classList.add('active');
+        // 設置延時,等待淡出動畫完成後再跳轉
         setTimeout(() => {
           window.location.href = url;
-        }, 300);
+        }, 300); // 300毫秒後執行跳轉,與 CSS 動畫時間相匹配
       }
-
-      // Add fade-out effect to all links
+    
+      // 為所有鏈接添加淡出效果
       document.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', function(e) {
+          // 檢查鏈接是否為新窗口打開
           if (this.getAttribute('target') !== '_blank') {
+            // 如果不是新窗口打開,則阻止默認行為
             e.preventDefault();
+            // 調用淡出並導航函數
             fadeOutAndNavigate(this.href);
           }
+          // 如果是新窗口打開 (_blank),則使用默認行為
         });
       });
-
-      // Fade in the content when the page loads
+    
+      // 當頁面加載完成時,淡入內容
       window.addEventListener('load', function() {
+        // 移除 body 的 fade-out 類,觸發淡入效果
         document.body.classList.remove('fade-out');
       });
     </script>
