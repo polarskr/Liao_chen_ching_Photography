@@ -101,6 +101,15 @@
         margin: 5px 15px;
       }
     }
+    @media (min-width: 993px) {
+  .h1 {
+    font-size: 2.5rem;
+  }
+
+  .contact-form {
+    max-width: 600px;
+  }
+}
   </style>
 </head>
 <body>
@@ -119,87 +128,25 @@
           <li><a href="blog.html">Blog.</a></li>
           <li><a href="menu.html">Menu.</a></li>
           <li><a href="about me.html">About.</a></li>
-          <li><a href="login.html" class="login-btn">Login</a></li>
         </ul>
       </nav>
     </header>
 
-    <main role="main">
-      <h1 class="page-title">Latest Blog Posts</h1>
-
-      <div id="loading">Loading posts...</div>
-
-      <div id="blogPosts"></div>
-
-      <div id="fullPost" class="full-post" style="display: none;"></div>
-
-      <div class="pagination">
-          <a href="#" class="pagination-link">Previous</a>
-          <span class="pagination-current">Page 1 of 3</span>
-          <a href="#" class="pagination-link">Next</a>
+    <main class="blog-container">
+      <h1 class="blog-title">Blog</h1>
+      <div class="blog-posts">
+        <div class="blog-post">
+          <img src="blog1 img/Guitar Maintenance AdobeStock 108627943.jpeg" alt="Guitar maintenance tools" class="post-image">
+          <h2 class="post-title">Guitar Fix Basic tools and checklist</h2>
+          <p class="post-excerpt">Explore the basic tools and checklist needed for guitar repair, keeping your instrument in top condition.</p>
+          <button class="read-more" onclick="location.href='article1.html'">Read more</button>
+        </div>
       </div>
-  </main>
+    </main>
 
     <footer class="footer">
       <p>&copy; 2024 Ralph Liao.</p>
     </footer>
   </div>
-
-  <script>
-    function fadeOutAndNavigate(url) {
-      const overlay = document.querySelector('.fade-overlay');
-      overlay.classList.add('active');
-      setTimeout(() => {
-        window.location.href = url;
-      }, 300);
-    }
-
-    // Add fade-out effect to all links
-    document.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        if (this.getAttribute('target') !== '_blank') {
-          e.preventDefault();
-          fadeOutAndNavigate(this.href);
-        }
-      });
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const blogPostsContainer = document.getElementById('blogPosts');
-      const loadingElement = document.getElementById('loading');
-
-      fetch('http://localhost:3000/api/posts')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(posts => {
-          loadingElement.style.display = 'none';
-          if (posts.length === 0) {
-            blogPostsContainer.innerHTML = '<p>No blog posts yet.</p>';
-          } else {
-            posts.forEach(post => {
-              const postHTML = `
-                <article class="post-preview">
-                  <h2 class="post-title"><a href="#">${post.title}</a></h2>
-                  <p class="post-meta">
-                    Posted on ${post.date} | Category: ${post.category}
-                  </p>
-                  <p class="post-excerpt">${post.content.substring(0, 150)}...</p>
-                  <a href="#" class="read-more">Read More</a>
-                </article>
-              `;
-              blogPostsContainer.innerHTML += postHTML;
-            });
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          loadingElement.textContent = 'Error loading posts. Please try again later.';
-        });
-    });
-  </script>
 </body>
 </html>
