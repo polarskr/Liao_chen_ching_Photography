@@ -1,0 +1,132 @@
+body {
+    font-family: 'Bodoni', serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  .h1 {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .h1 a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .nav-right ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-right li {
+    margin: 5px 15px;
+  }
+  
+  .nav-right a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .blog-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .blog-title {
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .blog-intro {
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    margin-top: 40px;
+  }
+  
+  .tools-list, .checklist {
+    padding-left: 20px;
+  }
+  
+  .tool-item, .checklist-item {
+    margin-bottom: 20px;
+  }
+  
+  .tool-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .blog-conclusion, .blog-ending {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    .header {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .h1 {
+      margin: 0;
+    }
+  
+    .nav-right ul {
+      justify-content: flex-end;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    .blog-content {
+      padding: 40px;
+    }
+  
+    .blog-title {
+      font-size: 36px;
+    }
+  
+    .section-title {
+      font-size: 28px;
+    }
+  }
+
+  .tool-image {
+    max-width: 300px; /* 或者你想要的任何尺寸 */
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto; /* 上下margin 10px，左右自動居中 */
+  }
