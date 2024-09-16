@@ -11,107 +11,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="static/imgs/R.png">
   <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8">
-  <style>
-    /* Post styles */
-    .post-preview {
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #eee;
-    }
-    .post-title a {
-      color: #333;
-      text-decoration: none;
-    }
-    .post-meta {
-      color: #777;
-      font-size: 0.9em;
-    }
-    .post-excerpt {
-      margin-top: 10px;
-    }
-    .read-more {
-      display: inline-block;
-      margin-top: 10px;
-      color: #4CAF50;
-      text-decoration: none;
-    }
-    .read-more:hover {
-      text-decoration: underline;
-    }
-    #loading {
-      text-align: center;
-      font-style: italic;
-      color: #777;
-    }
-
-    /* Animation styles */
-    body {
-      opacity: 1;
-      transition: opacity 0.3s ease-out;
-    }
-    body.fade-out {
-      opacity: 0;
-    }
-    .container {
-      opacity: 0;
-      animation: fadeIn 0.3s ease-out forwards;
-    }
-    .fade-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #f8f9fa;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease-out;
-      z-index: 9999;
-    }
-    .fade-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* Responsive styles */
-    @media (max-width: 768px) {
-      .container {
-        grid-template-rows: auto auto auto auto auto auto auto;
-      }
-      .header {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-      }
-      .h1 {
-        margin: 20px;
-        text-align: center;
-        font-size: 2rem;
-      }
-      .nav-right ul {
-        width: 100%;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .nav-right li {
-        margin: 5px 15px;
-      }
-    }
-    @media (min-width: 993px) {
-  .h1 {
-    font-size: 2.5rem;
-  }
-
-  .contact-form {
-    max-width: 600px;
-  }
-}
-  </style>
 </head>
+
 <body>
   <div class="fade-overlay"></div>
   <div class="container">
@@ -135,24 +36,16 @@
       <h1 class="blog-title">Article</h1>
       <div class="blog-posts">
         <div class="blog-post">
-          <img src="blog1 img/Guitar Maintenance AdobeStock 108627943.jpeg" alt="Guitar maintenance tools" class="post-image">
-          <h2 class="post-title">Guitar Fix Basic tools and checklist</h2>
+          <h2 class="post-title"><a href="article1.html">Guitar Fix Basic tools and checklist</a></h2>
           <p class="post-excerpt">Explore the basic tools and checklist needed for guitar repair, keeping your instrument in top condition.</p>
-          <button class="read-more" onclick="location.href='article1.html'">Read more</button>
         </div>
         <div class="blog-post">
-          <img src="static/imgs/咖啡館菜單 米黃色 深棕色.jpg" alt="Menu image" class="post-image">
-          <h2 class="post-title">Explore Our Delicious Menu</h2>
+          <h2 class="post-title"><a href="menu.html">Explore Our Delicious Menu</a></h2>
           <p class="post-excerpt">Check out our carefully curated selection of delectable dishes to satisfy your taste buds.</p>
-          <button class="read-more" onclick="location.href='menu.html'">View Menu</button>
         </div>
-      </div>
-      <div class="blog-posts">
         <div class="blog-post">
-          <img src="static/imgs/GuitarWorks.jpg" alt="Guitar maintenance tools" class="post-image">
-          <h2 class="post-title">Guitar Fix Price List</h2>
+          <h2 class="post-title"><a href="guitarworks.html">Guitar Fix Price List</a></h2>
           <p class="post-excerpt">Check out our guitar repair price list, including guitar setup, fret repair, and more.</p>
-          <button class="read-more" onclick="location.href='guitarworks.html'">Read more</button>
         </div>
       </div>
     </main>
