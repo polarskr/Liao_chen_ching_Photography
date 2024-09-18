@@ -121,5 +121,31 @@
       </article>
     </main>
   </div>
+  
+  <script>
+    function fadeOutAndNavigate(url) {
+      const overlay = document.querySelector('.fade-overlay');
+      overlay.classList.add('active');
+      setTimeout(() => {
+        window.location.href = url;
+      }, 300);
+    }
+
+    // Add fade-out effect to all links
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.getAttribute('target') !== '_blank') {
+          e.preventDefault();
+          fadeOutAndNavigate(this.href);
+        }
+      });
+    });
+
+    // Fade in the content when the page loads
+    window.addEventListener('load', function() {
+      document.body.classList.remove('fade-out');
+    });
+  </script>
+
 </body>
 </html>
