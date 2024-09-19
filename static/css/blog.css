@@ -4,80 +4,64 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    opacity: 1;
-    transition: opacity 0.3s ease-out;
-}
-
-body.fade-out {
-    opacity: 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+  }
+  
+  .container {
+    max-width: 100%;
     padding: 0 20px;
-    opacity: 0;
-    animation: fadeIn 0.3s ease-out forwards;
-}
-
-.header {
+    box-sizing: border-box;
+  }
+  
+  .header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     padding: 20px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.h1 a {
+  }
+  
+  .h1 {
+    margin: 20px 0;
+    text-align: center;
     font-size: 24px;
+  }
+  
+  .h1 a {
     color: #333;
     text-decoration: none;
-}
-
-.nav-right ul {
+  }
+  
+  .nav-right ul {
     list-style-type: none;
     padding: 0;
     display: flex;
-    align-items: center;
-}
-
-.nav-right li {
-    margin-left: 20px;
-}
-
-.nav-right a {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-right li {
+    margin: 5px 15px;
+  }
+  
+  .nav-right a {
     color: #333;
     text-decoration: none;
-}
+  }
 
-.nav-right li:last-child {
-    margin-left: 20px;
-}
 
-.login-btn {
-    background-color: #c4dfc5;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.login-btn:hover {
-    background-color: #aad2ac;
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
 .blog-post {
-    transition: all 0.3s ease-in-out;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
+    overflow: hidden;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
     animation: fadeInUp 0.5s ease-out forwards;
     opacity: 0;
 }
@@ -87,56 +71,43 @@ body.fade-out {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+.post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 20px;
+}
+
 .post-title {
-    transition: color 0.3s ease;
-    font-size: 24px;
+    font-size: 20px;
+    margin-top: 0;
     margin-bottom: 10px;
 }
 
 .post-title a {
     color: #333;
     text-decoration: none;
-    position: relative;
-    display: inline-block;
-}
-
-.post-title a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #333;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-}
-
-.post-title a:hover::after {
-    visibility: visible;
-    transform: scaleX(1);
-}
-
-.post-meta {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 10px;
-}
-
-.post-excerpt {
-    color: #666;
-    line-height: 1.6;
     transition: color 0.3s ease;
-    margin-bottom: 15px;
 }
 
-.blog-post:hover .post-title {
+.post-title a:hover {
     color: #0066cc;
 }
 
-.blog-post:hover .post-excerpt {
-    color: #333;
+.post-excerpt {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
 }
 
 .fade-overlay {
@@ -183,10 +154,9 @@ body.fade-out {
         align-items: center;
         padding: 20px;
     }
-    .h1 {
-        margin: 20px;
+    .logo {
+        margin-bottom: 20px;
         text-align: center;
-        font-size: 2rem;
     }
     .nav-right ul {
         width: 100%;
@@ -199,7 +169,7 @@ body.fade-out {
 }
 
 @media (min-width: 993px) {
-    .h1 {
+    .logo {
         font-size: 2.5rem;
     }
 }

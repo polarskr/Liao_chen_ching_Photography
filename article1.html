@@ -11,6 +11,7 @@
   <link rel="icon" type="image/x-icon" href="static/imgs/R.png" />
   <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8" />
 </head>
+
 <body>
   <div class="fade-overlay"></div>
   <div class="container">
@@ -29,95 +30,208 @@
       </nav>
     </header>
 
+    <div class="language-switcher">
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="zh-TW">繁體中文</option>
+      </select>
+    </div>
+
     <main class="blog-content">
       <article class="blog-post">
-        <h1 class="blog-title">DIY Guitar Maintenance: Essential Tools and Checklist</h1>
-        <p class="blog-intro">Whether you're a beginner or a seasoned guitarist, knowing how to maintain your instrument is crucial. This guide will introduce you to the basic tools you'll need and provide a simple checklist to keep your guitar in top shape.</p>
+        <h1 class="blog-title" lang="en">DIY Guitar Maintenance: Essential Tools and Checklist</h1>
+        <h1 class="blog-title" lang="zh-TW">DIY吉他保養:必備工具和檢查清單</h1>
+        
+        <p class="blog-intro" lang="en">Whether you're a beginner or a seasoned guitarist, knowing how to maintain your instrument is crucial. This guide will introduce you to the basic tools you'll need and provide a simple checklist to keep your guitar in top shape.</p>
+        <p class="blog-intro" lang="zh-TW">無論您是初學者還是資深吉他手，了解如何保養您的樂器都是至關重要的。本指南將為您介紹所需的基本工具，並提供一個簡單的檢查清單，以保持您的吉他處於最佳狀態。</p>
         
         <section class="tools-section">
-          <h2 class="section-title">Essential Tools</h2>
+          <h2 class="section-title" lang="en">Essential Tools</h2>
+          <h2 class="section-title" lang="zh-TW">必備工具</h2>
+          
           <ol class="tools-list">
             <li class="tool-item">
-              <strong>String winder</strong>: Speeds up the process of changing strings.
+              <strong lang="en">String winder</strong>
+              <strong lang="zh-TW">弦軸扳手</strong>
+              <span lang="en">: Speeds up the process of changing strings.</span>
+              <span lang="zh-TW">：加快更換琴弦的過程。</span>
               <img src="blog1 img/String Winder.png" alt="String winder" class="tool-image">
             </li>
             <li class="tool-item">
-              <strong>Wire cutters</strong>: For trimming excess string after restringing.
+              <strong lang="en">Wire cutters</strong>
+              <strong lang="zh-TW">剪線鉗</strong>
+              <span lang="en">: For trimming excess string after restringing.</span>
+              <span lang="zh-TW">：用於換弦後修剪多餘的琴弦。</span>
               <img src="blog1 img/Wire cutter.png" alt="Wire cutters" class="tool-image">
             </li>
             <li class="tool-item">
-              <strong>Screwdrivers</strong>: Both flathead and Phillips head for adjusting various parts.
+              <strong lang="en">Screwdrivers</strong>
+              <strong lang="zh-TW">螺絲刀</strong>
+              <span lang="en">: Both flathead and Phillips head for adjusting various parts.</span>
+              <span lang="zh-TW">：包括一字和十字螺絲刀，用於調整各種部件。</span>
               <img src="blog1 img/Screwdriver.png" alt="Screwdrivers" class="tool-image">
             </li>
             <li class="tool-item">
-              <strong>Allen wrenches</strong>: For adjusting the truss rod and some bridge systems.
+              <strong lang="en">Allen wrenches</strong>
+              <strong lang="zh-TW">內六角扳手</strong>
+              <span lang="en">: For adjusting the truss rod and some bridge systems.</span>
+              <span lang="zh-TW">：用於調整琴頸調整桿和某些琴橋系統。</span>
               <img src="blog1 img/Allen wrench.png" alt="Allen wrenches" class="tool-image">
             </li>
             <li class="tool-item">
-              <strong>Polishing cloth</strong>: To keep your guitar clean and shiny.
+              <strong lang="en">Polishing cloth</strong>
+              <strong lang="zh-TW">拋光布</strong>
+              <span lang="en">: To keep your guitar clean and shiny.</span>
+              <span lang="zh-TW">：保持您的吉他清潔明亮。</span>
               <img src="blog1 img/Cloth.png" alt="Polishing cloth" class="tool-image">
             </li>
             <li class="tool-item">
-              <strong>Fretboard cleaner</strong>: To maintain the wood of your fretboard.
+              <strong lang="en">Fretboard cleaner</strong>
+              <strong lang="zh-TW">指板清潔劑</strong>
+              <span lang="en">: To maintain the wood of your fretboard.</span>
+              <span lang="zh-TW">：用於保養指板的木質部分。</span>
               <img src="blog1 img/Fretboard Cleaner Main.webp" alt="Fretboard cleaner" class="tool-image">
             </li>
             <li class="tool-item">
-              <strong>Guitar polish</strong>: For cleaning and protecting the body finish.
+              <strong lang="en">Guitar polish</strong>
+              <strong lang="zh-TW">吉他拋光劑</strong>
+              <span lang="en">: For cleaning and protecting the body finish.</span>
+              <span lang="zh-TW">：用於清潔和保護吉他琴身的漆面。</span>
               <img src="blog1 img/Guitar polish.jpg" alt="Guitar polish" class="tool-image">
             </li>
             <li class="tool-item">
-              <strong>Capo</strong>: Useful for checking neck straightness and action.
+              <strong lang="en">Capo</strong>
+              <strong lang="zh-TW">移調夾</strong>
+              <span lang="en">: Useful for checking neck straightness and action.</span>
+              <span lang="zh-TW">：用於檢查琴頸的直度和弦距。</span>
               <img src="blog1 img/dunlop-trigger-capo-electric-guitar-black-p1871-3367_image.jpg" alt="Capo" class="tool-image">
             </li>
             <li class="tool-item">
-              <strong>Tuner</strong>: To ensure your guitar stays in tune.
+              <strong lang="en">Tuner</strong>
+              <strong lang="zh-TW">調音器</strong>
+              <span lang="en">: To ensure your guitar stays in tune.</span>
+              <span lang="zh-TW">：確保您的吉他保持在調。</span>
               <img src="blog1 img/Polytune Tuner Thomann.jpg" alt="Tuner" class="tool-image">
             </li>
             <li class="tool-item">
-              <strong>Action gauge</strong>: For measuring and setting string height.
+              <strong lang="en">Action gauge</strong>
+              <strong lang="zh-TW">弦距尺</strong>
+              <span lang="en">: For measuring and setting string height.</span>
+              <span lang="zh-TW">：用於測量和設置琴弦高度。</span>
               <img src="blog1 img/Action gauge.jpg" alt="Action gauge" class="tool-image">
             </li>
           </ol>
         </section>
 
         <section class="checklist-section">
-          <h2 class="section-title">Maintenance Checklist</h2>
+          <h2 class="section-title" lang="en">Maintenance Checklist</h2>
+          <h2 class="section-title" lang="zh-TW">保養檢查清單</h2>
+          
           <ol class="checklist">
             <li class="checklist-item">
-              <strong>Check tuning stability</strong>: Tune your guitar and play for a few minutes. If it goes out of tune quickly, you may need to look at the nut, bridge, or tuning machines.
+              <strong lang="en">Check tuning stability</strong>
+              <strong lang="zh-TW">檢查調音穩定性</strong>
+              <span lang="en">: Tune your guitar and play for a few minutes. If it goes out of tune quickly, you may need to look at the nut, bridge, or tuning machines.</span>
+              <span lang="zh-TW">：調音後彈奏幾分鐘。如果很快就走音，可能需要檢查琴枕、琴橋或調音旋鈕。</span>
             </li>
             <li class="checklist-item">
-              <strong>Inspect the neck</strong>: Look down the neck from the headstock to check for bowing. A slight forward bow is normal, but too much or back bow needs adjustment.
+              <strong lang="en">Inspect the neck</strong>
+              <strong lang="zh-TW">檢查琴頸</strong>
+              <span lang="en">: Look down the neck from the headstock to check for bowing. A slight forward bow is normal, but too much or back bow needs adjustment.</span>
+              <span lang="zh-TW">：從琴頭向下看琴頸，檢查是否彎曲。輕微的前彎是正常的，但過度前彎或後彎需要調整。</span>
+              <img src="blog1 img/Truss Rod Bow.jpg" alt="Neck" class="tool-image">
             </li>
             <li class="checklist-item">
-              <strong>Check string action</strong>: Measure the distance between the strings and the 12th fret. If it's too high or low, you may need to adjust the bridge or truss rod.
+              <strong lang="en">Check string action</strong>
+              <strong lang="zh-TW">檢查弦距</strong>
+              <span lang="en">: Measure the distance between the strings and the 12th fret. If it's too high or low, you may need to adjust the bridge or truss rod.</span>
+              <span lang="zh-TW">:測量琴弦與第12品之間的距離。如果太高或太低,可能需要調整琴橋或琴頸調整桿。 弦距多少合適</span>
+              <table>
+                <caption lang="en">Ideal String Action (in millimeters)</caption>
+                <caption lang="zh-TW">理想弦距（單位：mm）</caption>
+                <thead>
+                  <tr>
+                    <th lang="en">Action Type</th>
+                    <th lang="zh-TW">弦距類型</th>
+                    <th lang="en">1st String (High E)</th>
+                    <th lang="zh-TW">一弦（高音弦）</th>
+                    <th lang="en">6th String (Low E)</th>
+                    <th lang="zh-TW">六弦（低音弦）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td lang="en">High Action</td>
+                    <td lang="zh-TW">高弦距</td>
+                    <td>2.0</td>
+                    <td>2.4</td>
+                  </tr>
+                  <tr>
+                    <td lang="en">Medium Action (Suitable for most players)</td>
+                    <td lang="zh-TW">中等弦距（適合大多數人）</td>
+                    <td>1.6</td>
+                    <td>1.6 - 2.0</td>
+                  </tr>
+                  <tr>
+                    <td lang="en">Low Action</td>
+                    <td lang="zh-TW">低弦距</td>
+                    <td>0.8 - 1.2</td>
+                    <td>1.2 - 1.6</td>
+                  </tr>
+                </tbody>
+              </table>
+              
             </li>
             <li class="checklist-item">
-              <strong>Examine frets</strong>: Look for uneven or worn frets. If you find any, consider having them leveled by a professional.
+              <strong lang="en">Examine frets</strong>
+              <strong lang="zh-TW">檢查品絲</strong>
+              <span lang="en">: Look for uneven or worn frets. If you find any, consider having them leveled by a professional.</span>
+              <span lang="zh-TW">：查看是否有不平整或磨損的品絲。如果發現任何問題，考慮請專業人士進行調平。</span>
             </li>
             <li class="checklist-item">
-              <strong>Clean the fretboard</strong>: Use a fretboard cleaner and soft cloth to remove dirt and grime, especially when changing strings.
+              <strong lang="en">Clean the fretboard</strong>
+              <strong lang="zh-TW">清潔指板</strong>
+              <span lang="en">: Use a fretboard cleaner and soft cloth to remove dirt and grime, especially when changing strings.</span>
+              <span lang="zh-TW">：使用指板清潔劑和軟布清除污垢，尤其是在更換琴弦時。</span>
             </li>
             <li class="checklist-item">
-              <strong>Polish the body</strong>: Use guitar polish to clean and protect the finish, but be careful around nitrocellulose finishes.
+              <strong lang="en">Polish the body</strong>
+              <strong lang="zh-TW">拋光琴身</strong>
+              <span lang="en">: Use guitar polish to clean and protect the finish, but be careful around nitrocellulose finishes.</span>
+              <span lang="zh-TW">：使用吉他拋光劑清潔和保護漆面，但要小心處理硝基纖維素漆面。</span>
             </li>
             <li class="checklist-item">
-              <strong>Check electronics</strong>: If your guitar is electric, test all the switches, knobs, and output jack for proper function and any crackling sounds.
+              <strong lang="en">Check electronics</strong>
+              <strong lang="zh-TW">檢查電子元件</strong>
+              <span lang="en">: If your guitar is electric, test all the switches, knobs, and output jack for proper function and any crackling sounds.</span>
+              <span lang="zh-TW">：如果是電吉他，測試所有開關、旋鈕和輸出插孔是否正常工作，並檢查是否有雜音。</span>
             </li>
             <li class="checklist-item">
-              <strong>Tighten hardware</strong>: Check and tighten any loose screws on the tuning machines, pickguard, jack plate, etc.
+              <strong lang="en">Tighten hardware</strong>
+              <strong lang="zh-TW">緊固硬件</strong>
+              <span lang="en">: Check and tighten any loose screws on the tuning machines, pickguard, jack plate, etc.</span>
+              <span lang="zh-TW">：檢查並緊固調音旋鈕、護板、插孔板等處的鬆動螺絲。</span>
             </li>
             <li class="checklist-item">
-              <strong>Change strings</strong>: Depending on how often you play, change your strings every few months or when they start to sound dull.
+              <strong lang="en">Change strings</strong>
+              <strong lang="zh-TW">更換琴弦</strong>
+              <span lang="en">: Depending on how often you play, change your strings every few months or when they start to sound dull.</span>
+              <span lang="zh-TW">：根據您的演奏頻率，每隔幾個月或當琴弦聲音變得沉悶時更換。</span>
             </li>
             <li class="checklist-item">
-              <strong>Humidify</strong>: If you live in a dry climate, consider using a humidifier in your guitar case to prevent the wood from cracking.
+              <strong lang="en">Humidify</strong>
+              <strong lang="zh-TW">保濕</strong>
+              <span lang="en">: If you live in a dry climate, consider using a humidifier in your guitar case to prevent the wood from cracking.</span>
+              <span lang="zh-TW">：如果您居住在乾燥的氣候中，考慮在吉他盒中使用加濕器以防止木材開裂。</span>
             </li>
           </ol>
         </section>
 
-        <p class="blog-conclusion">By following this checklist and using these tools regularly, you'll keep your guitar playing and sounding its best. Remember, if you're unsure about any adjustments, especially truss rod changes, it's always best to consult a professional luthier.</p>
-        <p class="blog-ending">Happy playing!</p>
+        <p class="blog-conclusion" lang="en">By following this checklist and using these tools regularly, you'll keep your guitar playing and sounding its best. Remember, if you're unsure about any adjustments, especially truss rod changes, it's always best to consult a professional luthier.</p>
+        <p class="blog-conclusion" lang="zh-TW">通過定期遵循此檢查清單並使用這些工具，您可以保持吉他的最佳演奏狀態和音色。請記住，如果您對任何調整不確定，特別是琴頸調整桿的變化，最好諮詢專業的琴匠。</p>
+        
+        <p class="blog-ending" lang="en">Happy playing!</p>
+        <p class="blog-ending" lang="zh-TW">祝您彈奏愉快！</p>
       </article>
     </main>
   </div>
@@ -145,7 +259,27 @@
     window.addEventListener('load', function() {
       document.body.classList.remove('fade-out');
     });
-  </script>
 
+    // Language switcher functionality
+    const languageSelect = document.getElementById('languageSelect');
+    
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[lang]').forEach(elem => {
+        if (elem.lang === lang) {
+          elem.classList.add('active');
+        } else {
+          elem.classList.remove('active');
+        }
+      });
+    }
+
+    languageSelect.addEventListener('change', function() {
+      setLanguage(this.value);
+    });
+
+    // 初始設置語言
+    setLanguage('en');
+  </script>
 </body>
 </html>
