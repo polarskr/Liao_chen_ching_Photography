@@ -1,0 +1,44 @@
+.
+├── 2023.html
+├── CNAME
+├── README.md
+├── about me.html
+├── admin
+│   ├── config.yml
+│   └── index.html
+├── article1_GuitarCheckList.html
+├── article2_ChangeString.html
+├── article3_Menu.html
+├── article4_GuitarWorks.html
+├── article5_GuitarString.html
+├── article6_Lex_fridman_with_Ray_dalio.html
+├── blog 5 img
+│   └── Flatwound strings image.jpeg
+├── blog.html
+├── blog1 img
+│   ├── Action Gauge.jpg
+│   ├── Allen wrench.png
+│   ├── Cloth.png
+│   ├── Fretboard Cleaner Main.webp
+│   ├── Guitar Maintenance AdobeStock 108627943.jpeg
+│   ├── Guitar polish.jpg
+│   ├── Polytune Tuner Thomann.jpg
+│   ├── Screwdriver.png
+│   ├── String Winder.png
+│   ├── Truss Rod Bow.jpg
+│   ├── Wire cutter.png
+│   ├── dunlop-trigger-capo-electric-guitar-black-p1871-3367_image.jpg
+│   ├── gradient1.png
+│   ├── gradient2.png
+│   ├── gradient3.png
+│   └── gradient4.png
+├── contact.html
+├── index.html
+├── itory-urlgit remote add origin repository-url
+├── project_structure.txt
+└── static
+    ├── css
+    ├── imgs
+    └── js
+
+8 directories, 34 files
