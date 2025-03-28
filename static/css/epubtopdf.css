@@ -1,0 +1,77 @@
+html, body {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+    scroll-behavior:smooth;
+  }
+  
+  body {
+    transition: opacity 0.3s ease;
+  }
+  
+  body.fade-out {
+    opacity: 0;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+  }
+  
+  .h1 {
+    font-family: "Bodoni 11", serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .h1 a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .nav-right ul {
+    font-family: "Courier New", monospace;
+    display: flex;
+    list-style: none;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-right li {
+    margin-left: 30px;
+  }
+  
+  .nav-right li a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-right li a:hover {
+    color: blue;
+  }
+
+
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-family: "Courier New", Courier, monospace;
+  }
