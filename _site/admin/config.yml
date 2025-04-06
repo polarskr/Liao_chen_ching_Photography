@@ -1,0 +1,48 @@
+backend:
+  name: github # 使用 GitHub 作為後端
+  repo: polarskr/Liao_chen_ching_Photography # !! 你的 GitHub Repo 路徑 !!
+  branch: main # 你主要內容所在的分支 (通常是 main 或 master)
+
+
+media_folder: "assets/images/uploads" # 上傳的圖片儲存到這裡
+public_folder: "/assets/images/uploads" # 在 Markdown 中引用圖片時的路徑前綴
+
+collections: # 定義你可以管理的內容
+  - name: "blog" # 後台顯示的名稱
+    label: "部落格文章" # 後台顯示的標籤
+    folder: "_posts" # 對應的資料夾
+    create: true # 允許在後台創建新文章
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # 新文章的檔名格式
+    fields: # 定義文章的可編輯欄位
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" } # 隱藏欄位，預設 layout
+      - { label: "標題", name: "title", widget: "string" }
+      - { label: "發布日期", name: "date", widget: "datetime" }
+      - { label: "分類", name: "categories", widget: "list", required: false }
+      - { label: "標籤", name: "tags", widget: "list", required: false }
+      - { label: "內文", name: "body", widget: "markdown" }
+
+  - name: "portfolio"
+    label: "作品集項目"
+    folder: "_portfolio"
+    create: true
+    slug: "{{slug}}" # 作品檔名，可以用標題自動生成
+    fields:
+      # - { label: "Layout", name: "layout", widget: "hidden", default: "page" } # 如果有獨立頁面 layout
+      - { label: "標題", name: "title", widget: "string" }
+      - { label: "主要圖片", name: "image", widget: "image" }
+      - { label: "分類", name: "category", widget: "string", required: false }
+      - { label: "日期", name: "date", widget: "date", format: "YYYY-MM-DD", required: false }
+      - { label: "描述", name: "description", widget: "text", required: false }
+      - { label: "詳細說明 (可選)", name: "body", widget: "markdown", required: false } # 如果有獨立頁面
+
+  # 如果你的 About 頁面也想用 CMS 管理，可以這樣加：
+  - name: "pages"
+    label: "頁面管理"
+    files: # 管理單一檔案
+      - label: "關於頁面"
+        name: "about"
+        file: "about.md" # 對應的檔案
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+          - { label: "標題", name: "title", widget: "string" }
+          - { label: "內文", name: "body", widget: "markdown" }

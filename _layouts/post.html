@@ -1,0 +1,17 @@
+---
+layout: default # 指定使用 default.html 作為基礎模板
+---
+<article>
+    <h2>{{ page.title }}</h2>
+    <p class="post-meta">
+        發布於 {{ page.date | date: "%Y-%m-%d" }}
+        {% if page.categories.size > 0 %}
+        | 分類: {{ page.categories | join: ', ' }}
+        {% endif %}
+        {% if page.tags.size > 0 %}
+        | 標籤: {{ page.tags | join: ', ' }}
+        {% endif %}
+    </p>
+    <hr>
+    {{ content }} <!-- 文章的 Markdown 內容會在這裡顯示 -->
+</article>

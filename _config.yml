@@ -1,0 +1,49 @@
+title: Liao ChenChing # 你的網站標題
+description: RalphLiao的網站,有很多好看的東西 # 你的網站描述
+url: "https://ralphliao.xyz" # 你的最終網址
+baseurl: "" # GitHub Pages 通常留空
+
+# Markdown 處理器
+markdown: kramdown
+kramdown:
+  input: GFM # 啟用 GitHub Flavored Markdown
+  syntax_highlighter: rouge
+
+# 插件 (如果需要 SEO Tag 等)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections (如果你決定用 _portfolio 而不是 _posts)
+# collections:
+#   portfolio:
+#     output: true
+#     permalink: /portfolio/:path/
+
+# 設定預設 Front Matter (可選, 但方便)
+defaults:
+  - scope:
+      path: "" # 應用於所有檔案
+      type: "posts" # 應用於 _posts 資料夾
+    values:
+      layout: "post" # 文章預設使用 post layout
+  - scope:
+      path: ""
+      type: "pages" # 應用於根目錄的 .md 或 .html 檔案 (不含 _* 資料夾)
+    values:
+      layout: "page" # 頁面預設使用 page layout
+
+# Exclude from processing (避免 Jekyll 處理 node_modules 等)
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+collections:
+  portfolio:
+    output: true # 讓 Jekyll 為每個 portfolio 項目生成頁面
+    permalink: /portfolio/:path/ # 可選：定義作品頁面的 URL 格式

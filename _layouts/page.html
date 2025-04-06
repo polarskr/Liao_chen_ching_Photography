@@ -1,0 +1,15 @@
+---
+# 告訴 Jekyll 這個佈局本身要嵌套在 default.html 佈局中
+layout: default
+---
+
+<!-- page.html：定義一般頁面的基本結構 -->
+<article class="page-content">
+
+  <!-- 可選：顯示頁面標題 (來自 Markdown 的 Front Matter) -->
+  <h1 class="page-title">{{ page.title }}</h1>
+
+  <!-- 這裡會插入來自具體 Markdown 頁面 (如 about.md) 的內容 -->
+  {{ content }}
+
+</article>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta name="keywords" content="RalphLiao, Photography, {{ page.tags | join: ', ' }}">
+  <title>{{ page.title | default: site.title | escape }}</title>
+
+  <!-- 本地 CSS -->
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+
+  <!-- Font Awesome CDN with SRI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Lightbox2 CSS CDN with SRI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
+        integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9KRJXxDLMgxSiva+wdGIz2ZQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Bodoni Font (通常字體服務不提供標準 SRI，保持原樣) -->
+  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{{ "assets/images/main img/R.PNG" | relative_url }}">
+
+  <!-- Jekyll SEO Tag -->
+  {% seo %}
+
+</head>
+
+<body class="{{ page.body_class }}">
+
+  <div id="overlay"></div>
+
+  <div class="container {{ page.container_class }}">
+
+    <header class="header">
+      <h1 class="h1">
+        <a href="{{ "/" | relative_url }}">Liao ChenChing</a>
+      </h1>
+      <nav class="nav-right">
+        <ul>
+          <li><a href="https://www.youtube.com/channel/UCPurBYw_me-f-qJwwO2UnPg" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="https://www.instagram.com/polarskr/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="{{ "/2023/" | relative_url }}">2023.</a></li>
+          <li><a href="{{ "/blog/" | relative_url }}">Article.</a></li>
+          <li><a href="{{ "/about/" | relative_url }}">About.</a></li>
+          <li><a href="{{ "/contact/" | relative_url }}"><i class="fa-solid fa-envelope"></i></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="{{ page.main_class }}">
+      {{ content }}
+    </main>
+
+    <footer class="footer">
+      <p>© {{ site.time | date: '%Y' }} Ralph Liao</p>
+    </footer>
+
+  </div> <!-- --- 結束 .container --- -->
+
+  <!-- Lightbox2 JS (+jQuery) CDN with SRI -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"
+          integrity="sha512-GyrJqJ3prCb8DU9TYZFnSpm9FfaiOzYAQ/)+flkySs8gCQPh8CtNLbD5oL1f/Ni0MBLGHMNbxBITPmOAOQGauQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- 自定義 JS -->
+  <script>
+    // 你的淡入淡出效果 JavaScript 保持不變
+    window.addEventListener('load', function() {
+      const overlay = document.getElementById('overlay');
+      const container = document.querySelector('.container');
+
+      if (overlay && container) {
+        setTimeout(() => {
+          overlay.style.opacity = '0';
+          container.style.opacity = '1';
+
+          setTimeout(() => {
+            overlay.style.display = 'none';
+          }, 300);
+        }, 100);
+      } else {
+        // console.error('Overlay or container element not found');
+      }
+    });
+
+    function fadeOutAndNavigate(url) {
+      document.body.classList.add('fade-out'); // 確保你有 .fade-out 的 CSS 樣式
+      setTimeout(() => {
+        window.location.href = url;
+      }, 300); // 與 CSS 過渡時間匹配
+    }
+
+    // Add fade-out effect to internal links (excluding lightbox and external links)
+    document.querySelectorAll('a').forEach(link => {
+      const isAnchor = link.getAttribute('href') && link.getAttribute('href').startsWith('#');
+      const isDownload = link.hasAttribute('download');
+      const href = link.getAttribute('href');
+      const isMailOrTel = href && (href.startsWith('mailto:') || href.startsWith('tel:'));
+
+      if (!link.getAttribute('target') && !link.getAttribute('data-lightbox') && !isAnchor && !isDownload && !isMailOrTel) {
+          link.addEventListener('click', function(e) {
+              e.preventDefault();
+              fadeOutAndNavigate(this.href);
+          });
+      }
+    });
+  </script>
+
+</body>
+</html>
