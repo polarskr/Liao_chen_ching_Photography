@@ -1,8 +1,6 @@
 ---
-layout: page # 使用 _layouts/page.html 作為模板
-title: Contact # 頁面標題
-# 這個頁面比較簡單，可能不需要特定的 body 或 main class，
-# 因為 .contact-form class 已經足夠特定了。
+layout: page 
+title: Contact me
 ---
 
 <!-- 直接從舊 contact.html 複製過來的表單 HTML -->

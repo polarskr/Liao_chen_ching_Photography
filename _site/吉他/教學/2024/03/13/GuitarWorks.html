@@ -1,32 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="TW"> <!-- 考慮改為 'zh-TW' 或你的主要語言 -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guitar workshop menu</title>
   <meta name="description" content="Hello!">
   <meta name="keywords" content="RalphLiao, Photography, 維護, 清單">
-  <title>Guitar workshop menu</title>
-
-  <!-- 本地 CSS -->
   <link rel="stylesheet" href="/assets/css/main.css">
-
-  <!-- Font Awesome CDN with SRI -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Lightbox2 CSS CDN with SRI -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
         integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9KRJXxDLMgxSiva+wdGIz2ZQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Bodoni Font (通常字體服務不提供標準 SRI，保持原樣) -->
   <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8">
 
-  <!-- Favicon -->
+  <!-- ===== Favicon ===== -->
   <link rel="icon" type="image/x-icon" href="/assets/images/main%20img/R.PNG">
 
-  <!-- Jekyll SEO Tag -->
+  <!-- ===== Jekyll SEO Tag Plugin Output ===== -->
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Guitar workshop menu | Liao ChenChing</title>
 <meta name="generator" content="Jekyll v3.10.0" />
@@ -50,30 +42,35 @@
 
 </head>
 
-<body class="">
+<body class=""> <!-- Per-page body class -->
 
+  <!-- ===== Page Transition Overlay ===== -->
   <div id="overlay"></div>
 
-  <div class="container ">
+  <!-- ===== Main Page Container ===== -->
+  <div class="container "> <!-- Per-page container class -->
 
-    <header class="header">
-      <h1 class="h1">
+    <!-- ===== Header ===== -->
+    <header class="header" role="banner">
+      <h1 class="h1 site-title-heading"> <!-- Added class for clarity -->
         <a href="/">Liao ChenChing</a>
       </h1>
-      <nav class="nav-right">
+      <nav class="nav-right main-navigation" aria-label="Main Navigation"> <!-- Added class and aria-label -->
         <ul>
-          <li><a href="https://www.youtube.com/channel/UCPurBYw_me-f-qJwwO2UnPg" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a></li>
-          <li><a href="https://www.instagram.com/polarskr/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a></li>
-          <li><a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCPurBYw_me-f-qJwwO2UnPg" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="https://www.instagram.com/polarskr/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></li>
           <li><a href="/2023/">2023.</a></li>
           <li><a href="/blog/">Article.</a></li>
           <li><a href="/about/">About.</a></li>
-          <li><a href="/contact/"><i class="fa-solid fa-envelope"></i></a></li>
+          <li><a href="/contact/" aria-label="Contact"><i class="fa-solid fa-envelope"></i></a></li>
         </ul>
       </nav>
     </header>
+    <!-- ===== End Header ===== -->
 
-    <main class="">
+    <!-- ===== Main Content Area ===== -->
+    <main class="main-content " role="main"> <!-- Per-page main class -->
       <article>
     <h2>Guitar workshop menu</h2>
     <p class="post-meta">
@@ -92,24 +89,30 @@
 
 <p><img src="/assets/images/main img/GuitarWorks.JPG" alt="Menu" /></p>
  <!-- 文章的 Markdown 內容會在這裡顯示 -->
-</article>
+</article> <!-- Jekyll renders page/post content here -->
     </main>
+    <!-- ===== End Main Content Area ===== -->
 
-    <footer class="footer">
-      <p>© 2025 Ralph Liao</p>
+    <!-- ===== Footer ===== -->
+    <footer class="footer" role="contentinfo">
+      <p>© 2025 Ralph Liao</p> <!-- Use 'now' for current year -->
     </footer>
+    <!-- ===== End Footer ===== -->
 
-  </div> <!-- --- 結束 .container --- -->
+  </div> <!-- ===== End .container ===== -->
 
+  <!-- ===== JavaScript ===== -->
   <!-- Lightbox2 JS (+jQuery) CDN with SRI -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"
           integrity="sha512-GyrJqJ3prCb8DU9TYZFnSpm9FfaiOzYAQ/)+flkySs8gCQPh8CtNLbD5oL1f/Ni0MBLGHMNbxBITPmOAOQGauQ=="
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <!-- 自定義 JS -->
+  <!-- Custom JavaScript -->
   <script>
-    // 你的淡入淡出效果 JavaScript 保持不變
-    window.addEventListener('load', function() {
+    // Wrap all custom JS in a DOMContentLoaded listener to ensure the page is ready
+    document.addEventListener('DOMContentLoaded', function() {
+
+      // --- Page Load Fade-In Effect ---
       const overlay = document.getElementById('overlay');
       const container = document.querySelector('.container');
 
@@ -117,38 +120,98 @@
         setTimeout(() => {
           overlay.style.opacity = '0';
           container.style.opacity = '1';
-
           setTimeout(() => {
             overlay.style.display = 'none';
-          }, 300);
+          }, 300); // Match CSS transition duration
         }, 100);
       } else {
-        // console.error('Overlay or container element not found');
+        console.warn('Overlay or container element not found for initial fade-in.');
       }
-    });
 
-    function fadeOutAndNavigate(url) {
-      document.body.classList.add('fade-out'); // 確保你有 .fade-out 的 CSS 樣式
-      setTimeout(() => {
-        window.location.href = url;
-      }, 300); // 與 CSS 過渡時間匹配
-    }
+      // --- Navigation Fade-Out Effect ---
+      function fadeOutAndNavigate(url) {
+        // Ensure the fade-out class is defined in your CSS
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = url;
+        }, 300); // Match CSS transition duration
+      }
 
-    // Add fade-out effect to internal links (excluding lightbox and external links)
-    document.querySelectorAll('a').forEach(link => {
-      const isAnchor = link.getAttribute('href') && link.getAttribute('href').startsWith('#');
-      const isDownload = link.hasAttribute('download');
-      const href = link.getAttribute('href');
-      const isMailOrTel = href && (href.startsWith('mailto:') || href.startsWith('tel:'));
+      // Attach fade-out to internal links only
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        const target = link.getAttribute('target');
+        const isLightbox = link.hasAttribute('data-lightbox');
+        const isAnchor = href && href.startsWith('#');
+        const isDownload = link.hasAttribute('download');
+        const isMailOrTel = href && (href.startsWith('mailto:') || href.startsWith('tel:'));
 
-      if (!link.getAttribute('target') && !link.getAttribute('data-lightbox') && !isAnchor && !isDownload && !isMailOrTel) {
-          link.addEventListener('click', function(e) {
-              e.preventDefault();
-              fadeOutAndNavigate(this.href);
+        // Apply only if it's an internal link without special behaviors
+        if (href && !isLightbox && !isAnchor && !isDownload && !isMailOrTel && (!target || target === '_self')) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent immediate navigation
+                fadeOutAndNavigate(this.href);
+            });
+        }
+      });
+
+      // --- PP Mobler Style Image Slider Logic ---
+      const sliders = document.querySelectorAll('.image-slider.pp-slider');
+
+      sliders.forEach(slider => {
+        const imagesContainer = slider.querySelector('.slider-images');
+        const images = slider.querySelectorAll('.slider-image');
+        const dotsContainer = slider.querySelector('.slider-dots');
+        const dots = slider.querySelectorAll('.slider-dot');
+
+        // Basic validation
+        if (!imagesContainer || !dotsContainer || images.length === 0 || images.length !== dots.length) {
+          console.warn('Slider setup error: Elements missing or mismatched.', slider);
+          return; // Skip this slider if structure is wrong
+        }
+
+        let currentSlideIndex = 0; // Assumes first slide has 'active' class in HTML
+
+        function showSlide(indexToShow) {
+          // Boundary and redundancy check
+          if (indexToShow < 0 || indexToShow >= images.length || indexToShow === currentSlideIndex) {
+            return;
+          }
+
+          images[currentSlideIndex].classList.remove('active');
+          dots[currentSlideIndex].classList.remove('active');
+
+          images[indexToShow].classList.add('active');
+          dots[indexToShow].classList.add('active');
+
+          currentSlideIndex = indexToShow;
+        }
+
+        // Dot click handler
+        if (dotsContainer) {
+          dotsContainer.addEventListener('click', function(event) {
+            if (event.target.classList.contains('slider-dot')) {
+              const targetIndex = parseInt(event.target.dataset.slideIndex, 10);
+              if (!isNaN(targetIndex)) {
+                showSlide(targetIndex);
+              }
+            }
           });
-      }
-    });
+        }
+
+        // Image click handler (advances to next slide)
+        if (imagesContainer) {
+          imagesContainer.addEventListener('click', function(event) {
+            // Advance slide when the image area is clicked
+             let nextIndex = (currentSlideIndex + 1) % images.length; // Wrap around
+             showSlide(nextIndex);
+          });
+        }
+      }); // End forEach slider
+
+    }); // End DOMContentLoaded listener
   </script>
+  <!-- ===== End JavaScript ===== -->
 
 </body>
 </html>

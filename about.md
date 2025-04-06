@@ -1,10 +1,8 @@
 ---
-layout: page # <-- 指定使用我們剛創建的 page.html 佈局
+layout: default
 title: About
-body_class: layout-about-page # <-- 這個 Class 用來在 main.css 中限定 About 頁面的特定樣式
+body_class: layout-about-page 
 ---
-
-
 
 <section class="intro">
   <h2 class="section-title">INFO</h2>
