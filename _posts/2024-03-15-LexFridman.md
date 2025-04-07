@@ -1,10 +1,11 @@
 ---
 layout: post 
-title: "Lex Fridman: 金錢、權力與帝國的興衰：從歷史看當前世界秩序" 
+title: "Ray Dalio 深度訪談：金錢、權力、帝國興衰與世界新秩序 (Lex Fridman 筆記)"
+description: "深入解析 Ray Dalio 在 Lex Fridman 訪談中關於大週期、中美競爭、比特幣與歷史模式的洞見。理解金錢與權力的交互作用，以及它們如何塑造當前世界秩序。" # 新增的描述
 date: 2024-03-15 10:00:00 +0800
-categories: [訪談筆記, 經濟, 歷史]
-tags: [訪談筆記, 經濟, 歷史]
-image: /assets/images/blog1 img/gradient5.png
+categories: [訪談筆記, 經濟, 歷史, RayDalio] # 考慮加入更具體的分類
+tags: [Ray Dalio, Lex Fridman, 大週期, 世界秩序, 中美關係, 比特幣, 經濟史, 投資哲學] # 使用更具體、搜尋量可能更高的標籤
+image: /assets/images/blog 5 img/RayDalio_lexfridman.png 
 ---
 
 ![Ray Dalio 與 Lex Fridman](/assets/images/blog 5 img/RayDalio_lexfridman.png)
