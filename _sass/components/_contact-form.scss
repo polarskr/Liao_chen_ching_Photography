@@ -1,0 +1,238 @@
+/* --- Contact Form Styles --- */
+.contact-form {
+  background: $color-white; // 使用變數
+  padding: ($spacing-unit * 2); // 使用變數
+  border-radius: $border-radius-medium; // 使用變數
+  box-shadow: 0 0 $spacing-unit $color-shadow; // 使用變數
+  width: 100%;
+  max-width: 500px;
+  margin: ($spacing-unit * 4) auto; // 使用變數
+  font-family: $font-serif; // 使用變數
+  transition: all 0.3s ease;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: ($spacing-unit * 2); // 使用變數
+    color: $color-text-primary; // 使用變數
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    margin-bottom: $spacing-unit; // 使用變數
+    color: $color-text-secondary; // 使用變數
+  }
+
+  %input-textarea-shared {
+    width: 100%;
+    padding: $spacing-unit; // 使用變數
+    margin-bottom: ($spacing-unit * 2); // 使用變數
+    border: 1px solid $color-border; // 使用變數
+    border-radius: $border-radius-small; // 使用變數
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+    &:focus {
+        border-color: $color-primary; // 使用變數
+        outline: none;
+        box-shadow: 0 0 5px rgba($color-primary, 0.5); // 使用變數
+    }
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    @extend %input-textarea-shared;
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  button {
+    font-family: $font-mono; // 使用變數
+    background-color: $color-primary; // 使用變數
+    color: $color-white; // 使用變數
+    border: none;
+    cursor: pointer;
+    padding: ($spacing-unit * 1.2); // 使用變數
+    font-size: 16px;
+    border-radius: $border-radius-large; // 使用變數
+    width: 100%;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    appearance: none;
+
+    &:hover {
+      background-color: $color-primary-darker; // 使用變數
+      transform: scale(1.02);
+    }
+    &:focus {
+        outline: none;
+        background-color: $color-primary-darker; // 使用變數
+        box-shadow: 0 0 0 3px rgba($color-primary, 0.4); // 使用變數
+        transform: scale(1.02);
+    }
+  }
+}
+
+
+/* ==========================================================================
+   7. 媒體查詢 (Media Queries) - 採用 Mobile First (min-width)
+   ========================================================================== */
+
+/* --- Base styles (Mobile First - 適用於所有尺寸，除非被後面的 media query 覆蓋) --- */
+.header {
+  display: flex; // 假設基礎是 flex
+  flex-direction: column; // 手機垂直排列
+  align-items: center;
+  padding: 20px;
+}
+.h1 { /* .site-title */
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem;
+}
+.nav-right ul { /* .main-nav ul */
+  display: flex; // 確保是 flex 容器
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.nav-right li { /* .main-nav li */
+  margin: 5px 15px;
+}
+.gallery {
+  display: grid; // 假設基礎是 grid
+  // 預設可能是 1fr，或者由 auto-fit/auto-fill 控制
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); // Mobile First: 預設就允許自動調整
+  gap: 20px; // 手機上的 gap
+}
+.intro-word h2 {
+  font-size: 1.3rem;
+}
+main.layout-photo-grid {
+  display: grid; // 假設基礎是 grid
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); // Mobile First: 預設就允許自動調整
+  gap: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+body.layout-about-page .education-content,
+body.layout-about-page .info-content,
+body.layout-about-page .things_i_love_do-content {
+  display: flex; // 假設基礎是 flex
+  flex-direction: column; // 手機垂直
+}
+body.layout-about-page .education-text,
+body.layout-about-page .info-text {
+  padding-right: 0; // 手機不需要右邊距
+  margin-bottom: 30px;
+}
+body.layout-about-page .education-image,
+body.layout-about-page .things_i_love_do_image {
+  max-width: 100%;
+}
+.contact-form {
+    // 基礎樣式中已有 max-width: 500px; margin: 40px auto;
+    // 在手機上可能需要調整邊距或寬度
+    width: 90%; // 手機上佔滿寬度的 90%
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+
+/* --- 7.1 Medium screens (平板及以上) --- */
+@media (min-width: $bp-small + 1) { // 769px and up
+  .header {
+    flex-direction: row; // 平板變水平
+    justify-content: space-between; // 左右對齊
+    align-items: center; // 垂直居中
+    padding: 20px 40px; // 增加左右 padding
+  }
+  .h1 { /* .site-title */
+    margin-bottom: 0; // 水平排列後不需要底部邊距
+    text-align: left; // 靠左
+    font-size: 2.25rem; // 稍微放大
+  }
+  .nav-right ul { /* .main-nav ul */
+    width: auto; // 不需要佔滿寬度
+    justify-content: flex-end; // 靠右
+  }
+  .nav-right li { /* .main-nav li */
+    margin: 0 0 0 25px; // 只留左邊距
+  }
+
+  .gallery {
+    gap: 30px; // 稍微加大 gap
+    // grid-template-columns 通常不需要改，auto-fit 會處理
+  }
+
+  .intro-word h2 {
+     font-size: 1.5rem; // 稍微放大
+  }
+
+  main.layout-photo-grid {
+    gap: 20px; // 稍微加大 gap
+    padding-left: 30px;
+    padding-right: 30px;
+    // grid-template-columns 通常不需要改，auto-fit 會處理
+  }
+
+  body.layout-about-page .education-content,
+  body.layout-about-page .info-content,
+  body.layout-about-page .things_i_love_do-content {
+    flex-direction: row; // 恢復水平排列
+    align-items: center; // 垂直居中
+  }
+  body.layout-about-page .education-text,
+  body.layout-about-page .info-text {
+    flex: 1; // 佔用可用空間
+    padding-right: 30px; // 恢復右邊距
+    margin-bottom: 0; // 移除底部邊距
+  }
+  body.layout-about-page .education-image {
+    max-width: 40%; // 限制圖片寬度
+  }
+   body.layout-about-page .things_i_love_do_image {
+    max-width: 50%; // 限制圖片寬度
+   }
+
+  .contact-form {
+    width: 100%; // 恢復 100%，讓 max-width 生效
+    max-width: 600px; // 中等螢幕限制最大寬度
+    padding: 25px; // 加大 padding
+    margin-top: 40px; // 恢復上下邊距
+    margin-bottom: 40px;
+  }
+}
+
+
+/* --- 7.2 Large screens (桌面) --- */
+@media (min-width: $bp-medium + 1) { // 993px and up
+  .h1 { /* .site-title */
+    font-size: 2.5rem; // 再次放大
+  }
+  .gallery {
+     gap: 40px; // 再加大 gap
+  }
+   main.layout-photo-grid {
+    gap: 25px; // 再加大 gap
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  body.layout-about-page .education-text,
+  body.layout-about-page .info-text {
+    padding-right: 50px; // 加大間距
+  }
+  .contact-form {
+    max-width: 600px; // 維持或稍微再調整
+    padding: 30px;
+  }
+  /* 其他大型螢幕需要的調整... */
+}

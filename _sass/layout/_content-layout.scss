@@ -1,0 +1,7 @@
+      /* 單篇文章/簡單頁面內容佈局 (示例) */
+      .layout-post-content,
+      .layout-page-content { /* 可以給 page.html 的 article 加 class */
+        max-width: 800px; /* 限制內容寬度 */
+        margin-left: auto;
+        margin-right: auto;
+      }

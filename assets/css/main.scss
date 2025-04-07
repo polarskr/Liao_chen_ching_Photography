@@ -1,0 +1,33 @@
+---
+---
+
+// 0. 全域變數 (Variables - MUST BE FIRST!)
+@import 'variables'; // 假設 _variables.scss 在 _sass/ 目錄下
+
+// 1. 基礎樣式 (Base)
+@import 'base/reset';
+@import 'base/animations'; // 如果動畫需要全局可用，早點導入
+@import 'base/typography';
+
+// 2. 佈局 (Layout)
+@import 'layout/container';
+@import 'layout/main';
+@import 'layout/content-layout';
+
+// 3. 可重用組件 (Components)
+@import 'components/header';
+@import 'components/navigation';
+@import 'components/footer';
+@import 'components/gallery';
+@import 'components/photo-grid';
+@import 'components/contact-form'; // <- 確保這裡匯入了 contact-form
+@import 'components/blog-card';
+@import 'components/image-slider';
+@import 'components/featured-grid';
+@import 'components/overlay';
+
+// 4. 特定頁面樣式 (Pages)
+@import 'pages/about';
+
+// 5. 工具類 (Utilities)
+// @import 'utilities/spacing';

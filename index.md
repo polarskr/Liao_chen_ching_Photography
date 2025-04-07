@@ -1,8 +1,7 @@
 ---
-layout: default # 指定使用 _layouts/default.html 作為基礎模板
-title: Home # 頁面標題 (會顯示在瀏覽器分頁)
-# 你可以根據需要取消註解 main_class
-# main_class: homepage-content
+layout: default
+title: 首頁 | Liao ChenChing Photography & Insights 
+description: 探索攝影師 Liao ChenChing (Ralph Liao) 的精選作品集，並一窺他對美學、投資及多元生活的獨特見解與最新文章。
 ---
 
 
@@ -22,7 +21,6 @@ title: Home # 頁面標題 (會顯示在瀏覽器分頁)
     <img src="{{ "/assets/images/main img/Chair.webp" | relative_url }}" alt="Modern Chair" class="slider-image" data-slide-index="3" loading="lazy">
     <!--
       <img src="{{ "/assets/images/main img/your_fifth_image.jpg" | relative_url }}" alt="Description" class="slider-image" data-slide-index="4" loading="lazy">
-      如果需要，繼續添加更多圖片
     -->
   </div>
 

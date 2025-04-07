@@ -1,0 +1,96 @@
+
+  /* --- Blog Grid Layout --- */
+  .blog-grid {
+    display: grid;
+    /* 創建響應式網格：
+       - auto-fit: 自動決定放多少列
+       - minmax(300px, 1fr): 每列最小寬度300px，最大自動填充 (1fr)
+    */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* 卡片之間的間距 */
+    padding: 20px 0; /* 網格上下留白 */
+    list-style: none; /* 移除可能的列表樣式 */
+    margin: 0;
+  }
+  
+  /* --- Card Styling --- */
+  .blog-post.card {
+    background-color: #fff; /* 卡片背景色 */
+    border: 1px solid #eaeaea; /* 淺灰色邊框 */
+    border-radius: 8px; /* 圓角 */
+    overflow: hidden; /* 確保圖片圓角生效 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* 細微陰影 */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* 添加懸停效果過渡 */
+    display: flex; /* 使用 Flexbox 讓內容垂直排列 */
+    flex-direction: column; /* 設置為主軸垂直 */
+  }
+  
+  .blog-post.card:hover {
+    transform: translateY(-5px); /* 懸停時輕微上移 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); /* 懸停時陰影加深 */
+  }
+  
+  /* --- Card Image --- */
+  .blog-post.card .post-image {
+    width: 100%; /* 圖片寬度充滿卡片 */
+    height: 200px; /* 設置一個固定的圖片高度 (根據需要調整) */
+    object-fit: cover; /* 圖片覆蓋區域，保持比例，多餘部分裁剪 */
+    display: block; /* 避免圖片下方有多餘空隙 */
+    border-bottom: 1px solid #eaeaea; /* 圖片下方加條線分隔 */
+  }
+  
+  /* 如果文章沒有圖片，卡片也能保持一致性 */
+  .blog-post.card:not(:has(.post-image)) .post-content {
+    /* 如果需要，可以為沒有圖片的卡片添加特定樣式，例如更多內邊距 */
+    /* padding-top: 30px; */
+  }
+  
+  
+  /* --- Card Content Area --- */
+  .blog-post.card .post-content {
+    padding: 20px; /* 卡片文字內容的內邊距 */
+    flex-grow: 1; /* 讓內容區填滿卡片剩餘空間 (如果卡片高度不一致) */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* --- Card Title --- */
+  .blog-post.card .post-title {
+    margin-top: 0;
+    margin-bottom: 0.75em; /* 標題和摘要之間的間距 */
+    font-size: 1.3em; /* 調整標題大小 */
+    line-height: 1.3;
+  }
+  
+  .blog-post.card .post-title a {
+    text-decoration: none; /* 移除標題鏈接下劃線 */
+    color: #333; /* 標題顏色 */
+    transition: color 0.2s ease;
+  }
+  
+  .blog-post.card .post-title a:hover {
+    color: #007bff; /* 標題懸停顏色 */
+  }
+  
+  /* --- Card Excerpt --- */
+  .blog-post.card .post-excerpt {
+    font-size: 0.95em; /* 摘要字體大小 */
+    color: #666; /* 摘要顏色 */
+    line-height: 1.6;
+    margin-bottom: 0; /* 移除段落默認底部邊距 */
+    flex-grow: 1; /* 讓摘要填滿空間，有助於底部對齊 (如果需要) */
+  }
+
+  // 應該放在 _blog-card.scss 末尾的正確媒體查詢
+@media (max-width: 480px) {
+    .blog-grid {
+      grid-template-columns: 1fr; /* 強制單列 */
+      gap: 20px;
+    }
+    .blog-post.card .post-image {
+        height: 180px; /* 小屏幕上圖片高度可以小一點 */
+    }
+    .blog-post.card .post-content {
+        padding: 15px;
+    }
+  }

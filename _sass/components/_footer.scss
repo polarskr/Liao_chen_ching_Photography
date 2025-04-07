@@ -1,0 +1,8 @@
+.footer {
+  text-align: center;
+  padding: ($spacing-unit * 2) 0; // 20px 0
+  font-family: $font-mono;
+  border-top: 1px solid $color-border; // 添加一條上邊框
+  margin-top: $spacing-unit * 4;  // 與主要內容之間增加一些外邊距
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+  }

@@ -14,11 +14,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Collections (如果你決定用 _portfolio 而不是 _posts)
-# collections:
-#   portfolio:
-#     output: true
-#     permalink: /portfolio/:path/
+
 
 # 設定預設 Front Matter (可選, 但方便)
 defaults:

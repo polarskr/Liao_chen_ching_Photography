@@ -1,0 +1,41 @@
+/* ==========================================================================
+   基本重設 (Base Reset)
+   ========================================================================== */
+
+   html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; // 這很好，設為基準
+    scroll-behavior: smooth; // 個人偏好，放在這裡可以
+  }
+
+  *, *::before, *::after {
+    box-sizing: inherit; // 優秀！確保所有元素繼承 border-box
+  }
+
+  /* 其他 Reset 樣式 */
+  img, picture, video, canvas, svg {
+      display: block; // 移除圖片底部的多餘空間
+      max-width: 100%; // 響應式圖片基礎
+  }
+  button, input, select, textarea {
+      font: inherit; // 移除預設的不一致字體
+      margin: 0; // 移除預設 margin
+  }
+  /* 考慮增加 (可選): */
+  /*
+  ul, ol {
+      list-style: none; // 移除列表樣式 (如果全局不需要的話)
+      padding: 0; // 移除預設 padding
+      margin: 0; // 移除預設 margin
+  }
+  a {
+      text-decoration: none; // 移除預設底線 (通常在 typography 中定義)
+      color: inherit; // 繼承父元素顏色 (通常在 typography 中定義)
+  }
+  h1, h2, h3, h4, h5, h6 {
+      font-size: 1em; // 重設標題大小 (在 typography 中重新定義)
+      font-weight: normal; // 重設標題粗細 (在 typography 中重新定義)
+      margin: 0; // 移除預設 margin
+  }
+  */

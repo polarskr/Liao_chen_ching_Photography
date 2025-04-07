@@ -1,0 +1,41 @@
+// assets/css/components/_photo-grid.scss
+
+/* --- 5.2 Photo Grid Layout (用於 2023.md 等) --- */
+main.layout-photo-grid { /* 選擇帶有 class 的 <main> 元素 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    /* main 元素的基本上下 padding 依然生效 */
+  }
+  
+  .photo-container { /* 用於 Photo Grid 中的每個項目 */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .photo-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* 可選 */
+  }
+  
+  .photo-container figcaption {
+    margin-top: 10px;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  /* --- Photo Grid Layout Media Query (針對 Photo Grid 的響應式調整) --- */
+  @media (max-width: 768px) {
+    /* Photo Grid Layout */
+    main.layout-photo-grid {
+      gap: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+      /* grid-template-columns: 1fr; */ /* auto-fit 會處理 */
+    }
+  }

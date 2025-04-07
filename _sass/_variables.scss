@@ -1,0 +1,28 @@
+// _sass/_variables.scss
+
+// Colors
+$color-white: #fff;
+$color-text-primary: #333;
+$color-text-secondary: #555;
+$color-border: #ccc;
+$color-primary: #007bff;
+$color-primary-darker: #0056b3;
+$color-shadow: rgba(0, 0, 0, 0.1);
+
+// Fonts
+$font-serif: "Bodoni 11", serif; // 主內容字體 (表單/基礎) <- 注意！確認字體名稱是否為 "Bodoni 11" 或只是 "Bodoni"
+$font-mono: 'Courier New', Courier, monospace; // 按鈕字體
+$font-sans: sans-serif; // 備用或通用無襯線體 (如果需要)
+
+// Spacing
+$spacing-unit: 10px; // 基本間距單位
+
+// Borders
+$border-radius-small: 4px;
+$border-radius-medium: 8px;
+$border-radius-large: 24px; // 按鈕
+
+// Breakpoints
+$bp-small: 768px;
+$bp-medium: 992px;
+// $bp-large: 1200px; // 如果需要更大的斷點

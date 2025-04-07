@@ -1,0 +1,23 @@
+// _sass/layout/_main.scss
+
+/* ==========================================================================
+   4. 主要內容區域 (Main Content Area) & 基本佈局
+   ========================================================================== */
+
+   main {
+     padding-top: 20px;     /* 基本上下間距 */ // <-- 建議使用變數
+     padding-bottom: 20px;  // <-- 建議使用變數
+
+    padding-top: $spacing-unit * 2; // 使用變數
+    padding-bottom: $spacing-unit * 2; // 使用變數
+
+    /* 考慮是否需要 flex: 1; 如果使用了 Grid sticky footer 佈局 */
+    /* flex: 1; */ // 確保 main 區域能填滿 header 和 footer 之間的空間
+
+    /* 如果頁面淡入動畫應用在這裡 */
+    
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+    animation-delay: 0.1s; // 可以稍微延遲一點點，效果更好
+    
+  }

@@ -1,0 +1,98 @@
+// assets/css/pages/_about.scss
+
+/* --- 5.3 About Page Styles (關於頁面樣式 - 基礎) --- */
+/* 使用 body class 來限定範圍 */
+body.layout-about-page .education,
+body.layout-about-page .things_i_love_do,
+body.layout-about-page .intro {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-family: Arial, sans-serif; /* 特定頁面字體 */
+}
+
+body.layout-about-page .section-title {
+  font-size: 12px;
+  color: #888;
+  font-weight: normal;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+body.layout-about-page .education-content,
+body.layout-about-page .info-content,
+body.layout-about-page .things_i_love_do-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+body.layout-about-page .education-text,
+body.layout-about-page .info-text {
+  flex: 1;
+}
+
+body.layout-about-page .university {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+body.layout-about-page .degree-details,
+body.layout-about-page .hobby-details {
+  list-style-type: none;
+  padding: 0;
+  font-style: italic;
+  font-family: 'Bodoni', serif;
+}
+
+body.layout-about-page .degree-details li,
+body.layout-about-page .hobby-details li {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+body.layout-about-page .education-image,
+body.layout-about-page .things_i_love_do_image {
+  flex: 1;
+  max-width: 50%;
+}
+
+body.layout-about-page .education-image img,
+body.layout-about-page .things_i_love_do_image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+body.layout-about-page .image-caption {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+/* --- About Page Layout Media Query (關於頁面佈局的響應式調整) --- */
+@media (max-width: 768px) {
+  /* About Page Layout adjustments */
+  body.layout-about-page .education-content,
+  body.layout-about-page .info-content,
+  body.layout-about-page .things_i_love_do-content {
+    flex-direction: column;
+  }
+  body.layout-about-page .education-text,
+  body.layout-about-page .info-text {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  body.layout-about-page .education-image,
+  body.layout-about-page .things_i_love_do_image {
+    max-width: 100%;
+  }
+}

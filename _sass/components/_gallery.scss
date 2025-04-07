@@ -1,0 +1,122 @@
+/* --- 5.1 Index & General Intro/Gallery Styles (首頁及通用引言/畫廊樣式) --- */
+
+
+.gallery { /* 首頁/通用的 Gallery 容器 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px; /* 內邊距 */
+  }
+  
+  .gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .gallery a {
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery a:hover {
+    transform: scale(1.05);
+  }
+  
+  .gallery p { /* 如果 Gallery 有說明文字 */
+    text-align: center;
+    color: #666;
+    margin-top: 0.5em;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+  }
+
+
+  /* --- 7.1 Small screens (手機等) --- */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    .h1 { /* .site-title */
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 2rem;
+    }
+    .nav-right ul { /* .main-nav ul */
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav-right li { /* .main-nav li */
+      margin: 5px 15px;
+    }
+  
+    /* Index Page Gallery */
+    .gallery {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .intro-word h2 {
+      font-size: 1.3rem;
+    }
+  
+    /* Photo Grid Layout */
+    main.layout-photo-grid {
+      gap: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+      /* grid-template-columns: 1fr; */ /* auto-fit 會處理 */
+    }
+  
+    /* About Page Layout */
+    body.layout-about-page .education-content,
+    body.layout-about-page .info-content,
+    body.layout-about-page .things_i_love_do-content {
+      flex-direction: column;
+    }
+    body.layout-about-page .education-text,
+    body.layout-about-page .info-text {
+      padding-right: 0;
+      margin-bottom: 30px;
+    }
+    body.layout-about-page .education-image,
+    body.layout-about-page .things_i_love_do_image {
+      max-width: 100%;
+    }
+  
+    /* Contact Form */
+    .contact-form {
+      width: 90%;
+      padding: 15px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  
+    /* Blog Index Cards (如果有的話) */
+    /* .blog-posts { grid-template-columns: 1fr; } */
+  }
+  
+  
+  /* --- 7.2 Medium screens (平板等) --- */
+  @media (min-width: 769px) and (max-width: 992px) {
+    .h1 { /* .site-title */
+      font-size: 2.25rem;
+    }
+    /* .footer { font-size: 18px; } */ /* 如果需要調整 */
+  
+    /* Index Page Gallery */
+    .gallery {
+      /* grid-template-columns: repeat(2, 1fr); */ /* auto-fit 會處理 */
+    }
+  
+    /* Photo Grid Layout */
+    /* main.layout-photo-grid { grid-template-columns: repeat(2, 1fr); } */ /* auto-fit 會處理 */
+  
+    /* Contact Form */
+    .contact-form {
+      /* width: 80%; */ /* max-width 可能更合適 */
+      max-width: 600px;
+    }
+  }

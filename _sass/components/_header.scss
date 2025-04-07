@@ -1,0 +1,23 @@
+  /* ==========================================================================
+     通用組件 (Common Components: Header, Nav, Footer)
+     ========================================================================== */
+  
+     .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px; /* 桌面端 padding */
+        border-bottom: 1px solid #eee;
+      }
+      
+      .h1 { /* 建議 class: .site-title */
+        font-family: "Bodoni 11", serif;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 0;
+      }
+      
+      .h1 a { /* 建議 class: .site-title a */
+        text-decoration: none;
+        color: black;
+      }

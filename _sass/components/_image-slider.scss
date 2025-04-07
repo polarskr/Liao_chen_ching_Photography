@@ -1,0 +1,76 @@
+
+/* --- PP Mobler Style Image Slider (Enhanced for Fade) --- */
+.image-slider.pp-slider {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2em auto;
+    overflow: hidden; /* Important for absolutely positioned children */
+  }
+  
+  .slider-images {
+    position: relative; /* Crucial for absolute positioning of images */
+    width: 100%;
+    /* Set an aspect-ratio to maintain height based on width */
+    /* Adjust 16 / 9 to your images' typical aspect ratio */
+    aspect-ratio: 16 / 9;
+    /* Or, set a fixed height if preferred, but aspect-ratio is more responsive */
+    /* height: 600px; */
+  }
+  
+  .slider-image {
+    display: block; /* Use block instead of none for opacity transition */
+    position: absolute; /* Stack images on top of each other */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Make image fill the container height */
+    object-fit: cover; /* Cover the area, maintain aspect ratio, crop excess */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.6s ease-in-out; /* SMOOTH FADE TRANSITION */
+    cursor: pointer; /* Indicate image is clickable */
+    vertical-align: middle;
+    pointer-events: none; /* Prevent clicks on non-active images */
+  }
+  
+  .slider-image.active {
+    opacity: 1; /* Show the active image */
+    z-index: 2; /* Ensure active image is on top */
+    pointer-events: auto; /* Allow clicks ONLY on the active image */
+  }
+  
+  /* Keep dot styles the same */
+  .slider-dots.pp-dots {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 10; /* Dots above images */
+  }
+  
+  .slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 6px 0;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .slider-dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .slider-dot.active {
+    background-color: rgba(255, 255, 255, 1);
+    border-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .slider-dot:focus {
+    outline: none;
+  }

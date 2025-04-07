@@ -2,7 +2,9 @@ backend:
   name: github # 使用 GitHub 作為後端
   repo: polarskr/Liao_chen_ching_Photography # !! 你的 GitHub Repo 路徑 !!
   branch: main # 你主要內容所在的分支 (通常是 main 或 master)
-
+  # 如果你的 repo 是私有的，或者遇到 GitHub API Rate Limit 問題，
+  # 可能需要設定 GitHub 作為 OAuth Provider，會稍微複雜一點。
+  # 但對於公開 repo，通常直接用就可以了。
 
 media_folder: "assets/images/uploads" # 上傳的圖片儲存到這裡
 public_folder: "/assets/images/uploads" # 在 Markdown 中引用圖片時的路徑前綴

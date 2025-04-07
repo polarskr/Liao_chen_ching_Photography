@@ -1,0 +1,25 @@
+  /* ==========================================================================
+     2. 通用佈局容器 (Layout Container)
+     ========================================================================== */
+  
+     .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        opacity: 0; /* 初始隱藏，配合動畫 */
+        animation: fadeIn 0.3s ease-out forwards;
+        /* 如果需要 Grid 做頁面結構: */
+        /* display: grid; */
+        /* grid-template-rows: auto 1fr auto; /* Header, Main, Footer */
+        /* min-height: 100vh; */
+      }
+      
+      .container--narrow {
+        max-width: 800px;
+      }
+      
+      .container--full-width {
+        max-width: 100%;
+        padding: 0;
+      }
+      

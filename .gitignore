@@ -1,0 +1,14 @@
+# Jekyll build output
+_site/
+
+# Jekyll caches
+.jekyll-cache/
+.jekyll-metadata
+
+# Sass cache
+.sass-cache/
+
+# Editor swap files (optional, but good practice)
+*.swp
+*~
+.DS_Store
