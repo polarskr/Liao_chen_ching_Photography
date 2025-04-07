@@ -9,11 +9,10 @@ kramdown:
   input: GFM # 啟用 GitHub Flavored Markdown
   syntax_highlighter: rouge
 
-# 插件 (如果需要 SEO Tag 等)
+# 插件
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-
 
 
 # 設定預設 Front Matter (可選, 但方便)
@@ -29,15 +28,6 @@ defaults:
     values:
       layout: "page" # 頁面預設使用 page layout
 
-# Exclude from processing (避免 Jekyll 處理 node_modules 等)
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
 
 collections:
   portfolio:

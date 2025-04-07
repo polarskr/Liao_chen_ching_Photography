@@ -72,7 +72,7 @@ description: 探索攝影師 Liao ChenChing (Ralph Liao) 的精選作品集，�
 
       <!-- 右側第三個項目 (堆疊) -->
       <a href="#" class="grid-item grid-item-stacked"> 
-        <img src="{{ "/assets/images/grid/collection-image.jpg" | relative_url }}" alt="Collection" class="grid-item-image" loading="lazy">
+        <img src="{{ "/assets/images/grid/collection-image.webp" | relative_url }}" alt="Collection" class="grid-item-image" loading="lazy">
         <span class="grid-item-label">Collection</span> 
       </a>
 
