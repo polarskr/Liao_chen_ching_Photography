@@ -61,7 +61,6 @@
 
   </div> <!-- ===== End .container ===== -->
 
-  <!-- ===== JavaScript ===== -->
 
 
   <!-- Custom JavaScript -->
@@ -103,7 +102,7 @@
         const isMailOrTel = href && (href.startsWith('mailto:') || href.startsWith('tel:'));
 
         // Apply only if it's an internal link without special behaviors
-        if (href && !isLightbox && !isAnchor && !isDownload && !isMailOrTel && (!target || target === '_self')) {
+        if (href && !isAnchor && !isDownload && !isMailOrTel && (!target || target === '_self')) {
             link.addEventListener('click', function(e) {
                 e.preventDefault(); // Prevent immediate navigation
                 fadeOutAndNavigate(this.href);
