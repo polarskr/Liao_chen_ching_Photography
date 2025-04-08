@@ -14,6 +14,14 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# --- 添加或修改這個區塊 ---
+webmaster_verifications:
+  google: WFmFzju0X7hJHR5EiOK9PIhvgYuVLuE9wYbNsaLdHWA
+  # 如果還有其他的驗證 (例如 Bing, Yandex), 也可以加在這裡
+  # bing: YourBingVerificationCode
+  # yandex: YourYandexVerificationCode
+# --------------------------
+
 
 # 設定預設 Front Matter (可選, 但方便)
 defaults:

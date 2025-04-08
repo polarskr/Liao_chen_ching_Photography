@@ -9,12 +9,7 @@ description: 探索攝影師 Liao ChenChing (Ralph Liao) 的精選作品集，�
 <div class="image-slider pp-slider">
 
   <div class="slider-images">
-    <!--
-      - 使用你原來的圖片作為前幾張幻燈片
-      - 第一張圖片默認添加 'active' class
-      - 為每張圖片添加 data-slide-index (從 0 開始)
-      - !! 請確保這些圖片文件存在於你的項目中 !!
-    -->
+
     <img src="{{ "/assets/images/main img/denmark_museum.webp" | relative_url }}" alt="Denmark Museum" class="slider-image active" data-slide-index="0" loading="lazy">
     <img src="{{ "/assets/images/main img/Sea.webp" | relative_url }}" alt="Sea View" class="slider-image" data-slide-index="1" loading="lazy">
     <img src="{{ "/assets/images/main img/Blossom.webp" | relative_url }}" alt="Cherry Blossom" class="slider-image" data-slide-index="2" loading="lazy">
@@ -50,22 +45,22 @@ description: 探索攝影師 Liao ChenChing (Ralph Liao) 的精選作品集，�
   <div class="grid-main-container">
 
     <!-- 左側大項目 (佔據第一列) -->
-    <a href="{{ "/2023/" | relative_url }}" class="grid-item grid-item-large">
+    <a href="{{ "/2023.html/" | relative_url }}" class="grid-item grid-item-large">
       <img src="{{ "/assets/images/grid/De_Famila.webp" | relative_url }}" alt="2023 Gallery / 2023" class="grid-item-image" loading="lazy">
-      <span class="grid-item-label">2023 Gallery</span> <!-- 修改為你想要的標籤文字 -->
+      <span class="grid-item-label">2023 Gallery</span>
     </a>
 
     <!-- 右側列容器 (佔據第二列) -->
     <div class="grid-column-right">
 
       <!-- 右側第一個項目 (堆疊) -->
-      <a href="/blog/" class="grid-item grid-item-stacked"> 
+      <a href="/blog.html/" class="grid-item grid-item-stacked"> 
         <img src="{{ "/assets/images/grid/DSC02213.webp" | relative_url }}" alt="Article" class="grid-item-image" loading="lazy">
         <span class="grid-item-label">Article</span>
       </a>
 
       <!-- 右側第二個項目 (堆疊) -->
-      <a href="/about/" class="grid-item grid-item-stacked"> 
+      <a href="/about.html/" class="grid-item grid-item-stacked"> 
         <img src="{{ "/assets/images/grid/DSC03555.webp" | relative_url }}" alt="About" class="grid-item-image" loading="lazy"> 
         <span class="grid-item-label">About</span>
       </a>
@@ -80,7 +75,6 @@ description: 探索攝影師 Liao ChenChing (Ralph Liao) 的精選作品集，�
 
     </div> <!-- 結束右側列容器 -->
 
-  </div> <!-- 結束主網格容器 -->
+  </div> 
 
 </section>
-<!-- ----- 結束：PP Møbler 精確風格特色網格 ----- -->
