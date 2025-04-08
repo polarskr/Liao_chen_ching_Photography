@@ -7,18 +7,15 @@
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
   <meta name="keywords" content="RalphLiao, Photography, {{ page.tags | join: ', ' }}">
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
-        integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9KRJXxDLMgxSiva+wdGIz2ZQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="preload" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css"></noscript>
 
   <!-- ===== Favicon ===== -->
   <link rel="icon" type="image/x-icon" href="{{ "assets/images/main img/R.PNG" | relative_url }}">
 
-  <!-- ===== Jekyll SEO Tag Plugin Output ===== -->
+
   {% seo %}
 
 </head>
@@ -65,10 +62,7 @@
   </div> <!-- ===== End .container ===== -->
 
   <!-- ===== JavaScript ===== -->
-  <!-- Lightbox2 JS (+jQuery) CDN with SRI -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"
-          integrity="sha512-GyrJqJ3prCb8DU9TYZFnSpm9FfaiOzYAQ/)+flkySs8gCQPh8CtNLbD5oL1f/Ni0MBLGHMNbxBITPmOAOQGauQ=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
   <!-- Custom JavaScript -->
   <script>
@@ -104,7 +98,6 @@
       document.querySelectorAll('a').forEach(link => {
         const href = link.getAttribute('href');
         const target = link.getAttribute('target');
-        const isLightbox = link.hasAttribute('data-lightbox');
         const isAnchor = href && href.startsWith('#');
         const isDownload = link.hasAttribute('download');
         const isMailOrTel = href && (href.startsWith('mailto:') || href.startsWith('tel:'));
