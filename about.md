@@ -23,7 +23,7 @@ body_class: layout-about-page
       </ul>
     </div>
     <div class="education-image">
-      <img src="{{ "/assets/images/main img/school.jpeg" | relative_url }}" alt="me">
+      <img src="{{ "/assets/images/main img/school.JPEG" | relative_url }}" alt="me">
       <p class="image-caption" style="font-family: 'Bodoni', serif;">Me at Marylebone Campus</p>
     </div>
   </div>
