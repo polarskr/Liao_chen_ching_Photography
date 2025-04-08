@@ -2,7 +2,6 @@
 layout: default
 title: Article Archive
 body_class: blog-listing-page
-permalink: /blog/
 ---
 
 <div class="blog-container">
