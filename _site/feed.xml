@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-08T21:13:28+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Liao ChenChing</title><subtitle>RalphLiao的網站,有很多好看的東西</subtitle><entry><title type="html">Ray Dalio 深度訪談：金錢、權力、帝國興衰與世界新秩序 (Lex Fridman 筆記)</title><link href="http://localhost:4000/%E8%A8%AA%E8%AB%87%E7%AD%86%E8%A8%98/%E7%B6%93%E6%BF%9F/%E6%AD%B7%E5%8F%B2/raydalio/2024/03/15/LexFridman.html" rel="alternate" type="text/html" title="Ray Dalio 深度訪談：金錢、權力、帝國興衰與世界新秩序 (Lex Fridman 筆記)" /><published>2024-03-15T02:00:00+00:00</published><updated>2024-03-15T02:00:00+00:00</updated><id>http://localhost:4000/%E8%A8%AA%E8%AB%87%E7%AD%86%E8%A8%98/%E7%B6%93%E6%BF%9F/%E6%AD%B7%E5%8F%B2/raydalio/2024/03/15/LexFridman</id><content type="html" xml:base="http://localhost:4000/%E8%A8%AA%E8%AB%87%E7%AD%86%E8%A8%98/%E7%B6%93%E6%BF%9F/%E6%AD%B7%E5%8F%B2/raydalio/2024/03/15/LexFridman.html"><![CDATA[<p><img src="/assets/images/blog 5 img/RayDalio_lexfridman.png" alt="Ray Dalio 與 Lex Fridman" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-25T21:31:26+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Liao ChenChing</title><subtitle>RalphLiao的網站,有很多好看的東西</subtitle><entry><title type="html">Dr Copper：全球經濟的風向標？</title><link href="http://localhost:4000/investment/insights/2025/04/24/Copper.html" rel="alternate" type="text/html" title="Dr Copper：全球經濟的風向標？" /><published>2025-04-24T00:00:00+01:00</published><updated>2025-04-24T00:00:00+01:00</updated><id>http://localhost:4000/investment/insights/2025/04/24/Copper</id><content type="html" xml:base="http://localhost:4000/investment/insights/2025/04/24/Copper.html"><![CDATA[<p><img src="/assets/images/Copper-img/Copper.webp" alt="assets/images/Copper-img/Copper.webp" /></p>
+
+<p>Dr Copper</p>
+
+<p>截至 2025 年 3 月 22 日，LME 銅現貨價格達到 9828 美元/噸。自 3 月初突破 9000 美元/噸後，僅用幾天便攀升至此水平，顯示市場上行動能強勁。</p>
+
+<p>最近看到一個Youtuber (Shepherd Capital Markets)介紹 Dr Copper，覺得很有意思，從來沒聽過，於是做了一些功課。</p>
+
+<p>Dr Copper（銅醫生）是金融市場的術語，指銅價格被視為全球經濟健康狀況的領先指標。這是因為銅在工業、生產和基礎設施建設中扮演關鍵角色，例如電線、電子產品、建築材料及新能源領域（如電動車電池），其價格變動通常能反映全球經濟的景氣程度。近期銅價上漲是否也反映了經濟復甦？讓我們進一步分析。</p>
+
+<h2 id="銅價上漲的驅動因素">銅價上漲的驅動因素</h2>
+
+<p>銅價近期上漲可能受到多重因素推動：需求端方面，中國 2025 年初加大基建投資，同時全球新能源產業（如電動車和可再生能源）對銅的需求持續增長；供應端方面，LME 銅庫存近期為 224,600 噸，處於相對高位，顯示當前供應充足；此外，自 3 月初以來，美元指數(DXY)下跌約 2%，由於銅以美元計價，美元走弱為銅價提供了上行支撐。</p>
+
+<h2 id="經濟指標與-dr-copper-的關聯">經濟指標與 Dr Copper 的關聯</h2>
+
+<p>進一步來看，經濟數據支持了銅價的上漲趨勢：</p>
+
+<ul>
+  <li><strong>美國方面</strong>，ISM 製造業 PMI 在 2025 年 2 月錄得 50.3，相較 1 月的 50.9 下降 0.6，但仍高于 50 的榮枯線，顯示經濟仍在擴張；</li>
+  <li><strong>中國方面</strong>，中國 2 月官方製造業 PMI 為 50.2，較 1 月的 49.1 上升 1.1 個百分點，重新回到擴張區間，顯示全球最大銅消費國的需求逐漸上升。這些數據與銅價近期上漲趨勢一致，顯示製造業復甦可能進一步推高銅需求。</li>
+</ul>
+
+<h2 id="市場結構lme-的-contango-與價差分析">市場結構：LME 的 Contango 與價差分析</h2>
+
+<p>再來看看 LME Copper Official Price：現貨價格（Bid）為 9827 美元/噸，3 個月遠期價格（Bid）為 9878.5 美元/噸，遠期高於現貨 51.5 美元/噸，形成『正向市場』（Contango）結構。該結構反映當前市場存在以下特徵：</p>
+
+<ul>
+  <li><strong>庫存充足</strong>：LME 銅庫存維持在 224,600 噸高位；</li>
+  <li><strong>供應寬鬆</strong>：非洲銅礦加速交付，CMOC 剛果銅庫存釋放，增加現貨供應；當前銅市呈現政策驅動型區域割裂：亞洲需求受制於結構性復甦不均（中國官方數據顯示，大型企業 PMI 52.5，中小企業 46.3），而北美在《通脹削減法案》（IRA，支持新能源發展）與關稅預期下形成需求虹吸。</li>
+</ul>
+
+<p>COMEX-LME 價差高達 1,410 美元/噸，其中 900 美元/噸（64%）直接反映美國貿易政策風險定價，而非單純的供需基本面差異。這種異常價差預計將持續至 2025 年第二季度關稅政策明朗化。</p>
+
+<p>價差原因包括：</p>
+
+<ul>
+  <li><strong>美國關稅預期推高 COMEX 銅價</strong>：特朗普政府考慮對進口銅徵收 25% 關稅，引發市場擔憂。為應對可能的關稅實施，北美買家加速進口銅，導致 COMEX 銅期貨基準價格顯著上漲。這一政策預期不僅改變了全球銅貿易流向，還擴大了 COMEX 與 LME 銅價之間的差距。</li>
+</ul>
+
+<p>當前 COMEX 銅期貨（HG1!）的價差結構顯示顯著政策驅動型溢價。HG1! 對應 2025 年 5 月合約，距離當前約 2 個月，理論持有成本（利息+儲存）約 150-200 美元/噸，但實際價差達 1,410 美元/噸，其中 1,210 美元/噸（86%）反映市場對美國關稅政策與新能源需求的預期。</p>
+
+<p>這種溢價並非單純投機，而是對政策不確定性和未來需求增長的風險定價。正常跨市場價差，2019-2024 年 COMEX 與 LME 均價差為 285 美元/噸，當前價差達到歷史峰值（5 倍標準差）。</p>
+
+<h2 id="未來展望與交易策略">未來展望與交易策略</h2>
+
+<p>展望未來，銅價可能仍有上行空間，但需關注幾個關鍵因素：</p>
+
+<ul>
+  <li><strong>看漲因素方面</strong>：若 ISM 製造業 PMI 持續擴張，且中國基建需求進一步釋放，銅價有望挑戰 10,000 美元/噸關口；</li>
+  <li><strong>風險因素方面</strong>：若美元反彈或主要銅產國供應恢復（例如非洲銅礦增產），價格可能面臨回調壓力；</li>
+  <li><strong>交易策略方面</strong>：交易者可考慮 Contango 結構下的套利策略，例如買入 LME 現貨,並賣出 HG1! 期貨（11,265 美元/噸），鎖定 1,410 美元/噸的價差，扣除約 150-200 美元/噸的持有成本後，淨利潤約 1,210-1,260 美元/噸，但需注意市場波動風險。</li>
+</ul>
+
+<p>總的來說，Dr Copper 近期表現強勁，銅價上漲與全球經濟擴張（PMI &gt; 50）一致，Contango 結構則反映市場對未來需求的樂觀預期。然而，COMEX 與 LME 間的顯著價差提醒我們，投機因素和市場預期差異可能放大波動。作為經濟的『銅博士』，銅價的下一步動向值得密切關注。</p>
+
+<hr />
+
+<p><strong>注：</strong></p>
+
+<ul>
+  <li><strong>PMI（採購經理人指數）</strong>：一個反映製造業或服務業經濟活動的指標，數值高於 50 表示擴張，低於 50 表示收縮。</li>
+  <li><strong>Contango</strong>：是指期貨價格高於現貨價格的市場狀態，通常反映未來價格預期上漲或當前供應充足。</li>
+  <li><strong>COMEX（紐約商品交易所）</strong>：全球重要的金屬期貨交易市場，其價格對全球金屬市場具有影響力。</li>
+  <li><strong>LME（倫敦金屬交易所）</strong>：全球最大的工業金屬期貨和遠期合約交易中心，為有色金屬提供定價基準。</li>
+</ul>]]></content><author><name></name></author><category term="investment" /><category term="insights" /><summary type="html"><![CDATA[探索銅價（Dr Copper）作為全球經濟健康指標的意義，分析近期銅價上漲的驅動因素、與經濟數據的關聯、市場結構（Contango），並探討未來展望與交易策略。]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/Copper-img/Copper.webp" /><media:content medium="image" url="http://localhost:4000/assets/images/Copper-img/Copper.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ray Dalio 深度訪談：金錢、權力、帝國興衰與世界新秩序 (Lex Fridman 筆記)</title><link href="http://localhost:4000/%E8%A8%AA%E8%AB%87%E7%AD%86%E8%A8%98/%E7%B6%93%E6%BF%9F/%E6%AD%B7%E5%8F%B2/raydalio/2024/03/15/LexFridman.html" rel="alternate" type="text/html" title="Ray Dalio 深度訪談：金錢、權力、帝國興衰與世界新秩序 (Lex Fridman 筆記)" /><published>2024-03-15T02:00:00+00:00</published><updated>2024-03-15T02:00:00+00:00</updated><id>http://localhost:4000/%E8%A8%AA%E8%AB%87%E7%AD%86%E8%A8%98/%E7%B6%93%E6%BF%9F/%E6%AD%B7%E5%8F%B2/raydalio/2024/03/15/LexFridman</id><content type="html" xml:base="http://localhost:4000/%E8%A8%AA%E8%AB%87%E7%AD%86%E8%A8%98/%E7%B6%93%E6%BF%9F/%E6%AD%B7%E5%8F%B2/raydalio/2024/03/15/LexFridman.html"><![CDATA[<p><img src="/assets/images/blog 5 img/RayDalio_lexfridman.png" alt="Ray Dalio 與 Lex Fridman" /></p>
 
 <p>在這次與 Ray Dalio 的對話中，我們深入探討了金錢、權力和帝國興衰的歷史模式，並從中理解這些動態對於當今全球局勢的啟示。Dalio 不僅描述了金錢與權力如何相互依存，還揭示了教育、創新在國家發展中的關鍵作用，並強調了領導力在國家危機時期的重要性。</p>
 

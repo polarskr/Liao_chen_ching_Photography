@@ -7,18 +7,15 @@
   <meta name="description" content="RalphLiao的網站,有很多好看的東西">
   <meta name="keywords" content="RalphLiao, Photography, ">
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
-        integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9KRJXxDLMgxSiva+wdGIz2ZQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" type="text/css" charset="utf-8">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="preload" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css"></noscript>
 
   <!-- ===== Favicon ===== -->
   <link rel="icon" type="image/x-icon" href="/assets/images/main%20img/R.PNG">
 
-  <!-- ===== Jekyll SEO Tag Plugin Output ===== -->
+
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>首頁 Liao ChenChing Photography &amp; Insights | Liao ChenChing</title>
 <meta name="generator" content="Jekyll v3.10.0" />
@@ -69,8 +66,7 @@
 
     <!-- ===== Main Content Area ===== -->
     <main class="main-content " role="main"> <!-- Per-page main class -->
-      <!-- ----- 開始：PP Mobler 風格圖片滑塊 ----- -->
-<div class="image-slider pp-slider">
+      <div class="image-slider pp-slider">
 
   <div class="slider-images">
 
@@ -100,11 +96,10 @@
   </div>
 
 </div>
-<!-- ----- 結束：PP Mobler 風格圖片滑塊 ----- -->
 
 <section class="featured-grid pp-precise-grid">
 
-  <!-- 主網格容器，將包含左右兩列 -->
+
   <div class="grid-main-container">
     
   <a href="/2023.html" class="grid-item grid-item-large">
@@ -132,10 +127,18 @@
       </a>
 
 
-  </div> 
 
   </div> 
 
+  </div> 
+
+</section>
+
+<section class="youtube-media">
+  <h2>YouTube</h2>
+  <div class="youtube-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=FJX6FujM79s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+  </div>
 </section>
  <!-- Jekyll renders page/post content here -->
     </main>
@@ -149,11 +152,7 @@
 
   </div> <!-- ===== End .container ===== -->
 
-  <!-- ===== JavaScript ===== -->
-  <!-- Lightbox2 JS (+jQuery) CDN with SRI -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"
-          integrity="sha512-GyrJqJ3prCb8DU9TYZFnSpm9FfaiOzYAQ/)+flkySs8gCQPh8CtNLbD5oL1f/Ni0MBLGHMNbxBITPmOAOQGauQ=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
   <!-- Custom JavaScript -->
   <script>
@@ -189,13 +188,12 @@
       document.querySelectorAll('a').forEach(link => {
         const href = link.getAttribute('href');
         const target = link.getAttribute('target');
-        const isLightbox = link.hasAttribute('data-lightbox');
         const isAnchor = href && href.startsWith('#');
         const isDownload = link.hasAttribute('download');
         const isMailOrTel = href && (href.startsWith('mailto:') || href.startsWith('tel:'));
 
         // Apply only if it's an internal link without special behaviors
-        if (href && !isLightbox && !isAnchor && !isDownload && !isMailOrTel && (!target || target === '_self')) {
+        if (href && !isAnchor && !isDownload && !isMailOrTel && (!target || target === '_self')) {
             link.addEventListener('click', function(e) {
                 e.preventDefault(); // Prevent immediate navigation
                 fadeOutAndNavigate(this.href);

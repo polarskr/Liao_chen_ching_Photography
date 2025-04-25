@@ -1,7 +1,7 @@
 title: Liao ChenChing # 你的網站標題
 description: RalphLiao的網站,有很多好看的東西 # 你的網站描述
 url: "https://ralphliao.xyz" # 你的最終網址
-baseurl: "" # GitHub Pages 通常留空
+baseurl: ""
 
 # Markdown 處理器
 markdown: kramdown

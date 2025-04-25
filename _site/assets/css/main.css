@@ -1,7 +1,4 @@
 @charset "UTF-8";
-/* ==========================================================================
-   基本重設 (Base Reset)
-   ========================================================================== */
 html, body {
   margin: 0;
   padding: 0;
@@ -20,23 +17,6 @@ button, input, select, textarea {
   font: inherit;
   margin: 0; }
 
-/* 考慮增加 (可選): */
-/*
-ul, ol {
-    list-style: none; // 移除列表樣式 (如果全局不需要的話)
-    padding: 0; // 移除預設 padding
-    margin: 0; // 移除預設 margin
-}
-a {
-    text-decoration: none; // 移除預設底線 (通常在 typography 中定義)
-    color: inherit; // 繼承父元素顏色 (通常在 typography 中定義)
-}
-h1, h2, h3, h4, h5, h6 {
-    font-size: 1em; // 重設標題大小 (在 typography 中重新定義)
-    font-weight: normal; // 重設標題粗細 (在 typography 中重新定義)
-    margin: 0; // 移除預設 margin
-}
-*/
 @keyframes fadeIn {
   from {
     opacity: 0; }
@@ -50,9 +30,6 @@ h1, h2, h3, h4, h5, h6 {
   to {
     opacity: 1;
     transform: translateY(0); } }
-/* ==========================================================================
-   Typography Styles
-   ========================================================================== */
 html {
   font-size: 100%;
   -webkit-font-smoothing: antialiased;
@@ -69,7 +46,6 @@ body {
 body.fade-out {
   opacity: 0; }
 
-/* 其他排版相關樣式 */
 p {
   margin-bottom: 15px; }
 
@@ -86,22 +62,19 @@ a {
     color: #0056b3;
     text-decoration: underline; }
 
-/* 考慮增加 (可選): */
-/*
 ul, ol {
-    margin-bottom: $spacing-unit * 1.5;
-    padding-left: $spacing-unit * 2; // 如果沒有在 reset 中移除 padding
-}
+  margin-bottom: 15px;
+  padding-left: 20px; }
+
 li {
-    margin-bottom: $spacing-unit * 0.5;
-}
+  margin-bottom: 5px; }
+
 strong, b {
-    font-weight: bold; // 或 $font-weight-bold 變數
-}
+  font-weight: bold; }
+
 em, i {
-    font-style: italic;
-}
-*/
+  font-style: italic; }
+
 /* ==========================================================================
    2. 通用佈局容器 (Layout Container)
    ========================================================================== */
@@ -129,16 +102,12 @@ em, i {
    ========================================================================== */
 main {
   padding-top: 20px;
-  /* 基本上下間距 */
   padding-bottom: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
-  /* 考慮是否需要 flex: 1; 如果使用了 Grid sticky footer 佈局 */
-  /* flex: 1; */
-  /* 如果頁面淡入動畫應用在這裡 */
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  animation-delay: 0.1s; }
+  animation-delay: 0.2s; }
 
 /* 單篇文章/簡單頁面內容佈局 (示例) */
 .layout-post-content,
@@ -152,12 +121,12 @@ main {
 /* ==========================================================================
    通用組件 (Common Components: Header, Nav, Footer)
    ========================================================================== */
+/* ----- Header ----- */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  /* 桌面端 padding */
   border-bottom: 1px solid #eee; }
 
 .h1 {
@@ -172,6 +141,7 @@ main {
   text-decoration: none;
   color: black; }
 
+/* ----- Navigation ----- */
 .nav-right ul {
   /* 建議 class: .main-nav__list */
   font-family: "Courier New", monospace;
@@ -194,16 +164,6 @@ main {
 .nav-right li a:hover {
   color: blue; }
 
-@media (max-width: 768px) {
-  .nav-right ul {
-    /* .main-nav ul */
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center; }
-
-  .nav-right li {
-    /* .main-nav li */
-    margin: 5px 15px; } }
 .footer {
   text-align: center;
   padding: 20px 0;
@@ -212,6 +172,22 @@ main {
   margin-top: 40px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); }
 
+/* ----- Media Queries ----- */
+@media (max-width: 768px) {
+  /* Adjust Navigation for smaller screens */
+  .nav-right ul {
+    /* .main-nav ul */
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center; }
+
+  .nav-right li {
+    /* .main-nav li */
+    margin: 5px 15px; }
+
+  /* You might want to add header adjustments here too if needed */
+  /* .header { ... } */
+  /* .h1 { ... } */ }
 /* --- 5.1 Index & General Intro/Gallery Styles (首頁及通用引言/畫廊樣式) --- */
 .gallery {
   /* 首頁/通用的 Gallery 容器 */
@@ -276,9 +252,7 @@ main {
   main.layout-photo-grid {
     gap: 15px;
     padding-left: 15px;
-    padding-right: 15px;
-    /* grid-template-columns: 1fr; */
-    /* auto-fit 會處理 */ }
+    padding-right: 15px; }
 
   /* About Page Layout */
   body.layout-about-page .education-content,
@@ -293,37 +267,14 @@ main {
 
   body.layout-about-page .education-image,
   body.layout-about-page .things_i_love_do_image {
-    max-width: 100%; }
-
-  /* Contact Form */
-  .contact-form {
-    width: 90%;
-    padding: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px; }
-
-  /* Blog Index Cards (如果有的話) */
-  /* .blog-posts { grid-template-columns: 1fr; } */ }
+    max-width: 100%; } }
 /* --- 7.2 Medium screens (平板等) --- */
 @media (min-width: 769px) and (max-width: 992px) {
   .h1 {
     /* .site-title */
     font-size: 2.25rem; }
 
-  /* .footer { font-size: 18px; } */
-  /* 如果需要調整 */
-  /* Index Page Gallery */
-  .gallery {
-    /* grid-template-columns: repeat(2, 1fr); */
-    /* auto-fit 會處理 */ }
-
-  /* Photo Grid Layout */
-  /* main.layout-photo-grid { grid-template-columns: repeat(2, 1fr); } */
-  /* auto-fit 會處理 */
-  /* Contact Form */
   .contact-form {
-    /* width: 80%; */
-    /* max-width 可能更合適 */
     max-width: 600px; } }
 /* --- 5.2 Photo Grid Layout (用於 2023.md 等) --- */
 main.layout-photo-grid {
@@ -423,153 +374,6 @@ main.layout-photo-grid {
       box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
       transform: scale(1.02); }
 
-/* ==========================================================================
-   7. 媒體查詢 (Media Queries) - 採用 Mobile First (min-width)
-   ========================================================================== */
-/* --- Base styles (Mobile First - 適用於所有尺寸，除非被後面的 media query 覆蓋) --- */
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px; }
-
-.h1 {
-  /* .site-title */
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 2rem; }
-
-.nav-right ul {
-  /* .main-nav ul */
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: center; }
-
-.nav-right li {
-  /* .main-nav li */
-  margin: 5px 15px; }
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px; }
-
-.intro-word h2 {
-  font-size: 1.3rem; }
-
-main.layout-photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  padding-left: 15px;
-  padding-right: 15px; }
-
-body.layout-about-page .education-content,
-body.layout-about-page .info-content,
-body.layout-about-page .things_i_love_do-content {
-  display: flex;
-  flex-direction: column; }
-
-body.layout-about-page .education-text,
-body.layout-about-page .info-text {
-  padding-right: 0;
-  margin-bottom: 30px; }
-
-body.layout-about-page .education-image,
-body.layout-about-page .things_i_love_do_image {
-  max-width: 100%; }
-
-.contact-form {
-  width: 90%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 15px; }
-
-/* --- 7.1 Medium screens (平板及以上) --- */
-@media (min-width: 769px) {
-  .header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px; }
-
-  .h1 {
-    /* .site-title */
-    margin-bottom: 0;
-    text-align: left;
-    font-size: 2.25rem; }
-
-  .nav-right ul {
-    /* .main-nav ul */
-    width: auto;
-    justify-content: flex-end; }
-
-  .nav-right li {
-    /* .main-nav li */
-    margin: 0 0 0 25px; }
-
-  .gallery {
-    gap: 30px; }
-
-  .intro-word h2 {
-    font-size: 1.5rem; }
-
-  main.layout-photo-grid {
-    gap: 20px;
-    padding-left: 30px;
-    padding-right: 30px; }
-
-  body.layout-about-page .education-content,
-  body.layout-about-page .info-content,
-  body.layout-about-page .things_i_love_do-content {
-    flex-direction: row;
-    align-items: center; }
-
-  body.layout-about-page .education-text,
-  body.layout-about-page .info-text {
-    flex: 1;
-    padding-right: 30px;
-    margin-bottom: 0; }
-
-  body.layout-about-page .education-image {
-    max-width: 40%; }
-
-  body.layout-about-page .things_i_love_do_image {
-    max-width: 50%; }
-
-  .contact-form {
-    width: 100%;
-    max-width: 600px;
-    padding: 25px;
-    margin-top: 40px;
-    margin-bottom: 40px; } }
-/* --- 7.2 Large screens (桌面) --- */
-@media (min-width: 993px) {
-  .h1 {
-    /* .site-title */
-    font-size: 2.5rem; }
-
-  .gallery {
-    gap: 40px; }
-
-  main.layout-photo-grid {
-    gap: 25px;
-    padding-left: 40px;
-    padding-right: 40px; }
-
-  body.layout-about-page .education-text,
-  body.layout-about-page .info-text {
-    padding-right: 50px; }
-
-  .contact-form {
-    max-width: 600px;
-    padding: 30px; }
-
-  /* 其他大型螢幕需要的調整... */ }
 /* --- Blog Grid Layout --- */
 .blog-grid {
   display: grid;
@@ -720,8 +524,7 @@ body.layout-about-page .things_i_love_do_image {
   cursor: pointer;
   /* Indicate image is clickable */
   vertical-align: middle;
-  pointer-events: none;
-  /* Prevent clicks on non-active images */ }
+  pointer-events: none; }
 
 .slider-image.active {
   opacity: 1;
@@ -739,8 +542,7 @@ body.layout-about-page .things_i_love_do_image {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  z-index: 10;
-  /* Dots above images */ }
+  z-index: 10; }
 
 .slider-dot {
   width: 10px;
@@ -870,56 +672,6 @@ body.layout-about-page .things_i_love_do_image {
   .grid-item-label {
     padding: 10px 15px;
     font-size: 1em; } }
-/* --- 5.4 Contact Form Styles (聯繫表單樣式) --- */
-.contact-form {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
-  margin: 40px auto;
-  font-family: "Bodoni 11", serif;
-  transition: all 0.3s ease; }
-
-.contact-form h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: #333;
-  text-align: center; }
-
-.contact-form label {
-  display: block;
-  margin-bottom: 10px;
-  color: #555; }
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: inherit;
-  font-size: 1rem; }
-
-.contact-form button {
-  font-family: 'Courier New', Courier, monospace;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 24px;
-  width: 100%;
-  transition: background-color 0.2s ease, transform 0.2s ease; }
-
-.contact-form button:hover {
-  background-color: #0056b3;
-  transform: scale(1.02); }
-
 /* ==========================================================================
    動畫與效果 (Animations & Effects)
    ========================================================================== */
@@ -1034,3 +786,150 @@ body.layout-about-page .image-caption {
   body.layout-about-page .education-image,
   body.layout-about-page .things_i_love_do_image {
     max-width: 100%; } }
+/* ==========================================================================
+   7. 媒體查詢 (Media Queries) - 採用 Mobile First (min-width)
+   ========================================================================== */
+/* --- Base styles (Mobile First - 適用於所有尺寸，除非被後面的 media query 覆蓋) --- */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; }
+
+.h1 {
+  /* .site-title */
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem; }
+
+.nav-right ul {
+  /* .main-nav ul */
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+.nav-right li {
+  /* .main-nav li */
+  margin: 5px 15px; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; }
+
+.intro-word h2 {
+  font-size: 1.3rem; }
+
+main.layout-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+body.layout-about-page .education-content,
+body.layout-about-page .info-content,
+body.layout-about-page .things_i_love_do-content {
+  display: flex;
+  flex-direction: column; }
+
+body.layout-about-page .education-text,
+body.layout-about-page .info-text {
+  padding-right: 0;
+  margin-bottom: 30px; }
+
+body.layout-about-page .education-image,
+body.layout-about-page .things_i_love_do_image {
+  max-width: 100%; }
+
+.contact-form {
+  width: 90%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px; }
+
+/* --- 7.1 Medium screens (平板及以上) --- */
+@media (min-width: 769px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; }
+
+  .h1 {
+    /* .site-title */
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 2.25rem; }
+
+  .nav-right ul {
+    /* .main-nav ul */
+    width: auto;
+    justify-content: flex-end; }
+
+  .nav-right li {
+    /* .main-nav li */
+    margin: 0 0 0 25px; }
+
+  .gallery {
+    gap: 30px; }
+
+  .intro-word h2 {
+    font-size: 1.5rem; }
+
+  main.layout-photo-grid {
+    gap: 20px;
+    padding-left: 30px;
+    padding-right: 30px; }
+
+  body.layout-about-page .education-content,
+  body.layout-about-page .info-content,
+  body.layout-about-page .things_i_love_do-content {
+    flex-direction: row;
+    align-items: center; }
+
+  body.layout-about-page .education-text,
+  body.layout-about-page .info-text {
+    flex: 1;
+    padding-right: 30px;
+    margin-bottom: 0; }
+
+  body.layout-about-page .education-image {
+    max-width: 40%; }
+
+  body.layout-about-page .things_i_love_do_image {
+    max-width: 50%; }
+
+  .contact-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 25px;
+    margin-top: 40px;
+    margin-bottom: 40px; } }
+/* --- 7.2 Large screens (桌面) --- */
+@media (min-width: 993px) {
+  .h1 {
+    /* .site-title */
+    font-size: 2.5rem; }
+
+  .gallery {
+    gap: 40px; }
+
+  main.layout-photo-grid {
+    gap: 25px;
+    padding-left: 40px;
+    padding-right: 40px; }
+
+  body.layout-about-page .education-text,
+  body.layout-about-page .info-text {
+    padding-right: 50px; }
+
+  .contact-form {
+    max-width: 600px;
+    padding: 30px; }
+
+  /* 其他大型螢幕需要的調整... */ }

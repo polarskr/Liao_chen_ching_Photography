@@ -1,8 +1,6 @@
 backend:
-  name: github # 使用 GitHub 作為後端
-  repo: polarskr/Liao_chen_ching_Photography # !! 你的 GitHub Repo 路徑 !!
+  name: git-gateway
   branch: main # 你主要內容所在的分支 (通常是 main 或 master)
-  # 如果你的 repo 是私有的，或者遇到 GitHub API Rate Limit 問題，
   # 可能需要設定 GitHub 作為 OAuth Provider，會稍微複雜一點。
   # 但對於公開 repo，通常直接用就可以了。
 
@@ -40,10 +38,10 @@ collections: # 定義你可以管理的內容
   # 如果你的 About 頁面也想用 CMS 管理，可以這樣加：
   - name: "pages"
     label: "頁面管理"
-    files: # 管理單一檔案
+    files:
       - label: "關於頁面"
         name: "about"
-        file: "about.md" # 對應的檔案
+        file: "about.md"
         fields:
           - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
           - { label: "標題", name: "title", widget: "string" }
