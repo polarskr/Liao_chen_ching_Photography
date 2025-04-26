@@ -1,3 +1,4 @@
+# encoding: UTF-8
 source "https://rubygems.org"
 gem "jekyll", "~> 3.9" # 或更新版本，3.9 相容性好
 # 使用 github-pages gem 可以包含常用插件
