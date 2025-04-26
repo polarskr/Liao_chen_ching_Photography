@@ -6,3 +6,6 @@ gem "jekyll", "~> 3.9" # 或更新版本，3.9 相容性好
 gem "jekyll-seo-tag"
 gem "jekyll-feed"
 gem "kramdown-parser-gfm"
+
+# 使用 sassc 替代 Ruby Sass 來加速編譯
+gem "sassc"
