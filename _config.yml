@@ -13,6 +13,11 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate-v2
+  - jekyll-archives
+  - jekyll-picture-tag
+
 
 # --- 添加或修改這個區塊 ---
 webmaster_verifications:

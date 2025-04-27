@@ -66,9 +66,6 @@ description: 探索攝影師 Liao ChenChing (Ralph Liao) 的精選作品集，�
         <img src="{{ "/assets/images/grid/collection-image.webp" | relative_url }}" alt="Collection" class="grid-item-image" loading="lazy">
         <span class="grid-item-label">Collection</span> 
       </a>
-
-
-
   </div> 
 
   </div> 
@@ -78,6 +75,6 @@ description: 探索攝影師 Liao ChenChing (Ralph Liao) 的精選作品集，�
 <section class="youtube-media">
   <h2>YouTube</h2>
   <div class="youtube-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=FJX6FujM79s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/FJX6FujM79s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </section>
