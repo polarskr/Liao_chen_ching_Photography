@@ -1,19 +1,16 @@
+# encoding: UTF-8
 ---
 ---
-// 0. 全域變數 (Variables - MUST BE FIRST!)
 @import 'variables';
 
-// 1. 基礎樣式 (Base)
 @import 'base/reset';
-@import 'base/animations'; // 如果動畫需要全局可用，早點導入
+@import 'base/animations';
 @import 'base/typography';
 
-// 2. 佈局 (Layout)
 @import 'layout/container';
 @import 'layout/main';
 @import 'layout/content-layout';
 
-// 3. 可重用組件 (Components)
 @import 'components/header';
 @import 'components/gallery';
 @import 'components/photo-grid';
@@ -23,9 +20,5 @@
 @import 'components/featured-grid';
 @import 'components/overlay';
 
-// 4. 特定頁面樣式 (Pages)
 @import 'pages/about';
 @import 'responsive';
-
-// 5. 工具類 (Utilities)
-// @import 'utilities/spacing';
