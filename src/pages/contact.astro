@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact me">
+	<div class="contact-form">
+		<h2>Contact Us</h2>
+		<form action="https://formsubmit.co/38518874a@gmail.com" method="post">
+			<input type="hidden" name="_redirect" value="https://ralphliao.xyz/thank-you/"> 
+			<input type="hidden" name="_subject" value="New submission from ralphliao.xyz!" />
+			
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required />
+
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required />
+
+			<label for="subject">Subject:</label>
+			<input type="text" id="subject" name="subject" required />
+
+			<label for="message">Message:</label>
+			<textarea id="message" name="message" rows="4" required></textarea>
+
+			<button type="submit">Send</button>
+		</form>
+	</div>
+</Layout>

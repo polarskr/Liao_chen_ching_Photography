@@ -1,0 +1,141 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/main.scss';
+
+interface Props {
+	title?: string;
+	description?: string;
+	bodyClass?: string;
+	containerClass?: string;
+	mainClass?: string;
+	tags?: string[];
+}
+
+const { 
+	title = 'Liao ChenChing', 
+	description = 'RalphLiao的網站,有很多好看的東西', 
+	bodyClass = '',
+	containerClass = '',
+	mainClass = '',
+	tags = []
+} = Astro.props;
+
+const keywords = `RalphLiao, Photography${tags.length ? ', ' + tags.join(', ') : ''}`;
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{title}</title>
+	<meta name="description" content={description}>
+	<meta name="keywords" content={keywords}>
+	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+	<link rel="preload" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://indestructibletype.com/fonts/Bodoni/Bodoni.css"></noscript>
+	<link rel="icon" type="image/x-icon" href="/assets/images/main img/R.PNG">
+
+	<ClientRouter />
+</head>
+
+<body class={bodyClass}>
+
+	<!-- ===== Page Transition Overlay (Not needed for ViewTransitions but kept structure for styling if needed) ===== -->
+	<div id="overlay" style="display: none;"></div>
+
+	<!-- ===== Main Page Container ===== -->
+	<div class={`container ${containerClass}`}>
+
+		<!-- ===== Header ===== -->
+		<header class="header" role="banner">
+			<h1 class="h1 site-title-heading">
+				<a href="/">Liao ChenChing</a>
+			</h1>
+			<nav class="nav-right main-navigation" aria-label="Main Navigation">
+				<ul>
+					<li><a href="https://www.youtube.com/channel/UCPurBYw_me-f-qJwwO2UnPg" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+					<li><a href="https://www.instagram.com/polarskr/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+					<li><a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></li>
+					<li><a href="/2023/">2023.</a></li>
+					<li><a href="/blog/">Article.</a></li>
+					<li><a href="/about/">About.</a></li>
+					<li><a href="/contact/" aria-label="Contact"><i class="fa-solid fa-envelope"></i></a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- ===== Main Content Area ===== -->
+		<main class={`main-content ${mainClass}`} role="main">
+			<slot />
+		</main>
+		<!-- ===== End Main Content Area ===== -->
+
+		<!-- ===== Footer ===== -->
+		<footer class="footer" role="contentinfo">
+			<p>© {new Date().getFullYear()} Ralph Liao</p>
+		</footer>
+		<!-- ===== End Footer ===== -->
+
+	</div>
+
+	<!-- Custom JavaScript -->
+	<script is:inline>
+		// --- PP Mobler Style Image Slider Logic ---
+		// astro:page-load event is used by ViewTransitions when the page finishes loading
+		document.addEventListener('astro:page-load', () => {
+			const sliders = document.querySelectorAll('.image-slider.pp-slider');
+
+			sliders.forEach(slider => {
+				const imagesContainer = slider.querySelector('.slider-images');
+				const images = slider.querySelectorAll('.slider-image');
+				const dotsContainer = slider.querySelector('.slider-dots');
+				const dots = slider.querySelectorAll('.slider-dot');
+
+				if (!imagesContainer || !dotsContainer || images.length === 0 || images.length !== dots.length) {
+					return;
+				}
+
+				let currentSlideIndex = 0;
+
+				function showSlide(indexToShow) {
+					if (indexToShow < 0 || indexToShow >= images.length || indexToShow === currentSlideIndex) {
+						return;
+					}
+
+					images[currentSlideIndex].classList.remove('active');
+					dots[currentSlideIndex].classList.remove('active');
+
+					images[indexToShow].classList.add('active');
+					dots[indexToShow].classList.add('active');
+
+					currentSlideIndex = indexToShow;
+				}
+
+				// Dot click handler
+				if (dotsContainer) {
+					// Remove previous listeners across navigations just in case, but inline scripts inside body might re-eval.
+					// ViewTransitions generally keeps head state intact but might replace body.
+					dotsContainer.onclick = function(event) {
+						if (event.target.classList.contains('slider-dot')) {
+							const targetIndex = parseInt(event.target.dataset.slideIndex, 10);
+							if (!isNaN(targetIndex)) {
+								showSlide(targetIndex);
+							}
+						}
+					};
+				}
+
+				// Image click handler (advances to next slide)
+				if (imagesContainer) {
+					imagesContainer.onclick = function(event) {
+						let nextIndex = (currentSlideIndex + 1) % images.length;
+						showSlide(nextIndex);
+					};
+				}
+			});
+		});
+	</script>
+</body>
+</html>

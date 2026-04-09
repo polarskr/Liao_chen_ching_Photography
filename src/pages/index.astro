@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+	title="首頁 | Liao ChenChing Photography & Insights"
+	description="探索攝影師 Liao ChenChing (Ralph Liao) 的精選作品集，並一窺他對美學、投資及多元生活的獨特見解與最新文章。"
+>
+	<div class="image-slider pp-slider">
+		<div class="slider-images">
+			<img src="/assets/images/main img/denmark_museum.webp" alt="Denmark Museum" class="slider-image active" data-slide-index="0" loading="lazy">
+			<img src="/assets/images/main img/Sea.webp" alt="Sea View" class="slider-image" data-slide-index="1" loading="lazy">
+			<img src="/assets/images/main img/Blossom.webp" alt="Cherry Blossom" class="slider-image" data-slide-index="2" loading="lazy">
+			<img src="/assets/images/main img/Chair.webp" alt="Modern Chair" class="slider-image" data-slide-index="3" loading="lazy">
+		</div>
+
+		<div class="slider-dots pp-dots">
+			<button class="slider-dot active" data-slide-index="0" aria-label="Go to slide 1"></button>
+			<button class="slider-dot" data-slide-index="1" aria-label="Go to slide 2"></button>
+			<button class="slider-dot" data-slide-index="2" aria-label="Go to slide 3"></button>
+			<button class="slider-dot" data-slide-index="3" aria-label="Go to slide 4"></button>
+		</div>
+	</div>
+
+	<section class="featured-grid pp-precise-grid">
+		<div class="grid-main-container">
+			<a href="/2023" class="grid-item grid-item-large">
+				<img src="/assets/images/grid/De_Famila.webp" alt="2023 Gallery / 2023" class="grid-item-image" loading="lazy">
+				<span class="grid-item-label">2023 Gallery</span>
+			</a>
+			
+			<div class="grid-column-right">
+				<a href="/blog" class="grid-item grid-item-stacked"> 
+					<img src="/assets/images/grid/DSC02213.webp" alt="Article" class="grid-item-image" loading="lazy">
+					<span class="grid-item-label">Article</span>
+				</a>
+				<a href="/about" class="grid-item grid-item-stacked"> 
+					<img src="/assets/images/grid/DSC03555.webp" alt="About" class="grid-item-image" loading="lazy"> 
+					<span class="grid-item-label">About</span>
+				</a>
+				<a href="#" class="grid-item grid-item-stacked"> 
+					<img src="/assets/images/grid/collection-image.webp" alt="Collection" class="grid-item-image" loading="lazy">
+					<span class="grid-item-label">Collection</span> 
+				</a>
+			</div> 
+		</div> 
+	</section>
+
+	<section class="youtube-media">
+		<h2>YouTube</h2>
+		<div class="youtube-container">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/FJX6FujM79s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		</div>
+	</section>
+</Layout>
