@@ -2,23 +2,33 @@
 import Layout from '../layouts/Layout.astro';
 
 const images = [
-	{ src: '/assets/images/gallery/1.webp', alt: 'Photo 1' },
-	{ src: '/assets/images/gallery/2.webp', alt: 'Photo 2' },
-	{ src: '/assets/images/gallery/3.webp', alt: 'Photo 3' },
-	{ src: '/assets/images/gallery/4.webp', alt: 'Photo 4' },
-	{ src: '/assets/images/gallery/5.webp', alt: 'Photo 5' },
-	{ src: '/assets/images/gallery/6.webp', alt: 'Photo 6' },
-	{ src: '/assets/images/gallery/7.webp', alt: 'Photo 7' },
-	{ src: '/assets/images/gallery/8.webp', alt: 'Photo 8' },
+	{ src: '/assets/images/main img/Church.webp', alt: 'Church — Grundtvig\'s church, Denmark', category: '2023' },
+	{ src: '/assets/images/main img/Bay.webp', alt: 'Bay — Louisiana Museum, Denmark', category: '2023' },
+	{ src: '/assets/images/main img/Building.webp', alt: 'Building — Liverpool street, London', category: '2023' },
+	{ src: '/assets/images/gallery/1.webp', alt: 'Photo 1', category: 'submission' },
+	{ src: '/assets/images/gallery/2.webp', alt: 'Photo 2', category: 'submission' },
+	{ src: '/assets/images/gallery/3.webp', alt: 'Photo 3', category: 'submission' },
+	{ src: '/assets/images/gallery/4.webp', alt: 'Photo 4', category: 'submission' },
+	{ src: '/assets/images/gallery/5.webp', alt: 'Photo 5', category: 'submission' },
+	{ src: '/assets/images/gallery/6.webp', alt: 'Photo 6', category: 'submission' },
+	{ src: '/assets/images/gallery/7.webp', alt: 'Photo 7', category: 'submission' },
+	{ src: '/assets/images/gallery/8.webp', alt: 'Photo 8', category: 'submission' },
 ];
 ---
 
 <Layout title="Gallery | Liao ChenChing" description="Ralph Liao 的攝影作品集">
 	<section class="gallery-section">
 		<h2 class="section-title">Gallery</h2>
+
+		<div class="gallery-tabs">
+			<button class="tab active" data-filter="all">All</button>
+			<button class="tab" data-filter="2023">2023</button>
+			<button class="tab" data-filter="submission">投稿作品</button>
+		</div>
+
 		<div class="gallery-grid">
 			{images.map((img) => (
-				<div class="gallery-item" onclick={`openLightbox('${img.src}', '${img.alt}')`}>
+				<div class="gallery-item" data-category={img.category} onclick={`openLightbox('${img.src}', '${img.alt}')`}>
 					<img src={img.src} alt={img.alt} loading="lazy" />
 				</div>
 			))}
@@ -31,10 +41,10 @@ const images = [
 	</div>
 </Layout>
 
-<script>
-	function openLightbox(src: string, alt: string) {
-		const lightbox = document.getElementById('lightbox') as HTMLElement;
-		const img = document.getElementById('lightbox-img') as HTMLImageElement;
+<script is:inline>
+	function openLightbox(src, alt) {
+		const lightbox = document.getElementById('lightbox');
+		const img = document.getElementById('lightbox-img');
 		img.src = src;
 		img.alt = alt;
 		lightbox.classList.add('active');
@@ -42,7 +52,7 @@ const images = [
 	}
 
 	function closeLightbox() {
-		const lightbox = document.getElementById('lightbox') as HTMLElement;
+		const lightbox = document.getElementById('lightbox');
 		lightbox.classList.remove('active');
 		document.body.style.overflow = '';
 	}
@@ -51,8 +61,21 @@ const images = [
 		if (e.key === 'Escape') closeLightbox();
 	});
 
-	(window as any).openLightbox = openLightbox;
-	(window as any).closeLightbox = closeLightbox;
+	document.querySelectorAll('.tab').forEach(tab => {
+		tab.addEventListener('click', () => {
+			document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+			tab.classList.add('active');
+
+			const filter = tab.dataset.filter;
+			document.querySelectorAll('.gallery-item').forEach(item => {
+				if (filter === 'all' || item.dataset.category === filter) {
+					item.style.display = 'block';
+				} else {
+					item.style.display = 'none';
+				}
+			});
+		});
+	});
 </script>
 
 <style>
@@ -66,8 +89,40 @@ const images = [
 		font-weight: 300;
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
-		margin-bottom: 2.5rem;
+		margin-bottom: 2rem;
 		text-align: center;
+	}
+
+	.gallery-tabs {
+		display: flex;
+		justify-content: center;
+		gap: 0;
+		margin-bottom: 2rem;
+		border-bottom: 1px solid #e0e0e0;
+	}
+
+	.tab {
+		background: none;
+		border: none;
+		border-bottom: 2px solid transparent;
+		padding: 0.6rem 1.8rem;
+		font-family: 'Bodoni', serif;
+		font-size: 0.85rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		cursor: pointer;
+		color: #999;
+		margin-bottom: -1px;
+		transition: color 0.2s, border-color 0.2s;
+	}
+
+	.tab:hover {
+		color: #333;
+	}
+
+	.tab.active {
+		color: #111;
+		border-bottom-color: #111;
 	}
 
 	.gallery-grid {
