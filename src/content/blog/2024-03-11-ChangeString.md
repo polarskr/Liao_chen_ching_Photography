@@ -30,7 +30,7 @@ Changing your guitar strings is an essential skill for any guitarist. While ther
 *   ![調音器](/assets/images/blog1 img/Polytune Tuner Thomann.jpg)
 *   
 *   String winder (optional, but recommended) / 捲弦器（可選，但建議）
-    {# 在這裡或對應位置加入捲弦器圖片？ #}
+
 
 ## Step-by-Step Guide
 ### 逐步指南
@@ -38,12 +38,12 @@ Changing your guitar strings is an essential skill for any guitarist. While ther
 1.  #### Remove the Old Strings / 移除舊弦
     *   Loosen each string completely and remove it from the tuning post and bridge. / 完全鬆開每根弦，並從定音柱和琴橋上移除。
     *   Clean the fretboard and guitar body while the strings are off. / 拆掉弦後清潔指板和吉他本身。
-    {# 可以在這裡加入清潔指板的圖片？ #}
+
 
 2.  #### Thread the New String / 穿新弦
     *   Insert the string through the appropriate bridge hole or tailpiece. / 通過適當的橋樑孔或尾件插入弦。
     *   Pull it taut to the corresponding tuning post. / 拉緊到相應的定音柱。
-    {# 可以在這裡加入穿弦的圖片？ #}
+
 
 3.  #### Create the Luthier's Knot / 創建 Luthier's Knot
     *   Pull the string through the tuning post hole, leaving about 3 inches of slack. / 將弦通過定音柱孔拉出，留出約 7.62公分的長度。
@@ -51,13 +51,13 @@ Changing your guitar strings is an essential skill for any guitarist. While ther
     *   Wrap the excess string under and over the main string, moving towards the tuning post. / 將過剩的弦在主弦下方和上方纏繞，朝向定音柱移動。
     *   After one complete wrap, thread the excess string through the loop you've created. / 完成一個完整的纏繞後，將多餘的弦通過您創建的環穿過。
     *   Pull both ends to tighten the knot. / 拉兩端以緊繃結。
-    {# 這裡非常適合放 Luthier's Knot 的步驟圖或示意圖！ #}
+
 
 4.  #### Wind the String / 纏弦
     *   Hold the knot in place and begin turning the tuning key. / 將結固定在原位，並開始轉動定音柱。
     *   Guide the string down the post, ensuring neat, close wraps. / 將弦向下引導到定音柱，確保整潔、緊密的纏繞。
     *   Aim for 2-3 wraps for thicker strings, 3-4 for thinner ones. / 對於較厚的弦，建議纏繞 2-3 圈，對於較薄的弦，建議纏繞 3-4 圈。
-    {# 可以在這裡加入纏繞完成的圖片？ #}
+
 
 5.  #### Tune The Pitch / 調音
     *   Use a tuner to bring the string up to the correct pitch. / 使用調音器將弦調整到正確的音高。

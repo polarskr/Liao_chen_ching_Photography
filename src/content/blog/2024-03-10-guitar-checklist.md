@@ -4,8 +4,7 @@ title: "DIY吉他保養: 必備工具和檢查清單"
 date: 2024-03-10 10:00:00 +0800
 categories: [吉他, 教學]
 tags: [維護, 清單, DIY]
-# (可選) 文章摘要，用於 SEO 和列表頁
-excerpt: "無論您是初學者還是資深吉他手，了解如何保養您的樂器都是至關重要的。本指南將為您介紹所需的基本工具，並提供一個簡單的檢查清單，以保持您的吉他處於最佳狀態。"
+description: "無論您是初學者還是資深吉他手，了解如何保養您的樂器都是至關重要的。本指南將為您介紹所需的基本工具，並提供一個簡單的檢查清單，以保持您的吉他處於最佳狀態。"
 image: /assets/images/blog1 img/gradient1.png
 ---
 
@@ -16,7 +15,7 @@ image: /assets/images/blog1 img/gradient1.png
 ### 必備工具
 
 1.  **弦軸扳手 (String winder)**：加快更換琴弦。
-    ![弦軸扳手](/assets/images/blog1%20img/String%20Winder.png) {# 注意：需要更新圖片路徑指向 assets 資料夾，並且處理檔名中的空格，最好改成 guitar-winder.png 之類的 #}
+    ![弦軸扳手](/assets/images/blog1%20img/String%20Winder.png)
 2.  **剪線鉗 (Wire cutters)**：剪掉多餘的琴弦。
     ![剪線鉗](/assets/images/blog1%20img/Wire%20cutter.png)
 3.  **螺絲刀 (Screwdrivers)**：包括一字和十字螺絲刀，用於調整各種部件。
