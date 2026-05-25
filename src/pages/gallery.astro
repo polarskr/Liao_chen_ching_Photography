@@ -29,84 +29,158 @@ const happyland = [
 			<button class="tab" data-filter="happyland">Lost in Happyland</button>
 		</div>
 
-		<!-- 2023 Series -->
-		<div class="series" id="series-2023">
-			<div class="series-layout">
-				<div class="series-quote">
-					<p>"In black and white you suggest; in color you state. Much can be implied by suggestion, but statement demands certainty... absolute certainty"</p>
-					<span class="series-quote-author">Paul Outerbridge.</span>
+		<div class="gallery-content">
+			<!-- 2023 Series -->
+			<div class="series" id="series-2023">
+				<div class="series-layout">
+					<div class="series-quote">
+						<p>"In black and white you suggest; in color you state. Much can be implied by suggestion, but statement demands certainty... absolute certainty"</p>
+						<span class="series-quote-author">Paul Outerbridge.</span>
+					</div>
+					<div class="series-photos">
+						{series2023.map((img) => (
+							<figure class="series-photo" onclick={`openLightbox('${img.src}', '${img.caption}')`}>
+								<img src={img.src} alt={img.caption} loading="lazy" />
+								<figcaption>{img.caption}</figcaption>
+							</figure>
+						))}
+					</div>
 				</div>
-				<div class="series-photos">
-					{series2023.map((img) => (
-						<figure class="series-photo" onclick={`openLightbox('${img.src}', '${img.caption}')`}>
-							<img src={img.src} alt={img.caption} loading="lazy" />
-							<figcaption>{img.caption}</figcaption>
-						</figure>
+			</div>
+
+			<!-- Lost in Happyland Series -->
+			<div class="series" id="series-happyland">
+				<div class="happyland-header">
+					<h3 class="series-name">Lost in Happyland</h3>
+				</div>
+				<div class="happyland-grid">
+					{happyland.map((img, i) => (
+						<div class="gallery-item" onclick={`openHappylandAt(${i})`}>
+							<img src={img.src} alt={img.caption || `Photo ${i + 1}`} loading="lazy" />
+						</div>
 					))}
 				</div>
 			</div>
 		</div>
-
-		<!-- Lost in Happyland Series -->
-		<div class="series" id="series-happyland">
-			<div class="happyland-header">
-				<h3 class="series-name">Lost in Happyland</h3>
-			</div>
-			<div class="happyland-grid">
-				{happyland.map((img) => (
-					<div class="gallery-item" onclick={`openLightbox('${img.src}', '${img.caption}')`}>
-						<img src={img.src} alt={img.caption} loading="lazy" />
-					</div>
-				))}
-			</div>
-		</div>
 	</section>
 
-	<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+	<!-- Lightbox -->
+	<div class="lightbox" id="lightbox">
+		<div class="lightbox-backdrop" onclick="closeLightbox()"></div>
 		<button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
-		<img id="lightbox-img" src="" alt="" />
+		<button class="lightbox-nav lightbox-prev" id="lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+		<div class="lightbox-img-wrap">
+			<img id="lightbox-img" src="" alt="" />
+		</div>
+		<button class="lightbox-nav lightbox-next" id="lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
 	</div>
 </Layout>
 
 <script is:inline>
 	function initGallery() {
+		// ── Lightbox state ──────────────────────────────────────
+		let lbImages = [];
+		let lbIndex  = 0;
+
+		const lightbox  = document.getElementById('lightbox');
+		const lbImg     = document.getElementById('lightbox-img');
+		const lbPrev    = document.getElementById('lightbox-prev');
+		const lbNext    = document.getElementById('lightbox-next');
+
 		function openLightbox(src, alt) {
-			const lightbox = document.getElementById('lightbox');
-			const img = document.getElementById('lightbox-img');
-			img.src = src;
-			img.alt = alt;
+			lbImages = [{ src, alt }];
+			lbIndex  = 0;
+			_showLightbox();
+		}
+
+		function openHappylandAt(index) {
+			// Read data from DOM so no duplication needed
+			const items = document.querySelectorAll('.gallery-item img');
+			lbImages = Array.from(items).map(img => ({ src: img.src, alt: img.alt }));
+			lbIndex  = index;
+			_showLightbox();
+		}
+
+		function _showLightbox() {
+			_setImage(lbImages[lbIndex].src, lbImages[lbIndex].alt, false);
+			_updateNav();
 			lightbox.classList.add('active');
 			document.body.style.overflow = 'hidden';
 		}
 
 		function closeLightbox() {
-			const lightbox = document.getElementById('lightbox');
 			lightbox.classList.remove('active');
 			document.body.style.overflow = '';
 		}
 
-		window.openLightbox = openLightbox;
-		window.closeLightbox = closeLightbox;
+		function navigateLightbox(dir) {
+			const next = lbIndex + dir;
+			if (next < 0 || next >= lbImages.length) return;
+			lbIndex = next;
+			_setImage(lbImages[lbIndex].src, lbImages[lbIndex].alt, true);
+			_updateNav();
+		}
+
+		function _setImage(src, alt, animate) {
+			if (animate) {
+				lbImg.style.opacity = '0';
+				lbImg.style.transform = 'scale(0.97)';
+				setTimeout(() => {
+					lbImg.src = src;
+					lbImg.alt = alt;
+					lbImg.style.opacity = '1';
+					lbImg.style.transform = 'scale(1)';
+				}, 180);
+			} else {
+				lbImg.src = src;
+				lbImg.alt = alt;
+				lbImg.style.opacity = '1';
+				lbImg.style.transform = 'scale(1)';
+			}
+		}
+
+		function _updateNav() {
+			const multi = lbImages.length > 1;
+			lbPrev.style.display = (multi && lbIndex > 0) ? 'flex' : 'none';
+			lbNext.style.display = (multi && lbIndex < lbImages.length - 1) ? 'flex' : 'none';
+		}
+
+		window.openLightbox      = openLightbox;
+		window.openHappylandAt   = openHappylandAt;
+		window.closeLightbox     = closeLightbox;
+		window.navigateLightbox  = navigateLightbox;
 
 		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape') closeLightbox();
+			if (!lightbox.classList.contains('active')) return;
+			if (e.key === 'Escape')      closeLightbox();
+			if (e.key === 'ArrowRight')  navigateLightbox(1);
+			if (e.key === 'ArrowLeft')   navigateLightbox(-1);
 		});
 
-		const tabs = document.querySelectorAll('.tab');
-		const series2023 = document.getElementById('series-2023');
-		const seriesHappyland = document.getElementById('series-happyland');
+		// ── Tab transitions ─────────────────────────────────────
+		const tabs      = document.querySelectorAll('.tab');
+		const content   = document.querySelector('.gallery-content');
+		const s2023     = document.getElementById('series-2023');
+		const sHappy    = document.getElementById('series-happyland');
 
 		function showFilter(filter) {
-			if (filter === 'all') {
-				series2023.style.display = 'block';
-				seriesHappyland.style.display = 'block';
-			} else if (filter === '2023') {
-				series2023.style.display = 'block';
-				seriesHappyland.style.display = 'none';
-			} else if (filter === 'happyland') {
-				series2023.style.display = 'none';
-				seriesHappyland.style.display = 'block';
-			}
+			content.style.opacity = '0';
+			content.style.transform = 'translateY(6px)';
+
+			setTimeout(() => {
+				if (filter === 'all') {
+					s2023.style.display  = 'block';
+					sHappy.style.display = 'block';
+				} else if (filter === '2023') {
+					s2023.style.display  = 'block';
+					sHappy.style.display = 'none';
+				} else if (filter === 'happyland') {
+					s2023.style.display  = 'none';
+					sHappy.style.display = 'block';
+				}
+				content.style.opacity   = '1';
+				content.style.transform = 'translateY(0)';
+			}, 220);
 		}
 
 		tabs.forEach(tab => {
@@ -163,7 +237,12 @@ const happyland = [
 	.tab:hover { color: #333; }
 	.tab.active { color: #111; border-bottom-color: #111; }
 
-	/* 2023 Series Layout */
+	/* Content fade wrapper */
+	.gallery-content {
+		transition: opacity 0.22s ease, transform 0.22s ease;
+	}
+
+	/* 2023 Series */
 	.series {
 		margin-bottom: 4rem;
 	}
@@ -208,9 +287,7 @@ const happyland = [
 		transition: opacity 0.3s ease;
 	}
 
-	.series-photo:hover img {
-		opacity: 0.85;
-	}
+	.series-photo:hover img { opacity: 0.85; }
 
 	.series-photo figcaption {
 		text-align: center;
@@ -222,9 +299,7 @@ const happyland = [
 	}
 
 	/* Lost in Happyland */
-	.happyland-header {
-		margin-bottom: 1.5rem;
-	}
+	.happyland-header { margin-bottom: 1.5rem; }
 
 	.series-name {
 		font-family: 'Bodoni', serif;
@@ -263,7 +338,6 @@ const happyland = [
 		display: none;
 		position: fixed;
 		inset: 0;
-		background: rgba(0, 0, 0, 0.92);
 		z-index: 1000;
 		align-items: center;
 		justify-content: center;
@@ -271,38 +345,71 @@ const happyland = [
 
 	.lightbox.active { display: flex; }
 
-	.lightbox img {
-		max-width: 90vw;
+	.lightbox-backdrop {
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.92);
+	}
+
+	.lightbox-img-wrap {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 88vw;
 		max-height: 90vh;
+	}
+
+	.lightbox-img-wrap img {
+		max-width: 88vw;
+		max-height: 88vh;
 		object-fit: contain;
+		transition: opacity 0.18s ease, transform 0.18s ease;
+		display: block;
 	}
 
 	.lightbox-close {
 		position: absolute;
 		top: 1.5rem;
 		right: 1.5rem;
+		z-index: 2;
 		background: none;
 		border: none;
-		color: white;
+		color: rgba(255,255,255,0.7);
 		font-size: 1.8rem;
 		cursor: pointer;
+		transition: color 0.2s;
+		line-height: 1;
 	}
 
+	.lightbox-close:hover { color: #fff; }
+
+	.lightbox-nav {
+		position: relative;
+		z-index: 2;
+		background: none;
+		border: none;
+		color: rgba(255,255,255,0.55);
+		font-size: 3.5rem;
+		cursor: pointer;
+		padding: 1rem 1.2rem;
+		line-height: 1;
+		transition: color 0.2s;
+		user-select: none;
+		flex-shrink: 0;
+	}
+
+	.lightbox-nav:hover { color: #fff; }
+
 	@media (max-width: 900px) {
-		.series-layout {
-			flex-direction: column;
-		}
-		.series-quote {
-			flex: none;
-		}
+		.series-layout { flex-direction: column; }
+		.series-quote  { flex: none; }
 	}
 
 	@media (max-width: 720px) {
-		.series-photos {
-			flex-direction: column;
-		}
-		.happyland-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
+		.series-photos { flex-direction: column; }
+		.happyland-grid { grid-template-columns: repeat(2, 1fr); }
+		.lightbox-nav { font-size: 2.5rem; padding: 0.5rem 0.8rem; }
 	}
 </style>
