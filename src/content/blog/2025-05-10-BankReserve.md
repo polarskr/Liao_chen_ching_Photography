@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 解讀 Fed 政策：銀行準備金、ON RRP 與美元流動性分析
-image: ''
+image: /assets/images/blog1 img/fed_policy_cover.webp
 description: 深入分析美國銀行準備金、隔夜逆回購協議 (ON RRP) 與聯準會 (Fed) 的量化寬鬆/緊縮 (QE/QT) 政策如何相互作用，影響美元流動性以及美元指數 (DXY) 的走勢。
 date: 2025-05-10T00:00:00.000Z
 categories:
