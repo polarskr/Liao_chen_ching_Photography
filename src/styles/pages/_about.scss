@@ -78,6 +78,20 @@ body.layout-about-page .image-caption {
 }
 
 
+/* Portrait photo in intro */
+body.layout-about-page .info-portrait {
+  flex: 0 0 260px;
+  max-width: 260px;
+}
+
+body.layout-about-page .info-portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
 /* --- About Page Layout Media Query (關於頁面佈局的響應式調整) --- */
 @media (max-width: 768px) {
   /* About Page Layout adjustments */
@@ -93,6 +107,10 @@ body.layout-about-page .image-caption {
   }
   body.layout-about-page .education-image,
   body.layout-about-page .things_i_love_do_image {
+    max-width: 100%;
+  }
+  body.layout-about-page .info-portrait {
+    flex: none;
     max-width: 100%;
   }
 }

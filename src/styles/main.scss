@@ -1,4 +1,23 @@
 
+// ── CSS Custom Properties (design tokens) ──────────────────────────────
+:root {
+	--font-display: 'Bodoni', serif;
+	--font-body: 'Bodoni', serif;
+	--font-caption: 'Courier New', Courier, monospace;
+
+	--color-text: #111;
+	--color-text-secondary: #555;
+	--color-text-muted: #999;
+	--color-border: rgba(0, 0, 0, 0.08);
+	--color-bg: #fff;
+
+	--size-display: clamp(2rem, 5vw, 4rem);
+	--size-title: 1.5rem;
+	--size-body: 1rem;
+	--size-caption: 0.8rem;
+	--line-height-body: 1.7;
+}
+
 @import 'variables';
 
 @import 'base/reset';

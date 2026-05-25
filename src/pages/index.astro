@@ -6,6 +6,7 @@ import Layout from '../layouts/Layout.astro';
 	title="首頁 | Liao ChenChing Photography & Insights"
 	description="探索攝影師 Liao ChenChing (Ralph Liao) 的精選作品集，並一窺他對美學、投資及多元生活的獨特見解與最新文章。"
 >
+	<div class="hero-wrapper">
 	<div class="image-slider pp-slider">
 		<div class="slider-images">
 			<img src="/assets/images/main img/denmark_museum.webp" alt="Denmark Museum" class="slider-image active" data-slide-index="0" loading="lazy">
@@ -19,6 +20,11 @@ import Layout from '../layouts/Layout.astro';
 			<button class="slider-dot" data-slide-index="1" aria-label="Go to slide 2"></button>
 			<button class="slider-dot" data-slide-index="2" aria-label="Go to slide 3"></button>
 			<button class="slider-dot" data-slide-index="3" aria-label="Go to slide 4"></button>
+		</div>
+	</div>
+		<div class="hero-text">
+			<p class="hero-name">Ralph Liao</p>
+			<p class="hero-tagline">Photography · Investment · Curiosity</p>
 		</div>
 	</div>
 
@@ -49,3 +55,32 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 </Layout>
+
+<style>
+	.hero-wrapper {
+		position: relative;
+	}
+
+	.hero-text {
+		padding: 1.5rem 0 0.5rem;
+		text-align: left;
+	}
+
+	.hero-name {
+		font-family: 'Bodoni', serif;
+		font-size: clamp(2rem, 5vw, 3.5rem);
+		font-weight: 300;
+		letter-spacing: 0.05em;
+		margin: 0 0 0.3rem 0;
+		line-height: 1.1;
+		color: #111;
+	}
+
+	.hero-tagline {
+		font-size: 0.85rem;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: #888;
+		margin: 0;
+	}
+</style>
