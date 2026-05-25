@@ -1,18 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const images = [
-	{ src: '/assets/images/main img/Church.webp', alt: 'Church — Grundtvig\'s church, Denmark', category: '2023' },
-	{ src: '/assets/images/main img/Bay.webp', alt: 'Bay — Louisiana Museum, Denmark', category: '2023' },
-	{ src: '/assets/images/main img/Building.webp', alt: 'Building — Liverpool street, London', category: '2023' },
-	{ src: '/assets/images/gallery/1.webp', alt: 'Photo 1', category: 'submission' },
-	{ src: '/assets/images/gallery/2.webp', alt: 'Photo 2', category: 'submission' },
-	{ src: '/assets/images/gallery/3.webp', alt: 'Photo 3', category: 'submission' },
-	{ src: '/assets/images/gallery/4.webp', alt: 'Photo 4', category: 'submission' },
-	{ src: '/assets/images/gallery/5.webp', alt: 'Photo 5', category: 'submission' },
-	{ src: '/assets/images/gallery/6.webp', alt: 'Photo 6', category: 'submission' },
-	{ src: '/assets/images/gallery/7.webp', alt: 'Photo 7', category: 'submission' },
-	{ src: '/assets/images/gallery/8.webp', alt: 'Photo 8', category: 'submission' },
+const series2023 = [
+	{ src: '/assets/images/main img/Church.webp', caption: "Grundtvig's church, Denmark" },
+	{ src: '/assets/images/main img/Bay.webp', caption: 'The bay at Louisiana Museum, Denmark' },
+	{ src: '/assets/images/main img/Building.webp', caption: 'Liverpool street, London' },
+];
+
+const happyland = [
+	{ src: '/assets/images/gallery/1.webp', caption: '' },
+	{ src: '/assets/images/gallery/2.webp', caption: '' },
+	{ src: '/assets/images/gallery/3.webp', caption: '' },
+	{ src: '/assets/images/gallery/4.webp', caption: '' },
+	{ src: '/assets/images/gallery/5.webp', caption: '' },
+	{ src: '/assets/images/gallery/6.webp', caption: '' },
+	{ src: '/assets/images/gallery/7.webp', caption: '' },
+	{ src: '/assets/images/gallery/8.webp', caption: '' },
 ];
 ---
 
@@ -23,15 +26,39 @@ const images = [
 		<div class="gallery-tabs">
 			<button class="tab active" data-filter="all">All</button>
 			<button class="tab" data-filter="2023">2023</button>
-			<button class="tab" data-filter="submission">投稿作品</button>
+			<button class="tab" data-filter="happyland">Lost in Happyland</button>
 		</div>
 
-		<div class="gallery-grid">
-			{images.map((img) => (
-				<div class="gallery-item" data-category={img.category} onclick={`openLightbox('${img.src}', '${img.alt}')`}>
-					<img src={img.src} alt={img.alt} loading="lazy" />
+		<!-- 2023 Series -->
+		<div class="series" id="series-2023">
+			<div class="series-layout">
+				<div class="series-quote">
+					<p>"In black and white you suggest; in color you state. Much can be implied by suggestion, but statement demands certainty... absolute certainty"</p>
+					<span class="series-quote-author">Paul Outerbridge.</span>
 				</div>
-			))}
+				<div class="series-photos">
+					{series2023.map((img) => (
+						<figure class="series-photo" onclick={`openLightbox('${img.src}', '${img.caption}')`}>
+							<img src={img.src} alt={img.caption} loading="lazy" />
+							<figcaption>{img.caption}</figcaption>
+						</figure>
+					))}
+				</div>
+			</div>
+		</div>
+
+		<!-- Lost in Happyland Series -->
+		<div class="series" id="series-happyland">
+			<div class="happyland-header">
+				<h3 class="series-name">Lost in Happyland</h3>
+			</div>
+			<div class="happyland-grid">
+				{happyland.map((img) => (
+					<div class="gallery-item" onclick={`openLightbox('${img.src}', '${img.caption}')`}>
+						<img src={img.src} alt={img.caption} loading="lazy" />
+					</div>
+				))}
+			</div>
 		</div>
 	</section>
 
@@ -42,40 +69,57 @@ const images = [
 </Layout>
 
 <script is:inline>
-	function openLightbox(src, alt) {
-		const lightbox = document.getElementById('lightbox');
-		const img = document.getElementById('lightbox-img');
-		img.src = src;
-		img.alt = alt;
-		lightbox.classList.add('active');
-		document.body.style.overflow = 'hidden';
-	}
+	function initGallery() {
+		function openLightbox(src, alt) {
+			const lightbox = document.getElementById('lightbox');
+			const img = document.getElementById('lightbox-img');
+			img.src = src;
+			img.alt = alt;
+			lightbox.classList.add('active');
+			document.body.style.overflow = 'hidden';
+		}
 
-	function closeLightbox() {
-		const lightbox = document.getElementById('lightbox');
-		lightbox.classList.remove('active');
-		document.body.style.overflow = '';
-	}
+		function closeLightbox() {
+			const lightbox = document.getElementById('lightbox');
+			lightbox.classList.remove('active');
+			document.body.style.overflow = '';
+		}
 
-	document.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape') closeLightbox();
-	});
+		window.openLightbox = openLightbox;
+		window.closeLightbox = closeLightbox;
 
-	document.querySelectorAll('.tab').forEach(tab => {
-		tab.addEventListener('click', () => {
-			document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-			tab.classList.add('active');
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') closeLightbox();
+		});
 
-			const filter = tab.dataset.filter;
-			document.querySelectorAll('.gallery-item').forEach(item => {
-				if (filter === 'all' || item.dataset.category === filter) {
-					item.style.display = 'block';
-				} else {
-					item.style.display = 'none';
-				}
+		const tabs = document.querySelectorAll('.tab');
+		const series2023 = document.getElementById('series-2023');
+		const seriesHappyland = document.getElementById('series-happyland');
+
+		function showFilter(filter) {
+			if (filter === 'all') {
+				series2023.style.display = 'block';
+				seriesHappyland.style.display = 'block';
+			} else if (filter === '2023') {
+				series2023.style.display = 'block';
+				seriesHappyland.style.display = 'none';
+			} else if (filter === 'happyland') {
+				series2023.style.display = 'none';
+				seriesHappyland.style.display = 'block';
+			}
+		}
+
+		tabs.forEach(tab => {
+			tab.addEventListener('click', () => {
+				tabs.forEach(t => t.classList.remove('active'));
+				tab.classList.add('active');
+				showFilter(tab.dataset.filter);
 			});
 		});
-	});
+	}
+
+	document.addEventListener('astro:page-load', initGallery);
+	if (document.readyState !== 'loading') initGallery();
 </script>
 
 <style>
@@ -93,11 +137,11 @@ const images = [
 		text-align: center;
 	}
 
+	/* Tabs */
 	.gallery-tabs {
 		display: flex;
 		justify-content: center;
-		gap: 0;
-		margin-bottom: 2rem;
+		margin-bottom: 3rem;
 		border-bottom: 1px solid #e0e0e0;
 	}
 
@@ -116,16 +160,83 @@ const images = [
 		transition: color 0.2s, border-color 0.2s;
 	}
 
-	.tab:hover {
+	.tab:hover { color: #333; }
+	.tab.active { color: #111; border-bottom-color: #111; }
+
+	/* 2023 Series Layout */
+	.series {
+		margin-bottom: 4rem;
+	}
+
+	.series-layout {
+		display: flex;
+		gap: 2rem;
+		align-items: flex-start;
+	}
+
+	.series-quote {
+		flex: 0 0 200px;
+		font-family: 'Bodoni', serif;
+		font-size: 0.95rem;
+		line-height: 1.7;
 		color: #333;
+		padding-top: 1rem;
 	}
 
-	.tab.active {
-		color: #111;
-		border-bottom-color: #111;
+	.series-quote-author {
+		display: block;
+		margin-top: 1rem;
+		font-style: italic;
 	}
 
-	.gallery-grid {
+	.series-photos {
+		display: flex;
+		gap: 1.5rem;
+		flex: 1;
+	}
+
+	.series-photo {
+		flex: 1;
+		cursor: pointer;
+		margin: 0;
+	}
+
+	.series-photo img {
+		width: 100%;
+		height: auto;
+		display: block;
+		transition: opacity 0.3s ease;
+	}
+
+	.series-photo:hover img {
+		opacity: 0.85;
+	}
+
+	.series-photo figcaption {
+		text-align: center;
+		font-family: 'Courier New', monospace;
+		font-size: 0.75rem;
+		color: #666;
+		margin-top: 0.8rem;
+		line-height: 1.4;
+	}
+
+	/* Lost in Happyland */
+	.happyland-header {
+		margin-bottom: 1.5rem;
+	}
+
+	.series-name {
+		font-family: 'Bodoni', serif;
+		font-size: 1.3rem;
+		font-weight: 300;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: #333;
+		margin: 0;
+	}
+
+	.happyland-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 8px;
@@ -145,10 +256,9 @@ const images = [
 		display: block;
 	}
 
-	.gallery-item:hover img {
-		transform: scale(1.04);
-	}
+	.gallery-item:hover img { transform: scale(1.04); }
 
+	/* Lightbox */
 	.lightbox {
 		display: none;
 		position: fixed;
@@ -159,9 +269,7 @@ const images = [
 		justify-content: center;
 	}
 
-	.lightbox.active {
-		display: flex;
-	}
+	.lightbox.active { display: flex; }
 
 	.lightbox img {
 		max-width: 90vw;
@@ -178,18 +286,23 @@ const images = [
 		color: white;
 		font-size: 1.8rem;
 		cursor: pointer;
-		line-height: 1;
 	}
 
-	@media (max-width: 720px) {
-		.gallery-grid {
-			grid-template-columns: repeat(2, 1fr);
+	@media (max-width: 900px) {
+		.series-layout {
+			flex-direction: column;
+		}
+		.series-quote {
+			flex: none;
 		}
 	}
 
-	@media (max-width: 480px) {
-		.gallery-grid {
-			grid-template-columns: 1fr;
+	@media (max-width: 720px) {
+		.series-photos {
+			flex-direction: column;
+		}
+		.happyland-grid {
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 </style>
