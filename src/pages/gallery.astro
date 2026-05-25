@@ -38,8 +38,8 @@ const happyland = [
 						<span class="series-quote-author">Paul Outerbridge.</span>
 					</div>
 					<div class="series-photos">
-						{series2023.map((img) => (
-							<figure class="series-photo" onclick={`openLightbox('${img.src}', '${img.caption}')`}>
+						{series2023.map((img, i) => (
+							<figure class="series-photo" onclick={`open2023At(${i})`}>
 								<img src={img.src} alt={img.caption} loading="lazy" />
 								<figcaption>{img.caption}</figcaption>
 							</figure>
@@ -71,6 +71,7 @@ const happyland = [
 		<button class="lightbox-nav lightbox-prev" id="lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
 		<div class="lightbox-img-wrap">
 			<img id="lightbox-img" src="" alt="" />
+			<p id="lightbox-caption" class="lightbox-caption"></p>
 		</div>
 		<button class="lightbox-nav lightbox-next" id="lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
 	</div>
@@ -82,19 +83,20 @@ const happyland = [
 		let lbImages = [];
 		let lbIndex  = 0;
 
-		const lightbox  = document.getElementById('lightbox');
-		const lbImg     = document.getElementById('lightbox-img');
-		const lbPrev    = document.getElementById('lightbox-prev');
-		const lbNext    = document.getElementById('lightbox-next');
+		const lightbox   = document.getElementById('lightbox');
+		const lbImg      = document.getElementById('lightbox-img');
+		const lbCaption  = document.getElementById('lightbox-caption');
+		const lbPrev     = document.getElementById('lightbox-prev');
+		const lbNext     = document.getElementById('lightbox-next');
 
-		function openLightbox(src, alt) {
-			lbImages = [{ src, alt }];
-			lbIndex  = 0;
+		function open2023At(index) {
+			const items = document.querySelectorAll('.series-photo img');
+			lbImages = Array.from(items).map(img => ({ src: img.src, alt: img.alt }));
+			lbIndex  = index;
 			_showLightbox();
 		}
 
 		function openHappylandAt(index) {
-			// Read data from DOM so no duplication needed
 			const items = document.querySelectorAll('.gallery-item img');
 			lbImages = Array.from(items).map(img => ({ src: img.src, alt: img.alt }));
 			lbIndex  = index;
@@ -128,27 +130,28 @@ const happyland = [
 				setTimeout(() => {
 					lbImg.src = src;
 					lbImg.alt = alt;
+					lbCaption.textContent = alt;
 					lbImg.style.opacity = '1';
 					lbImg.style.transform = 'scale(1)';
 				}, 180);
 			} else {
 				lbImg.src = src;
 				lbImg.alt = alt;
+				lbCaption.textContent = alt;
 				lbImg.style.opacity = '1';
 				lbImg.style.transform = 'scale(1)';
 			}
 		}
 
 		function _updateNav() {
-			const multi = lbImages.length > 1;
-			lbPrev.style.display = (multi && lbIndex > 0) ? 'flex' : 'none';
-			lbNext.style.display = (multi && lbIndex < lbImages.length - 1) ? 'flex' : 'none';
+			lbPrev.style.display = lbIndex > 0 ? 'flex' : 'none';
+			lbNext.style.display = lbIndex < lbImages.length - 1 ? 'flex' : 'none';
 		}
 
-		window.openLightbox      = openLightbox;
-		window.openHappylandAt   = openHappylandAt;
-		window.closeLightbox     = closeLightbox;
-		window.navigateLightbox  = navigateLightbox;
+		window.open2023At       = open2023At;
+		window.openHappylandAt  = openHappylandAt;
+		window.closeLightbox    = closeLightbox;
+		window.navigateLightbox = navigateLightbox;
 
 		document.addEventListener('keydown', (e) => {
 			if (!lightbox.classList.contains('active')) return;
@@ -158,26 +161,18 @@ const happyland = [
 		});
 
 		// ── Tab transitions ─────────────────────────────────────
-		const tabs      = document.querySelectorAll('.tab');
-		const content   = document.querySelector('.gallery-content');
-		const s2023     = document.getElementById('series-2023');
-		const sHappy    = document.getElementById('series-happyland');
+		const tabs   = document.querySelectorAll('.tab');
+		const content = document.querySelector('.gallery-content');
+		const s2023  = document.getElementById('series-2023');
+		const sHappy = document.getElementById('series-happyland');
 
 		function showFilter(filter) {
-			content.style.opacity = '0';
+			content.style.opacity   = '0';
 			content.style.transform = 'translateY(6px)';
 
 			setTimeout(() => {
-				if (filter === 'all') {
-					s2023.style.display  = 'block';
-					sHappy.style.display = 'block';
-				} else if (filter === '2023') {
-					s2023.style.display  = 'block';
-					sHappy.style.display = 'none';
-				} else if (filter === 'happyland') {
-					s2023.style.display  = 'none';
-					sHappy.style.display = 'block';
-				}
+				s2023.style.display  = (filter === 'all' || filter === '2023')      ? 'block' : 'none';
+				sHappy.style.display = (filter === 'all' || filter === 'happyland') ? 'block' : 'none';
 				content.style.opacity   = '1';
 				content.style.transform = 'translateY(0)';
 			}, 220);
@@ -355,18 +350,29 @@ const happyland = [
 		position: relative;
 		z-index: 1;
 		display: flex;
+		flex-direction: column;
 		align-items: center;
-		justify-content: center;
+		gap: 0.8rem;
 		max-width: 88vw;
 		max-height: 90vh;
 	}
 
 	.lightbox-img-wrap img {
 		max-width: 88vw;
-		max-height: 88vh;
+		max-height: 82vh;
 		object-fit: contain;
 		transition: opacity 0.18s ease, transform 0.18s ease;
 		display: block;
+	}
+
+	.lightbox-caption {
+		color: rgba(255,255,255,0.6);
+		font-family: 'Courier New', monospace;
+		font-size: 0.75rem;
+		letter-spacing: 0.05em;
+		text-align: center;
+		margin: 0;
+		min-height: 1em;
 	}
 
 	.lightbox-close {
