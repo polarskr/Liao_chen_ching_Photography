@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const images = [
+	{ src: '/assets/images/gallery/1.webp', alt: 'Photo 1' },
+	{ src: '/assets/images/gallery/2.webp', alt: 'Photo 2' },
+	{ src: '/assets/images/gallery/3.webp', alt: 'Photo 3' },
+	{ src: '/assets/images/gallery/4.webp', alt: 'Photo 4' },
+	{ src: '/assets/images/gallery/5.webp', alt: 'Photo 5' },
+	{ src: '/assets/images/gallery/6.webp', alt: 'Photo 6' },
+	{ src: '/assets/images/gallery/7.webp', alt: 'Photo 7' },
+	{ src: '/assets/images/gallery/8.webp', alt: 'Photo 8' },
+];
+---
+
+<Layout title="Gallery | Liao ChenChing" description="Ralph Liao 的攝影作品集">
+	<section class="gallery-section">
+		<h2 class="section-title">Gallery</h2>
+		<div class="gallery-grid">
+			{images.map((img) => (
+				<div class="gallery-item" onclick={`openLightbox('${img.src}', '${img.alt}')`}>
+					<img src={img.src} alt={img.alt} loading="lazy" />
+				</div>
+			))}
+		</div>
+	</section>
+
+	<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+		<button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+		<img id="lightbox-img" src="" alt="" />
+	</div>
+</Layout>
+
+<script>
+	function openLightbox(src: string, alt: string) {
+		const lightbox = document.getElementById('lightbox') as HTMLElement;
+		const img = document.getElementById('lightbox-img') as HTMLImageElement;
+		img.src = src;
+		img.alt = alt;
+		lightbox.classList.add('active');
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeLightbox() {
+		const lightbox = document.getElementById('lightbox') as HTMLElement;
+		lightbox.classList.remove('active');
+		document.body.style.overflow = '';
+	}
+
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') closeLightbox();
+	});
+
+	(window as any).openLightbox = openLightbox;
+	(window as any).closeLightbox = closeLightbox;
+</script>
+
+<style>
+	.gallery-section {
+		padding: 2rem 0;
+	}
+
+	.section-title {
+		font-family: 'Bodoni', serif;
+		font-size: 2rem;
+		font-weight: 300;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		margin-bottom: 2.5rem;
+		text-align: center;
+	}
+
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 8px;
+	}
+
+	.gallery-item {
+		overflow: hidden;
+		aspect-ratio: 3 / 2;
+		cursor: pointer;
+	}
+
+	.gallery-item img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.4s ease;
+		display: block;
+	}
+
+	.gallery-item:hover img {
+		transform: scale(1.04);
+	}
+
+	.lightbox {
+		display: none;
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.92);
+		z-index: 1000;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.lightbox.active {
+		display: flex;
+	}
+
+	.lightbox img {
+		max-width: 90vw;
+		max-height: 90vh;
+		object-fit: contain;
+	}
+
+	.lightbox-close {
+		position: absolute;
+		top: 1.5rem;
+		right: 1.5rem;
+		background: none;
+		border: none;
+		color: white;
+		font-size: 1.8rem;
+		cursor: pointer;
+		line-height: 1;
+	}
+
+	@media (max-width: 720px) {
+		.gallery-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 480px) {
+		.gallery-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
