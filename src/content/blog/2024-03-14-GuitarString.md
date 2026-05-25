@@ -4,7 +4,7 @@ title: "吉他弦材質與聲音特性及尺寸影響"
 date: 2024-03-14 10:00:00 +0800 
 categories: [吉他, 教學]
 tags: [維護, 清單] 
-image: /assets/images/blog1 img/gradient4.png
+image: /assets/images/blog1 img/gradient4.webp
 ---
 
 # The Impact of Guitar String Material, Sound Characteristics, and Size
@@ -69,6 +69,6 @@ Additionally, **Flatwound strings** and **Roundwound strings** have different so
 
 另外，**扁纏弦**（Flatwound strings）與**圓纏弦**（Roundwound strings）也有不同的聲音表現。扁纏弦表面光滑，音色較為柔和且適合爵士音樂；圓纏弦則具有更粗糙的表面，音色明亮且響亮，適合搖滾和藍調等風格。
 
-![扁纏弦與圓纏弦對比](/assets/images/blog 5 img/Flatwound strings image.jpeg)
+![扁纏弦與圓纏弦對比](/assets/images/blog 5 img/Flatwound strings image.webp)
 *TOP: Roundwound string / 上方：圓纏弦*
 *Bottom: Flatwound string / 下方：扁纏弦*

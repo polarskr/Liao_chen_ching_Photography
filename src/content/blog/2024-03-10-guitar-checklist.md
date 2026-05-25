@@ -5,7 +5,7 @@ date: 2024-03-10 10:00:00 +0800
 categories: [吉他, 教學]
 tags: [維護, 清單, DIY]
 description: "無論您是初學者還是資深吉他手，了解如何保養您的樂器都是至關重要的。本指南將為您介紹所需的基本工具，並提供一個簡單的檢查清單，以保持您的吉他處於最佳狀態。"
-image: /assets/images/blog1 img/gradient1.png
+image: /assets/images/blog1 img/gradient1.webp
 ---
 
 
@@ -15,31 +15,31 @@ image: /assets/images/blog1 img/gradient1.png
 ### 必備工具
 
 1.  **弦軸扳手 (String winder)**：加快更換琴弦。
-    ![弦軸扳手](/assets/images/blog1%20img/String%20Winder.png)
+    ![弦軸扳手](/assets/images/blog1%20img/String%20Winder.webp)
 2.  **剪線鉗 (Wire cutters)**：剪掉多餘的琴弦。
-    ![剪線鉗](/assets/images/blog1%20img/Wire%20cutter.png)
+    ![剪線鉗](/assets/images/blog1%20img/Wire%20cutter.webp)
 3.  **螺絲刀 (Screwdrivers)**：包括一字和十字螺絲刀，用於調整各種部件。
-    ![螺絲刀](/assets/images/blog1%20img/Screwdriver.png)
+    ![螺絲刀](/assets/images/blog1%20img/Screwdriver.webp)
 4.  **內六角扳手 (Allen wrenches)**：用於調整琴頸調整桿和某些琴橋系統。
-    ![內六角扳手](/assets/images/blog1%20img/Allen%20wrench.png)
+    ![內六角扳手](/assets/images/blog1%20img/Allen%20wrench.webp)
 5.  **拋光布 (Polishing cloth)**：保持您的吉他亮晶晶！。
-    ![拋光布](/assets/images/blog1%20img/Cloth.png)
+    ![拋光布](/assets/images/blog1%20img/Cloth.webp)
 6.  **指板清潔劑 (Fretboard cleaner)**：用於保養指板。
     ![指板清潔劑](/assets/images/blog1%20img/Fretboard%20Cleaner%20Main.webp)
 7.  **吉他拋光劑 (Guitar polish)**：用於清潔和保護吉他琴身的漆面。
-    ![吉他拋光劑](/assets/images/blog1%20img/Guitar%20polish.jpg)
+    ![吉他拋光劑](/assets/images/blog1%20img/Guitar%20polish.webp)
 8.  **移調夾 (Capo)**：用於檢查琴頸的直度和弦距。
-    ![移調夾](/assets/images/blog1%20img/capo.jpg)
+    ![移調夾](/assets/images/blog1%20img/capo.webp)
 9.  **調音器 (Tuner)**：確保您的吉他音準。
-    ![調音器](/assets/images/blog1%20img/Polytune%20Tuner%20Thomann.jpg)
+    ![調音器](/assets/images/blog1%20img/Polytune%20Tuner%20Thomann.webp)
 10. **弦距尺 (Action gauge)**：用於測量和設置琴弦高度。
-    ![弦距尺](/assets/images/blog1%20img/Action%20Gauge.jpg)
+    ![弦距尺](/assets/images/blog1%20img/Action%20Gauge.webp)
 
 ### 保養檢查清單
 
 1.  **檢查調音穩定性**：調音後彈奏幾分鐘。如果很快就走音，可能需要檢查”琴枕“、”琴橋“或”旋鈕“。
 2.  **檢查琴頸**：從琴頭向下看琴頸，檢查是否彎曲。輕微的前彎是正常的，但過度前彎或後彎需要調整。
-    ![琴頸彎曲檢查](/assets/images/blog1%20img/Truss%20Rod%20Bow.jpg)
+    ![琴頸彎曲檢查](/assets/images/blog1%20img/Truss%20Rod%20Bow.webp)
 3.  **檢查弦距**：測量琴弦與第12品之間的距離。如果太高或太低,可能需要調整琴橋或琴頸調整桿。
 
     | 弦距類型             | 一弦（高音弦） | 六弦（低音弦） |

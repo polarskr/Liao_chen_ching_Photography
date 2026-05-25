@@ -5,10 +5,10 @@ description: "深入解析 Ray Dalio 在 Lex Fridman 訪談中關於大週期、
 date: 2024-03-15 10:00:00 +0800
 categories: [訪談筆記, 經濟, 歷史, RayDalio]
 tags: [Ray Dalio, Lex Fridman, 大週期, 世界秩序, 中美關係, 比特幣, 經濟史, 投資哲學]
-image: /assets/images/blog 5 img/RayDalio_lexfridman.png 
+image: /assets/images/blog 5 img/RayDalio_lexfridman.webp 
 ---
 
-![Ray Dalio 與 Lex Fridman](/assets/images/blog 5 img/RayDalio_lexfridman.png)
+![Ray Dalio 與 Lex Fridman](/assets/images/blog 5 img/RayDalio_lexfridman.webp)
 
 
 在這次與 Ray Dalio 的對話中，我們深入探討了金錢、權力和帝國興衰的歷史模式，並從中理解這些動態對於當今全球局勢的啟示。Dalio 不僅描述了金錢與權力如何相互依存，還揭示了教育、創新在國家發展中的關鍵作用，並強調了領導力在國家危機時期的重要性。

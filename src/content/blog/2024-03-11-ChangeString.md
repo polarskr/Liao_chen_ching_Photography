@@ -4,7 +4,7 @@ title: "精通 Luthier's Knot：專業吉他換弦技巧 | 提升音色穩定性
 date: 2024-03-11 10:00:00 +0800 
 categories: [吉他, 教學]
 tags: [維護, 清單] 
-image: /assets/images/blog1 img/gradient2.png
+image: /assets/images/blog1 img/gradient2.webp
 ---
 
 
@@ -24,10 +24,10 @@ Changing your guitar strings is an essential skill for any guitarist. While ther
 
 *   New set of strings / 新的一套弦
 *   Wire cutters / 剪線鉗
-     ![剪線鉗](/assets/images/blog1 img/Wire cutter.png)
+     ![剪線鉗](/assets/images/blog1 img/Wire cutter.webp)
 
 *   Tuner / 調音器
-*   ![調音器](/assets/images/blog1 img/Polytune Tuner Thomann.jpg)
+*   ![調音器](/assets/images/blog1 img/Polytune Tuner Thomann.webp)
 *   
 *   String winder (optional, but recommended) / 捲弦器（可選，但建議）
 
